@@ -1,0 +1,27 @@
+.background {
+    background-image: url(FondoInicial.png);
+}
+
+.yotoblue {
+    color: #88fbfa;
+}
+
+.yotopink {
+    background-color: #eea5e1;
+    border: 5px solid #88fbfa;
+}
+
+.yotogray {
+    margin-top: 10%;
+    background-color: lightgoldenrodyellow;
+    border: 5px solid #eea5e1;
+    
+}
+
+.yotoyellow {
+    color: #ffe5a0;
+}
+
+.material-icons {
+    opacity: 0.8; !important
+}
