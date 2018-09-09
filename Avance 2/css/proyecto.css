@@ -1,0 +1,91 @@
+body {
+   margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+     background-image: url("/img/FondoInicial.png");
+  background-color: #cccccc;
+  height: 640px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+}
+
+img {
+    display: block; 
+    width: 60%;
+    margin-left: 20%;
+    margin-right: auto;
+    margin-bottom:auto;
+    margin-top: 10%;
+    width: 800px;
+    height:500px;
+    padding: 10px;
+    position: absolute;
+}
+
+.boton1{
+     display: block;
+    position: absolute;
+    left: 20%;
+    bottom:30%;
+    top: 50%;
+    
+      padding: 10px;
+}
+
+.boton2{
+     display: block;
+    position: absolute;
+    
+    left:30%;
+    top:15%;
+
+    padding: 10px;
+}
+.boton3{
+     display: block;
+    position: absolute;
+    left: 25%;
+    top: 90%;
+    
+    padding: 10px;
+}
+.boton4{
+     display: block;
+    position: absolute;
+    left: 50%;
+    top: 15%;
+   
+    padding: 10px;
+}
+.boton5{
+     display: block;
+    position: absolute;
+    top: 50%; 
+    left: 60%;
+  
+    padding: 10px;
+}
+.boton6{
+     display: block;
+    position: absolute;
+    top: 90%;
+    left: 42%;
+    
+   
+    
+    padding: 10px;
+}
+
+.contMenu{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
