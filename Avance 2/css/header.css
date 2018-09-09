@@ -1,0 +1,40 @@
+.background {
+    background-image: url(/img/FondoInicial.png);
+}
+.right hide-on-med-and-down{
+    
+    position: relative;
+    background-color: #000000;
+        
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+
+    
+}
+
+.c{
+    
+    color:  black;
+    
+}
+
+
+.nav-wrapper{
+    text-align: center;
+    position: relative;
+    top: 65px;
+    background-color: #000000;
+    font-family: Comfortaa;
+        
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+
+    
+}
+
+
+.nav-mobile{
+    color: #000000;
+    opacity: 0.0;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
