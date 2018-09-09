@@ -1,0 +1,64 @@
+.background {
+    background-image: url(../img/FondoInicial.png);
+}
+
+.yotoblue {
+    color: #88fbfa;
+}
+
+.yotopink {
+    background-color: #eea5e1;
+    border: 5px solid #88fbfa;
+}
+
+.yotogray {
+    margin-top: 10%;
+    background-color: #fbedfa;
+    border: 1px solid #eea5e1;
+    
+}
+
+.yotoyellow {
+    color: #ffe5a0;
+}
+
+.material-icons {
+    opacity: 0.8; !important
+    color: black; !important
+}
+
+.texto {
+    font-family: Comfortaa;
+    color: black;
+}
+
+#yalliz {
+    background-color: #80deea;
+    border: 1px solid #0cc0dd;
+}
+#cuatetex {
+    background-color: #ffc107;
+    border: 1px solid #ffe082;
+    
+}
+#xayacatl {
+    background-color: #f48fb1;
+    border: 1px solid #e91e63;
+}
+#nacoxtli {
+    background-color: #e6ebe0;
+    border: 1px solid #ffffff;
+    
+}
+#lyotl {
+    background-color: #64dd17;
+    border: 1px solid #b2ff59;
+}
+#yeztli {
+    background-color: #ef5350;
+    border: 1px solid #f44336;
+}
+#xihtli {
+    background-color: #b388ff;
+    border: 1px solid #e1bee7;    
+}
