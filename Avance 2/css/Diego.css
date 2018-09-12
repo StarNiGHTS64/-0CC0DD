@@ -1,9 +1,34 @@
+.adorno {
+    margin-top: 60%;
+    height: auto;
+    width: 120;
+}
 .background {
     background-image: url(../img/FondoInicial.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.yotoblue {
-    color: #88fbfa;
+.background_1 {
+    background-image: url(../img/Fondo_1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background_2 {
+    background-image: url(../img/Fondo_2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+d {
+    color: blue;
+    font-weight: 500;
+    
+}
+
+.mynav {
+    position: fixed;
 }
 
 .yotopink {
