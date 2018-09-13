@@ -1,5 +1,6 @@
 .adorno {
     margin-top: 60%;
+    margin-bottom: 5%;
     height: auto;
     width: 120;
 }
@@ -21,14 +22,52 @@
     background-size: cover;
 }
 
-d {
+.background_3 {
+    background-image: url(../img/Fondo_2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background_4 {
+    background-image: url(../img/Fondo_2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background_5 {
+    background-image: url(../img/Fondo_2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background_6 {
+    background-image: url(../img/Fondo_2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background_7 {
+    background-image: url(../img/Fondo_2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+atributo {
     color: blue;
     font-weight: 500;
     
 }
 
+.historia {
+    padding: 2%;
+    border-left: 2pt solid purple
+}
+
 .mynav {
     position: fixed;
+    margin-top: 7%;
+    margin-bottom: 5%;
+    border-right: 2px solid purple;
 }
 
 .yotopink {
