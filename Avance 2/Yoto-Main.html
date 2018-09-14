@@ -6,11 +6,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="0CC0DD">
-        <link href ="css-bs/bootstrap.min.css" rel="stylesheet">
-        <link href ="css-bs/custom.css" rel="stylesheet">
+        <link href ="./css-bs/bootstrap.min.css" rel="stylesheet">
+        <link href ="./css-bs/custom.css" rel="stylesheet">
      </head>
-    <body>
-        <div class="yoto-main">
+    <body class="yoto-background">
+        <div>
+            <!--
             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                 <a class="navbar-brand" href="#">Mundo de  Yoto</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-targe="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -34,26 +35,22 @@
                     </ul>
                 </div>
             </nav>
-        
-        <div style="margin-top: 3.6em">
-            <a class="btn btn-primary" href="#" role="button">Tierra 1</a>
-            <a class="btn btn-primary" href="#" role="button">Tierra 2</a>
-            <a class="btn btn-primary" href="#" role="button">Tierra 3</a>
-            <a class="btn btn-primary" href="#" role="button">Tierra 4</a>            
-            <a class="btn btn-primary" href="#" role="button">Tierra 5</a>
-            <a class="btn btn-primary" href="#" role="button">Tierra 6</a>
-            <a class="btn btn-primary" href="#" role="button">Tierra 7</a>
-        </div>
-     
-        <div class="text-center">
-            <img class="yoto-map img-fluid" src="src/MapaUltimo.png" alt="img">
-           <!-- <svg viewbox="0 0 200 200">
-                <a href="#"><polygon points="0 0 14 3 15 15" style="fill:teal"></polygon></a>
-                <a href="#"><polygon points="34 40 20 20 50 30 1 20 "></polygon></a>
-            </svg>
             -->
+
+            <div class="text-center map-container">
+                <img class="yoto-map img-fluid" src="src/MapaUltimo.png" alt="img">
+                <div class="svg-overlay">
+                    <svg width=100% height=100% viewbox="0 0 1200 180" preserveAspectRatio="none">
+                        <polygon fill="#80DEEA" points=""/>
+                        <polygon fill="#FFC107" points=""/>
+                        <polygon fill="#F48FB1" points=""/>
+                        <polygon fill="#E6EBE0" points=""/>
+                        <polygon fill="#64DD17" points=""/>
+                        <a href="Yoto-Main.html"><polygon id="redland" points="420,131 440,117.3 482,106.4 547,103.8 610,106 656,113.7 648,132.5 634,136 630,136 615,138 610,139 598,140 587,142 560,142 559,142.6 542.3,142.6 542.1,142.3 527,141.8 506,141.8 496,140.6 484,140.7 470,136.5 459,136.6 440,133 420,130"/></a>
+                        <polygon fill="#B388FF" points=""/>
+                    </svg>
+                </div>
+            </div>
         </div>
-    </div>
-        
     </body>
 </html>
