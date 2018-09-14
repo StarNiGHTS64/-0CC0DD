@@ -1,40 +1,20 @@
-.background {
-    background-image: url(/img/FondoInicial.png);
-}
-.right hide-on-med-and-down{
-    
-    position: relative;
-    background-color: #000000;
-        
-    opacity: 0.5;
-    filter: alpha(opacity=50); /* For IE8 and earlier */
-
-    
+nav{
+        position: fixed;
+        background: rgba(0,0,0,0.7);
+        padding: 0px 20px;
+        font-family: Comfortaa;
 }
 
-.c{
-    
-    color:  black;
-    
+section{
+        background-image:url(img/FondoInicial.png);
+        background-size: cover;
+        width: 100%;
+        height: 700px;
 }
 
-
-.nav-wrapper{
-    text-align: center;
-    position: relative;
-    top: 65px;
-    background-color: #000000;
-    font-family: Comfortaa;
-        
-    opacity: 0.5;
-    filter: alpha(opacity=50); /* For IE8 and earlier */
-
-    
-}
-
-
-.nav-mobile{
-    color: #000000;
-    opacity: 0.0;
-    filter: alpha(opacity=50); /* For IE8 and earlier */
+{
+        background-image:url(img/FondoInicial.png);
+        background-size: cover;
+        width: 100%;
+        height: 700px;
 }
