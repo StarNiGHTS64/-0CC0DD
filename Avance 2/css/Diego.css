@@ -66,7 +66,7 @@ atributo {
 
 .historia {
     padding: 2%;
-    border-left: 2pt solid purple
+    border-left: 2pt solid purple;
 }
 
 .mynav {
@@ -79,6 +79,8 @@ atributo {
 .portrait {
     width: 65%;
     height: 65%;
+    border: 2px inset black;
+    padding: 1%;
 }
 
 .yotopink {
