@@ -3,6 +3,7 @@ nav{
         background: rgba(0,0,0,0.7);
         padding: 0px 20px;
         font-family: Comfortaa;
+        z-index: 10;
 }
 
 section{
