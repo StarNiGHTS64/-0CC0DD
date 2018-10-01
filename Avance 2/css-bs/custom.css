@@ -46,6 +46,12 @@ svg{
     fill-opacity: 0;
 }
 
+#yellowland{
+    fill-opacity: 0.4;
+    /*fill: #FFC107;*/
+    fill:red;
+}
+
 #redland:hover{
     fill: red;
     fill-opacity: 0.4;
