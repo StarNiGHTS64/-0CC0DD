@@ -1,5 +1,6 @@
 nav{
-        position:fixed;
+        margin-top: -8em;
+        position:relative;
         background: rgba(0,0,0,0.7);
         padding: 0px 20px;
         font-family: Comfortaa;
