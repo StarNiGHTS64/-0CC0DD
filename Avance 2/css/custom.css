@@ -1,6 +1,7 @@
 .map-container{
-    max-width: 60em;
+    max-width: 80%;
     margin: auto;
+    margin-top: 5%;
     position: relative;
 }
 
@@ -21,7 +22,7 @@
     overflow: hidden;
     
     /*mix-blend-mode: multiply;*/
-    
+    margin-top: -3px;
     position: absolute;
     top: 0;
     left: 0;
@@ -38,7 +39,35 @@ svg{
     fill-opacity: 0;
 }
 
+#purpleland{
+    fill-opacity: 0;
+}
+
+#greenland{
+    fill-opacity: 0;
+}
+
+#yellowland{
+    fill-opacity: 0.4;
+    /*fill: #FFC107;*/
+    fill:red;
+}
+
 #redland:hover{
     fill: red;
     fill-opacity: 0.4;
+}
+
+#purpleland:hover{
+    fill: purple;
+    fill-opacity: 0.4;
+}
+
+#greenland:hover{
+    fill:#64DD17;
+    fill-opacity: 0.5;
+}
+
+#sum{
+    position: relative !important;
 }
