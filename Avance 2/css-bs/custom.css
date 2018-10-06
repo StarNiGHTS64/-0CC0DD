@@ -1,6 +1,7 @@
 .map-container{
-    max-width: 60em;
+    max-width: 80%;
     margin: auto;
+    margin-top: 5%;
     position: relative;
 }
 
@@ -21,7 +22,7 @@
     overflow: hidden;
     
     /*mix-blend-mode: multiply;*/
-    
+    margin-top: -3px;
     position: absolute;
     top: 0;
     left: 0;
