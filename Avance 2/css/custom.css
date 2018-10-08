@@ -1,12 +1,13 @@
 .map-container{
-    max-width: 80%;
+    max-width: 120%;
     margin: auto;
     margin-top: 5%;
     position: relative;
 }
 
 .yoto-background{
-    background-image: url("../src/FondoInicial.png");
+    /*background-image: url("../img/FondoInicial.png");*/
+    background-color: black;
     background-repeat: no-repeat;
     background-size: auto;
 }
@@ -22,7 +23,7 @@
     overflow: hidden;
     
     /*mix-blend-mode: multiply;*/
-    margin-top: -0.17em;
+    margin-top: -0.16em;
     position: absolute;
     top: 0;
     left: 0;
@@ -48,9 +49,11 @@ svg{
 }
 
 #yellowland{
-    fill-opacity: 0.4;
-    /*fill: #FFC107;*/
-    fill:red;
+    fill-opacity: 0;
+}
+
+#blueland{
+    fill-opacity: 0;
 }
 
 #redland:hover{
@@ -65,6 +68,16 @@ svg{
 
 #greenland:hover{
     fill:#64DD17;
+    fill-opacity: 0.5;
+}
+
+#yellowland:hover{
+    fill-opacity: 0.4;
+    fill: #FFC107;
+}
+
+#blueland:hover{
+    fill: #80DEEA; 
     fill-opacity: 0.5;
 }
 
