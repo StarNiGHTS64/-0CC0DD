@@ -6,8 +6,8 @@
 }
 
 .yoto-background{
-    /*background-image: url("../img/FondoInicial.png");*/
-    background-color: black;
+    background-image: url("../img/FondoInicial.png");
+    /*background-color: black;*/
     background-repeat: no-repeat;
     background-size: auto;
 }
@@ -56,6 +56,16 @@ svg{
     fill-opacity: 0;
 }
 
+#whiteland{
+    fill-opacity: 0;
+}
+
+#pinkland{
+    opacity:0.4;
+    fill:;
+}
+
+
 #redland:hover{
     fill: red;
     fill-opacity: 0.4;
@@ -79,6 +89,11 @@ svg{
 #blueland:hover{
     fill: #80DEEA; 
     fill-opacity: 0.5;
+}
+
+#whiteland:hover{
+    fill:#E6EBE0;
+    fill-opacity:0.5;
 }
 
 #sum{
