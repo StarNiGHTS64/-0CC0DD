@@ -1,3 +1,6 @@
-.page-footer{
-    color: #000000;
+.footer{
+            position: fixed;
+            background: rgba(0,0,0,0.6);
+            padding: 0px 20px;
+            font-family: Comfortaa;
 }
