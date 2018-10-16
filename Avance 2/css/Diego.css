@@ -67,6 +67,7 @@ atributo {
 .historia {
     padding: 2%;
     border-left: 2pt solid purple;
+    border-radius: 25px;
 }
 
 .mynav {
@@ -74,6 +75,7 @@ atributo {
     margin-top: 2%;
     margin-bottom: 2%;
     border-right: 2px solid purple;
+    border-radius: 25px;
 }
 
 .portrait {
