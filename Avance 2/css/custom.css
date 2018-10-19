@@ -1,5 +1,5 @@
 .map-container{
-    max-width: 100%;
+    max-width: 70%;
     margin: auto;
     margin-top: 5%;
     position: relative;
@@ -22,7 +22,7 @@
     max-height: 100%;
     overflow: hidden;
     
-    /*mix-blend-mode: multiply;*/
+    mix-blend-mode: multiply;
     margin-top: -0.16em;
     position: absolute;
     top: 0;
@@ -65,39 +65,39 @@ svg{
 }
 
 #pinkland:hover{
-    fill-opacity:0.4;
+    fill-opacity:0.7;
     fill:pink;
 }
 
 
 #redland:hover{
     fill: red;
-    fill-opacity: 0.4;
+    fill-opacity: 0.7;
 }
 
 #purpleland:hover{
     fill: purple;
-    fill-opacity: 0.4;
+    fill-opacity: 0.7;
 }
 
 #greenland:hover{
     fill:#64DD17;
-    fill-opacity: 0.5;
+    fill-opacity: 0.7;
 }
 
 #yellowland:hover{
-    fill-opacity: 0.4;
+    fill-opacity: 0.7;
     fill: #FFC107;
 }
 
 #blueland:hover{
     fill: #80DEEA; 
-    fill-opacity: 0.5;
+    fill-opacity: 0.7;
 }
 
 #whiteland:hover{
     fill:#E6EBE0;
-    fill-opacity:0.5;
+    fill-opacity:0.7;
 }
 
 #sum{
