@@ -1,5 +1,5 @@
 .map-container{
-    max-width: 120%;
+    max-width: 100%;
     margin: auto;
     margin-top: 5%;
     position: relative;
@@ -61,8 +61,12 @@ svg{
 }
 
 #pinkland{
-    opacity:0.4;
-    fill:;
+    fill-opacity:0;
+}
+
+#pinkland:hover{
+    fill-opacity:0.4;
+    fill:pink;
 }
 
 
