@@ -18,6 +18,34 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+.background_tierraBlanca {
+    background-image: url(../img/6FondoBlanca.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background_tierraMorada {
+    background-image: url(../img/7FondoMorada.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background_tierraVerde {
+    background-image: url(../img/9FondoVerde.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.background_tierraRosa {
+    background-image: url(../img/2FondoRosa.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.background_tierraAmarilla {
+    background-image: url(../img/8FondoAmarilla.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 
 .center {
     margin: auto;
@@ -67,6 +95,75 @@ body {
     margin-top: 0%;
     width: 50%;
     height:60%;
+    padding: 10px;
+    position: absolute;
+    z-index: -1;
+}
+.imgBlanca {
+    display: block; 
+
+    margin-left: 28%;
+
+    margin-right: auto;
+    margin-bottom:auto;
+    margin-top: 0%;
+    width: 50%;
+    padding: 10px;
+    position: absolute;
+    z-index: -1;
+}
+
+.imgMorada {
+    display: block; 
+
+    margin-left: 23%;
+
+    margin-right: auto;
+    margin-bottom:auto;
+    margin-top: 0%;
+    width: 80%;
+    padding: 10px;
+    position: absolute;
+    z-index: -1;
+}
+
+.imgVerde {
+    display: block; 
+
+    margin-left: 11%;
+
+    margin-right: auto;
+    margin-bottom:auto;
+    margin-top: 0%;
+    width: 80%;
+    padding: 10px;
+    position: absolute;
+    z-index: -1;
+}
+
+.imgRosa {
+    display: block; 
+
+    margin-left: 11%;
+
+    margin-right: auto;
+    margin-bottom:auto;
+    margin-top: 0%;
+    width: 80%;
+    padding: 10px;
+    position: absolute;
+    z-index: -1;
+}
+
+.imgAmarilla {
+    display: block; 
+
+    margin-left: 11%;
+
+    margin-right: auto;
+    margin-bottom:auto;
+    margin-top: 0%;
+    width: 80%;
     padding: 10px;
     position: absolute;
     z-index: -1;
