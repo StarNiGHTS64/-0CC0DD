@@ -1,14 +1,51 @@
 body {
    margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-     background-image: url("/img/FondoInicial.png");
   background-color: #cccccc;
   height: 790px;
   background-position: center;
-  background-repeat: no-repeat;
+  background-repeat:repeat !important ;
   background-size: contain;
   position: relative;
 }
+.background_tierraAzul {
+    background-image: url(../img/5FondoAzul.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.background_tierraRoja {
+    background-image: url(../img/4FondoRoja.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.background_tierraBlanca {
+    background-image: url(../img/6FondoBlanca.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background_tierraMorada {
+    background-image: url(../img/7FondoMorada.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background_tierraVerde {
+    background-image: url(../img/9FondoVerde.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.background_tierraRosa {
+    background-image: url(../img/2FondoRosa.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.background_tierraAmarilla {
+    background-image: url(../img/8FondoAmarilla.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 
 .center {
     margin: auto;
@@ -23,9 +60,7 @@ body {
     position:relative;
     margin-top: 0pt;
     margin-left: 20pt;
-    
-    
-    
+      
 }
 
 .margen{
@@ -35,68 +70,151 @@ body {
     
 }
 
-img {
+.imgAzul {
     display: block; 
-    width: 60%;
-    margin-left: 28%;
+
+    margin-left: 15%;
+
     margin-right: auto;
     margin-bottom:auto;
-    margin-top: 5%;
-    width: 800px;
-    height:500px;
+    margin-top: 0%;
+    width: 70%;
     padding: 10px;
     position: absolute;
+    z-index: -1;
 }
 
+.imgRoja {
+    display: block; 
+
+    margin-left: 28%;
+
+    margin-right: auto;
+    margin-bottom:auto;
+    margin-top: 0%;
+    width: 50%;
+    padding: 10px;
+    position: absolute;
+    z-index: -1;
+}
+.imgBlanca {
+    display: block; 
+
+    margin-left: 28%;
+
+    margin-right: auto;
+    margin-bottom:auto;
+    margin-top: 0%;
+    width: 50%;
+    padding: 10px;
+    position: absolute;
+    z-index: -1;
+}
+
+.imgMorada {
+    display: block; 
+
+    margin-left: 23%;
+
+    margin-right: auto;
+    margin-bottom:auto;
+    margin-top: 0%;
+    width: 80%;
+    padding: 10px;
+    position: absolute;
+    z-index: -1;
+}
+
+.imgVerde {
+    display: block; 
+
+    margin-left: 11%;
+
+    margin-right: auto;
+    margin-bottom:auto;
+    margin-top: 0%;
+    width: 80%;
+    padding: 10px;
+    position: absolute;
+    z-index: -1;
+}
+
+.imgRosa {
+    display: block; 
+
+    margin-left: 11%;
+
+    margin-right: auto;
+    margin-bottom:auto;
+    margin-top: 0%;
+    width: 80%;
+    padding: 10px;
+    position: absolute;
+    z-index: -1;
+}
+
+.imgAmarilla {
+    display: block; 
+
+    margin-left: 11%;
+
+    margin-right: auto;
+    margin-bottom:auto;
+    margin-top: 0%;
+    width: 80%;
+    padding: 10px;
+    position: absolute;
+    z-index: -1;
+}
+
+
 .boton0{
-     display: block;
+    display: block;
     position: relative;
     left: 2%;
-    margin-top: 2%; 
-    
-    
-      padding: 10px;
+    margin-top: 5%; 
+    z-index: -1;
+    padding: 10px;
 }
 
 .boton1{
      display: block;
     position: absolute;
     left: 20%;
-    bottom:30%;
-    top: 40%;
-    
-      padding: 10px;
+    bottom: 30%;
+    top: 30%;
+    z-index: -1;
+    padding: 10px;
 }
 
 .boton2{
      display: block;
     position: absolute;
-    
     left:30%;
-    top:5%;
-
+    top:0%;
+    z-index: -1;
     padding: 10px;
 }
 .boton3{
      display: block;
     position: absolute;
     left: 25%;
-    top: 80%;
-    
+    top: 58%;
+   
     padding: 10px;
 }
 .boton4{
      display: block;
     position: absolute;
     left: 50%;
-    top: 5%;
-   
+    top: 0%;
+  
     padding: 10px;
 }
 .boton5{
      display: block;
     position: absolute;
-    top: 40%; 
+    top: 30%; 
     left: 60%;
   
     padding: 10px;
@@ -104,7 +222,7 @@ img {
 .boton6{
      display: block;
     position: absolute;
-    top: 80%;
+    top: 58%;
     left: 42%;
     
    
