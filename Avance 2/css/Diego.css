@@ -11,43 +11,43 @@
 }
 
 .background_1 {
-    background-image: url(../img/Fondo_1.jpg);
+    background-image: url(../img/5FondoAzul.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .background_2 {
-    background-image: url(../img/Fondo_2.jpg);
+    background-image: url(../img/8FondoAmarilla.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .background_3 {
-    background-image: url(../img/Fondo_3.jpg);
+    background-image: url(../img/2FondoRosa.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .background_4 {
-    background-image: url(../img/Fondo_4.jpg);
+    background-image: url(../img/6FondoBlanca.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .background_5 {
-    background-image: url(../img/Fondo_5.jpg);
+    background-image: url(../img/9FondoVerde.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .background_6 {
-    background-image: url(../img/Fondo_6.jpg);
+    background-image: url(../img/4FondoRoja.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .background_7 {
-    background-image: url(../img/Fondo_7.jpg);
+    background-image: url(../img/7FondoMorada.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -141,3 +141,21 @@ atributo {
     background-color: #b388ff;
     border: 1px solid #e1bee7;    
 }
+
+.formato {
+    padding-top: 10%;
+}
+
+lablel {
+    opacity: 0.1; !important
+    color: black; !importnat
+}
+
+select {
+    border-radius: 24px;
+}
+
+black {
+    color : black; 
+}
+
