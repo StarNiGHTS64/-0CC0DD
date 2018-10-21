@@ -41,14 +41,7 @@
       </ul>
     </div>
   </nav>
-    <br>
-        
-
-
-
-      
-
-
+    
   <ul id="slide-out" class="sidenav">
     
      
@@ -115,14 +108,44 @@
         
         <h1>Reportes</h1>
     
-          
+        <p>Para hacer un reporte selecciona:</p>
+        <br>
+    <div class="row">
+         <div class="input-field col 4">
+    <select>
+      <option value="" disabled selected>Selecciona un albergue</option>
+      <option value="1">Querétaro</option>
+      <option value="2">San Juan </option>
+      <option value="3">Humilpan</option>
+    </select>
+    <label>Selecciona albergue</label>
+  </div>
+         <div class="input-field col s4">
+    <select>
+      <option value="" disabled selected>Selecciona niño</option>
+      <option value="1">Juan</option>
+      <option value="2">Pepe</option>
+      <option value="3">Sofía</option>
+    </select>
+    <label>Selecciona niño</label>
+  </div>
+         <div class="input-field col s4">
+    <select>
+      <option value="" disabled selected>Selecciona valor</option>
+      <option value="1">Decisión cognitiva</option>
+      <option value="2">Desarrollo corporal</option>
+      <option value="3">Inclusión y diversidad</option>
+    </select>
+    <label>Selecciona valor</label>
+  </div>
+     
       
 
    
     
     </div>
 
-    
+    </div>
     
     
     
@@ -139,6 +162,10 @@
     $('.sidenav').sidenav();
   });
      
+  $(document).ready(function(){
+    $('select').formSelect();
+  });
+      
     </script>
     
    

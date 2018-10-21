@@ -244,3 +244,15 @@ body {
     
     
 }
+
+.centered{
+    
+    align-content: center;
+    
+}
+
+.adelante{
+    z-index: 100;
+    
+    
+}

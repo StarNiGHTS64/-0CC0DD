@@ -67,7 +67,7 @@
     </li>
       
       
-      <div class="texto">
+      <div class="texto atributos">
     <atributo>Atributo</atributo>
         <div class="w3-light-grey w3-round-large w3-tiny">
         <div id="yalliz" class="w3-container w3-center w3-tiny w3-round-large" style="width:40%">40%</div>
@@ -112,72 +112,133 @@
         
         <h1>Lista de misiones</h1>
         
+  
+    <select>
+      <option value="" disabled selected>Escoge un albergue</option>
+      <option value="1">Humilpan</option>
+      <option value="2">Querétaro</option>
+      <option value="3">San Juan </option>
+    </select>
+    <label>Materialize Select</label>
+
+      
+     
+</div>
+
+<table class="container">
+    <tr>
+        <td>
+            <h5> <strong>Check</strong> </h5>
+        </td>
+        <td>
+            <h5> <strong>Número de misión</strong> </h5>
+        </td>
+        <td>
+            <h5> <strong>Nombre de misión</strong> </h5>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <form action="#">
+            <p>
+            <label>
+            <input class="centered" type="checkbox" />
+            <span></span>
+            </label>
+            </p>
+  
+            </form>
+        </td>
+        <td>
+            <p>1</p>
+  
+        </td>
+        <td>
+           <p>Saca canicas</p>
+        </td>
+        <td>
         
-  <form action="#">
-    <p>
-      <label>
-        <input type="checkbox" />
-        <span>Misión 1</span>
-      </label>
-    </p>
-     <p>
-      <label>
-        <input type="checkbox" />
-        <span>Misión 2 </span>
-      </label>
-    </p>
-     <p>
-      <label>
-        <input type="checkbox" />
-        <span>Misión 3</span>
-      </label>
-    </p>
-     <p>
-      <label>
-        <input type="checkbox" />
-        <span>Misión 4</span>
-      </label>
-    </p>
-     <p>
-      <label>
-        <input type="checkbox" />
-        <span>Red</span>
-      </label>
-    </p>
-     <p>
-      <label>
-        <input type="checkbox" />
-        <span>Red</span>
-      </label>
-    </p>
-     <p>
-      <label>
-        <input type="checkbox" />
-        <span>Red</span>
-      </label>
-    </p>
-     <p>
-      <label>
-        <input type="checkbox" />
-        <span>Red</span>
-      </label>
-    </p>
-    
-  </form>
+         <i class="material-icons">create</i>
+             <i class="material-icons">delete</i>
         
-    
-    
-    
-    
-    </div>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <form action="#">
+            <p>
+            <label>
+            <input class="centered" type="checkbox" />
+            <span></span>
+            </label>
+            </p>
+  
+            </form>
+        </td>
+        <td>
+          
+            <p>
+            2
+            </p>
+  
+           
+        </td>
+        <td>
+            
+            <p>Globo arriba</p>
+            
+        </td>
+          <td>
+           
+         <i class="material-icons">create</i>
+             <i class="material-icons">delete</i>
+        
+  
+          
+        </td>
+    </tr>
+    <tr>
+      
+        <td>
+            <form action="#">
+            <p>
+            <label>
+            <input class="centered" type="checkbox" />
+            <span></span>
+            </label>
+            </p>
+  
+            </form>
+        </td>
+        <td>
+           
+            <p>
+            3
+            </p>
+  
+           
+        </td>
+        
+        <td>
+           
+            <p>
+            Te imaginas ¿qué pasaría si….
 
+            </p>
+  
+           
+        </td>
+           <td>
+           
+             <i class="material-icons">create</i>
+             <i class="material-icons">delete</i>
+        
+  
+           
+        </td>
+    </tr>
+</table>
 
-
-    
-    
-    
-    
-    
 </body>
        
  
@@ -190,6 +251,10 @@
     $('.sidenav').sidenav();
   });
      
+         $(document).ready(function(){
+    $('select').formSelect();
+  });
+       
     </script>
     
    
