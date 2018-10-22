@@ -1,0 +1,132 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Nov 28, 2013, 7:09:35 AM
+    Author     : bugraozden
+*/
+
+.icon-select{
+    width:0px;
+ }
+
+ .icon-select .selected-box {
+
+     position: relative;
+     
+     margin: 0px;
+     padding: 0px;
+     width: 230px; /* sil */
+     height: 230px; /* sil */
+     left: 100px;
+     -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+     border-radius: 3px;
+
+ }
+
+ .icon-select .selected-box:hover {
+
+     position: relative;
+     margin: 0px;
+     padding: 0px;
+     width: 230px; /* sil */
+     height: 230px; /* sil */
+     left: 100px;
+     opacity: 0.8;
+     -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+     border-radius: 3px;
+
+ }
+
+ .icon-select .selected-icon {
+
+     position: absolute;
+     margin: 0px;
+     padding: 1%;
+     width: 230px; /* sil */
+     height: 230px; /* sil */
+
+     -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+     border-radius: 3px;
+
+ }
+
+ .icon-select .component-icon{
+     position: absolute;
+     bottom:12px;
+     right:3px;
+ }
+
+ .icon-select .component-icon{
+     position: absolute;
+     bottom:12px;
+     right:3px;
+ }
+
+
+ .icon-select .box {
+
+     position: absolute;
+     top:0px;
+     left:240px;
+     margin: 0px;
+     padding: 0px;
+     width: 170px; /* sil */
+     height: 170px; /* sil */
+
+ 
+
+     -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+     border-radius: 3px;
+     
+     
+     overflow:auto;
+     /*
+     -webkit-overflow-scrolling: touch;
+     */
+
+ }
+
+ .icon-select .icon {
+     position: relative;
+     margin: 5px 0px 0px 5px;
+     padding: 0px;
+     width: 48px; /* sil */
+     height: 48px; /* sil */
+
+    
+     
+     -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+     border-radius: 3px;
+
+     overflow:hidden;
+     float: left;
+ }
+
+ .icon-select .icon:hover {
+
+     opacity: 0.5;
+ }
+
+ .icon-select .icon.selected {
+     position: relative;
+     margin: 5px 0px 0px 5px;
+     padding: 0px;
+     width: 48px; /* sil */
+     height: 48px; /* sil */
+     border: 1px solid red;
+
+     -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+     border-radius: 3px;
+
+     overflow:hidden;
+     float: left;
+ }

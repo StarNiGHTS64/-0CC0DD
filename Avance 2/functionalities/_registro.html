@@ -13,6 +13,7 @@
         <title>Historia y Personajes</title>
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <link type="text/css" rel="stylesheet" href="../css/Diego.css">
+        <link type="text/css" rel="stylesheet" href="../css/iconselect.css">
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Comfortaa" />
 
     </head>
@@ -31,26 +32,12 @@
       </ul>
     </div>
   </nav>
-<<<<<<< HEAD
-        <br>
-          <br>
-        <br>
-          <br>
-        <br> 
 
-        
-    <div class="container">
-       
-        <h1 class="center-align texto">Registrate ahora!</h1>
-        <div class="divider"></div>
-      
-=======
-    
 <body class="background">
     
-      <div id="modales" class="modal">
+      <div id="modales" class="modal texto">
     <div class="modal-content">
-      <h3>Inicio de Sesión</h3>
+      <h3 class="texto">Inicio de Sesión</h3>
         <form>
             <div class="input-field">
                   <i class="material-icons prefix">perm_identity</i>
@@ -68,7 +55,7 @@
         </div>
     </div>
     <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+      <a href="#!" class="texto modal-close waves-effect waves-green btn-flat">Entrar</a>
     </div>
   </div>
         
@@ -76,10 +63,10 @@
         <h1 class="center-align texto">Registrate ahora!</h1>
         <div class="divider"></div>
         <br/>
->>>>>>> diego7develop
         
         <div class="row">
-            <form class="col s8 m8 l8">  
+            <form>
+            <div class="col s8 m8 l8">  
                 <div class="input-field col s4 m4 l4">
                   <i class="material-icons prefix">perm_identity</i>
                   <input type="text" id="autocomplete-input" class="autocomplete">
@@ -103,14 +90,9 @@
                     </select>
                 </div>
                 <div class="input-field col s6 m6 l6">
-<<<<<<< HEAD
-                    <label for="autocomplete-input">Fecha de nacimiento</label>
-                    <input type="date" class="datepicker" name="bday" placeholder="dd/mm/aa">
-=======
                     <i class="material-icons prefix">date_range</i>
-                    <label for="autocomplete-input"><black>Fecha de nacimiento</black></label>
                     <input type="text" class="datepicker" name="bday">
->>>>>>> diego7develop
+                    <label for="autocomplete-input"><black>Fecha de nacimiento</black></label>
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix">location_on</i>
@@ -136,38 +118,35 @@
                   <input type="password" id="autocomplete-input" class="autocomplete">
                     <label for="autocomplete-input"><black>Confirmar Contraseña</black></label>
                 </div>
-            </form>
-            <div class="col s4 m4 l4">
-                
-                <div class="center-align">
-                    <img class="portrait" src="../img/user.gif" alt="Avatar" >
                 </div>
-                <div class="input-field col s12 m12 l12">
+            
+            
+            
+            <div class="col s4 m4 l4 center-align">
+                <div class="center-align">
+                    <p>Imágen de Héroe</p>
+                    <div id="my-icon-select"></div>
+                    
+                </div>                
+                <div class="input-field col s8 m8 l8 push-l2 ">
                   <input type="text" id="autocomplete-input" class="autocomplete">
                     <label for="autocomplete-input"><black>Nombre de Héroe</black></label>
                 </div>
-                <div class="row">
-
-                  <div class="col s4 m4 l4">
-                   <img class="portrait" src="../img/SABIOFrente.png" alt="Avatar" >
-                  </div>
-                  <div class="col s4 m4 l4">
-                    <img class="portrait" src="../img/MargaritoPng.png" alt="Avatar" >
-                  </div>
-                  <div class="col s4 m4 l4">
-                    <img class="portrait" src="../img/LucasFrente.png" alt="Avatar" >
-                  </div>
-                   
-                  <div class="right-align col s12 m12 l12">
-                      <a class="btn-floating btn-large waves-effect waves-light cyan teal -light-2"><i class="material-icons">arrow_forward</i></a>
-                    </div>
-
-                </div>
             </div>
+        
+            <div class="input-field col s2 l2 m2 push-l10">
+                <button class="btn waves-effect waves-light btn blue-grey darken-3 " type="submit" name="register">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>    
+            
+        </form>
         </div>
         </div>
         
         <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
         <script type="text/javascript"src="../js/Diego.js"></script>
+        <script type="text/javascript"src="../js/iconselect.js"></script>
+        <script type="text/javascript"src="../js/iscroll.js"></script>
     </body>
 </html>
