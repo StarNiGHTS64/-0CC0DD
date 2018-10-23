@@ -1,0 +1,22 @@
+nav{
+       position: fixed; 
+        background: rgba(0,0,0,0.7);
+        padding: 0px 20px;
+        font-family: Comfortaa;
+        z-index: 100;
+        
+}
+
+section{
+        background-image:url(img/FondoInicial.png);
+        background-size: cover;
+        width: 100%;
+        height: 700px;
+}
+
+{
+        background-image:url(img/FondoInicial.png);
+        background-size: cover;
+        width: 100%;
+        height: 700px;
+}

@@ -1,0 +1,157 @@
+.adorno {
+    margin-top: 60%;
+    margin-bottom: 5%;
+    height: auto;
+    width: 120;
+}
+.background {
+    background-image: url(../img/FondoInicial.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background_1 {
+    background-image: url(../img/5FondoAzul.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background_2 {
+    background-image: url(../img/8FondoAmarilla.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background_3 {
+    background-image: url(../img/2FondoRosa.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background_4 {
+    background-image: url(../img/6FondoBlanca.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background_5 {
+    background-image: url(../img/9FondoVerde.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background_6 {
+    background-image: url(../img/4FondoRoja.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.background_7 {
+    background-image: url(../img/7FondoMorada.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card {
+    height: inherit;
+    width: 80%;
+}
+
+atributo {
+    color: black;
+    font-size: small;
+    font-weight: 500; 
+}
+
+
+.historia {
+    padding: 2%;
+    border-left: 2pt solid purple;
+    border-radius: 25px;
+}
+
+.mynav {
+    position: fixed;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border-right: 2px solid purple;
+    border-radius: 25px;
+}
+
+.portrait {
+    width: 65%;
+    height: 65%;
+    border: 2px inset black;
+    padding: 1%;
+}
+
+.yotopink {
+    background-color: #eea5e1;
+    border: 5px solid #88fbfa;
+}
+
+.yotogray {
+    margin-top: 10%;
+    background-color: #fbedfa;
+    border: 1px solid #eea5e1;
+    
+}
+
+.yotoyellow {
+    color: #ffe5a0;
+}
+
+.material-icons {
+    opacity: 0.8; !important
+    color: black; !important
+}
+
+.texto {
+    font-family: Comfortaa;
+    color: black;
+}
+
+#yalliz {
+    background-color: #80deea;
+    border: 1px solid #0cc0dd;
+}
+#cuatetex {
+    background-color: #ffc107;
+    border: 1px solid #ffe082;
+    
+}
+#xayacatl {
+    background-color: #f48fb1;
+    border: 1px solid #e91e63;
+}
+#nacoxtli {
+    background-color: #e6ebe0;
+    border: 1px solid #ffffff;
+    
+}
+#lyotl {
+    background-color: #64dd17;
+    border: 1px solid #b2ff59;
+}
+#yeztli {
+    background-color: #ef5350;
+    border: 1px solid #f44336;
+}
+#xihtli {
+    background-color: #b388ff;
+    border: 1px solid #e1bee7;    
+}
+
+.formato {
+    padding-top: 10%;
+}
+
+lablel {
+    opacity: 0.1; !important
+    color: black; !importnat
+}
+
+black {
+    color : black; 
+}
+
