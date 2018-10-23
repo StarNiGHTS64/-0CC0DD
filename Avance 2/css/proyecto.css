@@ -8,6 +8,13 @@ body {
   background-size: contain;
   position: relative;
 }
+
+.sueloFertilFondo{
+    background-color: floralwhite;
+    
+    
+    
+}
 .background_tierraAzul {
     background-image: url(../img/5FondoAzul.png);
     background-repeat: no-repeat;
@@ -248,6 +255,12 @@ body {
 .centered{
     
     align-content: center;
+    
+}
+
+.vid{
+    margin-left: 22%;
+    
     
 }
 
