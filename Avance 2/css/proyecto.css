@@ -5,7 +5,15 @@ body {
   height: 790px;
   position: relative;
 }
-background_tierraAzul {
+
+.sueloFertilFondo{
+    background-color: floralwhite;
+    
+    
+    
+}
+.background_tierraAzul {
+
     background-image: url(../img/5FondoAzul.png);
     background-repeat: no-repeat;
     background-size: cover;
@@ -245,6 +253,12 @@ background_tierraAzul {
 .centered{
     
     align-content: center;
+    
+}
+
+.vid{
+    margin-left: 22%;
+    
     
 }
 
