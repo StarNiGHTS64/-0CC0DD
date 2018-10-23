@@ -3,10 +3,9 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #cccccc;
   height: 790px;
-  background-size: contain;
   position: relative;
 }
-.background_tierraAzul {
+background_tierraAzul {
     background-image: url(../img/5FondoAzul.png);
     background-repeat: no-repeat;
     background-size: cover;
