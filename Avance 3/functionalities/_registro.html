@@ -1,88 +1,27 @@
-<!DOCTYPE html>
-
-<html>
-    <head>
-        <meta charset="utf-8">
-        <!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css"  media="screen,projection"/>
-      <!--Let browser know website is optimized for mobile-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <title>Historia y Personajes</title>
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link type="text/css" rel="stylesheet" href="../css/Diego.css">
-        <link type="text/css" rel="stylesheet" href="../css/iconselect.css">
-        <link rel="stylesheet" type="text/css" href="../css/font.css" />
-
-    </head>
-    
-  <nav class="teal lighten-2">
-    <div class="nav-wrapper">
-        <a herf="#" class="brand -logo">Mundo Yoto</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <div class="c">
-            <li><a href="../Yoto-Main.html"><c>Mundo de Yoto</c></a></li>
-            <li><a href="#">Suelo Fertil</a></li>
-            <li><a href="#">Talleres</a></li>
-            <li><a href="#">Proyectos</a></li>
-            <li><button data-target="modales" class="btn modal-trigger">Iniciar Sesión</button></li>
-        </div>
-      </ul>
-    </div>
-  </nav>
-
-<body class="background">
-    
-      <div id="modales" class="modal texto">
-    <div class="modal-content">
-      <h3 class="texto">Inicio de Sesión</h3>
-        <form>
-            <div class="input-field">
-                  <i class="material-icons prefix">perm_identity</i>
-                  <input type="text" id="autocomplete-input" class="autocomplete">
-                  <label for="autocomplete-input"><black>Nombre de Héroe</black></label>
-            </div>
-            <div class="input-field col s6 m6 l6">
-                <i class="material-icons prefix">lock_outline</i>
-                <input type="password" id="autocomplete-input" class="autocomplete">
-                <label for="autocomplete-input"><black>Contraseña</black></label>
-            </div>   
-        </form>
-        <div class="cotainer centered">
-            <p>No tienes un usuario? Registrate <a class="teal-text" href="_registro.html">aquí</a>.</p>
-        </div>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="texto modal-close waves-effect waves-green btn-flat">Entrar</a>
-    </div>
-  </div>
-        
     <div class="container formato texto">
         <h1 class="center-align texto">Registrate ahora!</h1>
         <div class="divider"></div>
         <br/>
         
         <div class="row">
-            <form>
+            <form action="Registro.php" method="POST">
             <div class="col s8 m8 l8">  
                 <div class="input-field col s4 m4 l4">
                   <i class="material-icons prefix">perm_identity</i>
-                  <input type="text" id="autocomplete-input" class="autocomplete">
+                  <input type="text" id="autocomplete-input" class="autocomplete validate" name="nombre">
                   <label for="autocomplete-input"><black>Nombre(s)</black></label>
                 </div>
                 <div class="input-field col s4 m4 l4">
-                  <input type="text" id="autocomplete-input" class="autocomplete">
+                  <input type="text" id="autocomplete-input" class="autocomplete validate" name="aPaterno">
                     <label for="autocomplete-input"><black>Apellido Paterno</black></label>
                 </div>
                 <div class="input-field col s4 m4 l4">
-                  <input type="text" id="autocomplete-input" class="autocomplete">
+                  <input type="text" id="autocomplete-input" class="autocomplete validate" name="aMaterno">
                     <label for="autocomplete-input"><black>Apellido Materno</black></label>
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix">perm_identity</i>
-                    <select >
+                    <select class="validate" name="sexo">
                       <option value="" disabled selected>Sexo</option>
                       <option value="1">Niño</option>
                       <option value="2">Niña</option>
@@ -91,12 +30,12 @@
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix">date_range</i>
-                    <input type="text" class="datepicker" name="bday">
+                    <input type="text" class="datepicker validate" name="bday">
                     <label for="autocomplete-input"><black>Fecha de nacimiento</black></label>
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix">location_on</i>
-                    <select>
+                    <select class="validate" name="location">
                       <option value="" disabled selected>Ubicación</option>
                       <option value="1">Albergue1</option>
                       <option value="2">Albergue2</option>
@@ -105,17 +44,17 @@
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix">email</i>
-                  <input type="email" id="autocomplete-input" class="autocomplete">
+                  <input type="email" id="autocomplete-input" class="autocomplete validate" name="email">
                     <label for="autocomplete-input"><black>Correo Electrónico</black></label>
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix">lock_outline</i>
-                  <input type="password" id="autocomplete-input" class="autocomplete">
+                  <input type="password" id="autocomplete-input" class="autocomplete validate" name="password">
                     <label for="autocomplete-input"><black>Contraseña</black></label>
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix">lock_outline</i>
-                  <input type="password" id="autocomplete-input" class="autocomplete">
+                  <input type="password" id="autocomplete-input" class="autocomplete validate" name="password_confirm">
                     <label for="autocomplete-input"><black>Confirmar Contraseña</black></label>
                 </div>
                 </div>
@@ -125,17 +64,17 @@
             <div class="col s4 m4 l4 center-align">
                 <div class="center-align">
                     <p>Imagen de Héroe</p>
-                    <div id="my-icon-select"></div>
+                    <div class="validate" name="urlAvatar" id="my-icon-select"></div>
                     
                 </div>                
                 <div class="input-field col s8 m8 l8 push-l2 ">
-                  <input type="text" id="autocomplete-input" class="autocomplete">
+                  <input type="text" id="autocomplete-input" class="autocomplete validate" name="apodo">
                     <label for="autocomplete-input"><black>Nombre de Héroe</black></label>
                 </div>
             </div>
         
             <div class="input-field col s2 l2 m2 push-l10">
-                <button class="btn waves-effect waves-light btn blue-grey darken-3 " type="submit" name="register">Submit
+                <button id="submit" name="submit" class="btn waves-effect waves-light btn blue-grey darken-3 " type="submit" name="register">Submit
                     <i class="material-icons right">send</i>
                 </button>
             </div>    
@@ -143,10 +82,3 @@
         </form>
         </div>
         </div>
-        
-        <script type="text/javascript" src="../materialize/js/materialize.min.js"></script>
-        <script type="text/javascript"src="../js/Diego.js"></script>
-        <script type="text/javascript"src="../js/iconselect.js"></script>
-        <script type="text/javascript"src="../js/iscroll.js"></script>
-    </body>
-</html>

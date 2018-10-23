@@ -1,7 +1,7 @@
 body {
    margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #cccccc;
+  
   height: 790px;
   position: relative;
 }
@@ -343,6 +343,11 @@ atributo {
 .texto {
     font-family: Comfortaa;
     color: black;
+}
+.material-tooltip {
+
+  font-family: Comfortaa !important;
+  
 }
 
 #yalliz {
