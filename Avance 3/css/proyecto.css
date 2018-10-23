@@ -344,6 +344,11 @@ atributo {
     font-family: Comfortaa;
     color: black;
 }
+.material-tooltip {
+
+  font-family: Comfortaa !important;
+  
+}
 
 #yalliz {
     background-color: #80deea;
