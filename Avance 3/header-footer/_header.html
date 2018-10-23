@@ -26,7 +26,7 @@
                 <a herf="#" class="brand -logo"></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <div class="c">
-                        <li><a href="../Yoto-Main.html"><c>Mundo de Yoto</c></a></li>
+                        <li><a href="../Yoto-Main.php"><c>Mundo de Yoto</c></a></li>
                         <li><a href="#">Suelo Fertil</a></li>
                         <li><a href="#">Talleres</a></li>
                         <li><a href="#">Proyectos</a></li>
@@ -38,26 +38,35 @@
         
         
         <div id="modals" class="modal texto">
-            <div class="modal-content">
-                <h3 class="texto">Inicio de Sesión</h3>
-                    <form>
+            
+            <?php if (isset($_SESSION["mensaje"])): ?>
+                <div class="blue"><?= $_SESSION["mensaje"] ?></div>
+            <?php endif; ?>
+    
+            <?php if (isset($error)): ?>
+                <div class="red-text">Error: <?= $error ?></div>
+            <?php endif; ?>
+            
+            <form action="index.php" method="POST">
+                <div class="modal-content">
+                    <h3 class="texto">Inicio de Sesión</h3>
                         <div class="input-field">
                               <i class="material-icons prefix">perm_identity</i>
-                              <input type="text" id="autocomplete-input" class="autocomplete">
+                              <input type="text" id="autocomplete-input" name="usuario" class="autocomplete">
                               <label for="autocomplete-input"><black>Nombre de Héroe</black></label>
                         </div>
                         <div class="input-field col s6 m6 l6">
                             <i class="material-icons prefix">lock_outline</i>
-                            <input type="password" id="autocomplete-input" class="autocomplete">
+                            <input type="password" id="autocomplete-input" name="password" class="autocomplete">
                             <label for="autocomplete-input"><black>Contraseña</black></label>
                         </div>   
-                    </form>
-                    <div class="cotainer centered">
-                        <p>No tienes un usuario? Registrate <a class="teal-text" href="_registro.html">aquí</a>.</p>
-                    </div>
-            </div>
-            <div class="modal-footer">
-              <a href="#!" class="texto modal-close waves-effect waves-green btn-flat">Entrar</a>
-            </div>
+                        <div class="cotainer centered">
+                            <p>No tienes un usuario? Registrate <a class="blue-text" href="../functionalities/Registro.php">aquí</a>.</p>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                  <input href="#!" class="texto modal-close waves-effect waves-green btn-flat" type="submit" name="submit" value="Entrar">
+                </div>
+            </form>
         </div>
         
