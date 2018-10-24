@@ -21,7 +21,7 @@
         include("Yoto-Main.html");
         
     } else if (isset($_POST["usuario"]) && login($_POST["usuario"], $_POST["contrasena"]) == true) {
-        if ($_POST["usuario"] == 'SuperAdmin')
+        
         $_SESSION["usuario"] = $_POST["usuario"];
             
         include("../header-footer/_header.html");

@@ -49,32 +49,22 @@
         $conexion = connect();
         
         // insert command specification 
-        $query='INSERT INTO usuario (usuario,contrasena) VALUES ("'.$usuario.'","'.$contrasena.'")';
+        $sql='INSERT INTO usuario (usuario,contrasena) VALUES ("'.$usuario.'","'.$contrasena.'")';
         
-        // Preparing the statement 
-        if (!($statement = $conexion->prepare($query))) {
-            disconnect($conexion); 
-            die("Preparation failed: (" . $mysql->errno . ") " . $mysql->error);
-        }
-        
-        // Binding statement params 
-        $usuario = $conexion->real_escape_string($usuario);
-        $contrasena = $conexion->real_escape_string($contrasena);
-            
-        if (!$statement->bind_param("ss",$usuario, $contrasena)) {
-            disconnect($conexion); 
-            die("Parameter vinculation failed: (" . $statement->errno . ") " . $statement->error); 
-        }
-        
-         // Executing the statement
-         if (!$statement->execute()) {
-            disconnect($conexion); 
+        if (mysqli_query($conexion, $sql)) {
+            echo 'Registro Exitoso';
+            disconnect($conexion);
+            return true;
+        } else {
+            echo 'Error';
+            disconnect($conexion);
             return false;
-          } 
+        }
         
         disconnect($conexion);
-        return true;
     }
+
+    
 
     function agregar_niño ($nombre, $aPaterno, $aMaterno, $sexo, $apodo, $bday, $email, $avatar){
         $conexion = connect();
@@ -93,23 +83,6 @@
         
         disconnect($conexion);
     }
-
-function consultar_rol ($rol){
-    $conexion = connect();
-        
-        $sql = 'SELECT nombre FROM rol WHERE idRol = '.$rol.''
-            
-    if (mysqli_query($conexion, $sql)) {
-            disconnect($conexion);
-            return $sql;
-        } else {
-            echo 'Error';
-            disconnect($conexion);
-            return false;
-        }
-        
-        disconnect($conexion);
-}
 
 
     function add_mision($idMision,$nombre, $descripcion){
