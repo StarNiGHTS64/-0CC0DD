@@ -13,29 +13,35 @@
   
         <div class="row">
          <div class="input-field col s4">
-    <select>
-      <option value="" disabled selected>Selecciona un grupo</option>
-      <option value="1">Grupo 1</option>
-      <option value="2">Grupo 2 </option>
-      <option value="3">Grupo 3</option>
-    </select>
-    
-          
-    
-  </div>
+             
+        <form action="" method="post">
+        <select name = "select1">
+        <option value="" disabled selected>Selecciona un grupo</option>
+        <option value="1">Grupo 1</option>
+        <option value="2">Grupo 2 </option>
+        </select>
+             </form>
+</div>
+
+            
+           
+      
          <div class="input-field col s4">
-    <select>
+    <select name = "select2">
       <option value="" disabled selected>Selecciona niño</option>
       <option value="1">Juan</option>
-      <option value="2">Pepe</option>
-      <option value="3">Sofía</option>
+      <option value="2">Mariana</option>
+      <option value="3">Diego</option>
+        <option value="4">Paco</option>
+        <option value="5">Andrea</option>
+        <option value="6">Alexia</option>
     </select>
     
          
    
   </div>
          <div class="input-field col s4">
-    <select>
+    <select name="select3">
       <option value="" disabled selected>Selecciona atributo</option>
       <option value="1">Desarrollo físico</option>
       <option value="2">Desarrollo cognitivo</option>
@@ -48,169 +54,86 @@
     
              <br> <br> <br>
               <div class="right-align">
-         <a class="waves-effect waves-light btn right-align blue-grey darken-2"> Buscar </a>
-        
+         <input type="submit" class="button" name="insert" value="insert" />
+            <input type="submit" class="button" name="select" value="select" />
     </div>
+             
+    
             </div>
+            
+   
  
-        
-<table>
-    <tr>
-        
-        <td>
-            <h5> <strong>Atributo</strong> </h5>
-        </td>
-        <td>
-            <h5> <strong>Puntaje</strong> </h5>
-        </td>
-        
-    </tr>
-    <tr>
-        
-        <td>
-            <p>Desarrollo físico</p>
-  
-        </td>
-        <td>
-             <form action="#">
-    <p class="range-field">
-      <input type="range" id="test5" min="0" max="100" />
-    </p>
-  </form>
-        
+       
             
+            <?php 
+            require_once "util_danny.php";
             
-        </td>
-      
-    </tr>
-    <tr>
-      
-  <td>
-            <p>Desarrollo cognitivo</p>
-  
-        </td>
-        <td>
-             <form action="#">
-    <p class="range-field">
-      <input type="range" id="test5" min="0" max="100" />
-    </p>
-  </form>
-        
+            if(isset($_POST['select1'])){
+            $select1 = $_POST['select1'];
+                if (isset($_POST['action'])) {
+                    switch ($_POST['action']) {
+                        case 'insert':
+                            insert();
+                            break;
+                        case 'select':
+                            select();
+                            break;
+                    }
+                }
+                }
             
-            
-        </td>
-    </tr>
-    <tr>
-      
-      
-        
-         <td>
-            <p>Gestion de emociones</p>
-        
-  
-        </td>
-        <td>
-             <form action="#">
-    <p class="range-field">
-      <input type="range" id="test5" min="0" max="100" />
-    </p>
-  </form>
-        
-            
-            
-        </td>
-    </tr>
-        <tr>
-      
-      
-        
-         <td>
-            <p>Estetico/arte</p>
-        
-  
-        </td>
-        <td>
-             <form action="#">
-    <p class="range-field">
-      <input type="range" id="test5" min="0" max="100" />
-    </p>
-  </form>
-        
-            
-            
-        </td>
-    </tr>
-        <tr>
-      
-      
-        
-         <td>
-            <p>Desarrollo ecológico</p>
-        
-  
-        </td>
-        <td>
-             <form action="#">
-    <p class="range-field">
-      <input type="range" id="test5" min="0" max="100" />
-    </p>
-  </form>
-        
-            
-            
-        </td>
-    </tr>
-        <tr>
-      
-      
-        
-         <td>
-            <p>Desarrollo productivo</p>
-        
-  
-        </td>
-        <td>
-             <form action="#">
-    <p class="range-field">
-      <input type="range" id="test5" min="0" max="100" />
-    </p>
-  </form>
-        
-            
-            
-        </td>
-    </tr>
-        <tr>
-      
-      
-        
-         <td>
-            <p>Desarrollo intrapersonal</p>
-        
-  
-        </td>
-        <td>
-             <form action="#">
-    <p class="range-field">
-      <input type="range" id="test5" min="0" max="100" />
-    </p>
-  </form>
-        
-            
-            
-        </td>
-    </tr>
-</table>
+    function select() {
+    echo "The select function is called.";
+    exit;
+}
+    function insert()
+    {
+       
+         $result =getGruposCompetenciasbyId($select1, 1);
+            echo "<table>";
+            echo "<tr> <th> nombre </th> </tr> <tr> <th> valor </th> </tr>";
+            while ($row = mysqli_fetch_array($result)){
+            $nombre = $row['nombre'];
+            $valor = $row['valor'];
+             echo "<tr>
+                    <td>".$nombre."</td>
+    
+                    <td>  ".$valor."</td>
 
-    <div class="right-align">
-         <a class="waves-effect waves-light btn blue-grey darken-3 "> aceptar</a>
+                    </tr>";
+               
+                        }
+
+                echo "</table>";
+    
+    }
+
+
+                    ?>
+            
+
+    
+    </div>
+      
         
-    </div>
-    
-    
-    </div>
+      
+      
+      
 
     <script>
+        
+        $(document).ready(function(){
+    $('.button').click(function(){
+        var clickBtnValue = $(this).val();
+        var ajaxurl = 'ajax.php',
+        data =  {'action': clickBtnValue};
+        $.post(ajaxurl, data, function (response) {
+            // Response div goes here.
+            alert("action performed successfully");
+        });
+    });
+
+});
     
   $(document).ready(function(){
     $('.sidenav').sidenav();

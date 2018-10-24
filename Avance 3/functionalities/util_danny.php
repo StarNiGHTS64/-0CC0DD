@@ -1,13 +1,13 @@
 <?php
 
-funcion connectDb(){
+function connectDb(){
     
 $server = "localhost";
 $username = "root";
 $password = "";
 $dbname = "mundoyoto";
 
-$con=mysqli_connect($servename, $username, $password, $dbname);
+$con=mysqli_connect($server, $username, $password, $dbname);
 
 if(!$con){
     die("Connection failed: ". mysqli_connect_error()); 
@@ -19,7 +19,8 @@ return $con;
 
 
 
-funcion_closeDb($mysql){
+function closeDb($mysql){
+    
     mysqli_close($mysql);
     
 }
@@ -28,7 +29,7 @@ funcion_closeDb($mysql){
 
 function getGruposCompetenciasbyId($group_id, $atributo_id){
     
-    $conn= conectDb(); 
+    $conn= connectDb(); 
     $sql= "SELECT N.nombre, NC.valor FROM grupos G, ninos N, ninos_competencia NC, ninos_grupos NG, competencia C WHERE G.idClan = NG.idClan AND N.idNino = NG.idNino AND N.idNino = NC.idNino AND C.idCompetencia = NC.idCompetencia 
     AND g.idClan = '".$group_id."' 
     AND c.idCompetencia = '".$atributo_id."'";
@@ -41,7 +42,7 @@ function getGruposCompetenciasbyId($group_id, $atributo_id){
 
 function getGruposNinosbyId($group_id, $nino_id){
     
-    $conn=conectDb();
+    $conn=connectDb();
     $sql="SELECT C.nombre, NC.valor 
     FROM grupos G, ninos N, ninos_competencia NC, ninos_grupos NG, competencia C 
     WHERE G.idClan = NG.idClan 
@@ -51,7 +52,7 @@ function getGruposNinosbyId($group_id, $nino_id){
     AND g.idClan = '".$group_id."' 
     AND N.idNino = '".$nino_id."'";
     
-    result=mysqli_query($conn, $sql);
+    $result=mysqli_query($conn, $sql);
     closeDb($conn);
     return $result;
     
@@ -60,7 +61,7 @@ function getGruposNinosbyId($group_id, $nino_id){
 
 function getGrupoNinoAtributobyId($group_id, $nino_id, $atributo_id){
     
-    $conn=conectDb();
+    $conn=connectDb();
     $sql="SELECT C.nombre, NC.valor 
     FROM grupos G, ninos N, ninos_competencia NC, ninos_grupos NG, competencia C 
     WHERE G.idClan = NG.idClan 
@@ -71,7 +72,7 @@ function getGrupoNinoAtributobyId($group_id, $nino_id, $atributo_id){
     AND N.idNino = '".$nino_id."'
     AND C.idCompetencia = '".$atributo_id."'";
     
-    result=mysqli_query($conn, $sql);
+    $result=mysqli_query($conn, $sql);
     closeDb($conn);
     return $result; 
     
@@ -79,11 +80,11 @@ function getGrupoNinoAtributobyId($group_id, $nino_id, $atributo_id){
 
 function updateAtributo($nino_id, $atributo_id, $valor){
     
-    $conn=conectoDb();
+    $conn=connectDb();
     $sql = "UPDATE ninos_competencia SET valor=$valor WHERE idNino= '".$nino_id."'
     AND idCompetencia = '".$atributo_id."'";
     
-    result=mysqli_query($conn, $sql);
+    $result=mysqli_query($conn, $sql);
     closeDb($conn);
     return $result; 
     
@@ -95,7 +96,7 @@ function deleteClanbyName($clanName){
     
     $sql = "DELETE FROM grupos WHERE nombre = '".$chanName."'";
         
-    $result=mysqli:query($conn, $sql);
+    $result=mysqli_query($conn, $sql);
     
     closeDb($conn);
     
@@ -105,7 +106,7 @@ function deleteClanbyName($clanName){
 
 function createClan ($nombre, $nombreAlbergue, $municipio, $idNivel ){
     
-    $conn = conectDb();
+    $conn = connectDb();
     $idClan=uniqid();
     $sql= "INSERT INTO grupos (idClan, nombre, nombreAlbergue, municipio, idNivel) VALUES (\"" . $idClan . "\", \"".$nombre . "\",".$nombreAlbergue . "," . $municipio . ",\"" . $idNivel . "\")";
     
