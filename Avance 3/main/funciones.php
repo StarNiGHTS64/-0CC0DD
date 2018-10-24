@@ -91,4 +91,76 @@
         disconnect($conexion);
     }
 
+    function del_mision($idMision){
+        $conexion = connect();
+        
+        $sql = "DELETE FROM tareas WHERE idMision = '$idMision'";
+        
+        if(mysqli_query($conexion,$sql)){
+            echo "Mision Borrada Exitosamente";
+            disconnect($conexion);
+            return true;
+        }else{
+            echo "Error: ".$sql."<br>".mysqli_error($conexion);
+            disconnect($conexion);
+            return false;
+        }
+        
+        disconnect($conexion);
+    }
+
+    function add_competencia($idCompetencia,$nombre,$descripcion){
+        $conexion = connect();
+        
+        $sql = "INSERT INTO competencia(idCompetencia,nombre,descripcion) VALUES ('$idCompetencia','$nombre','$descripcion');";
+        
+        if(mysqli_query($conexion,$sql)){
+            echo "Registro de competencia exitosa";
+            disconnect($conexion);
+            return true;
+        }else{
+            echo "Error: ".$sql."<br>".mysqli_error($conexion);
+            disconnect($conexion);
+            return false;
+        }
+        
+        disconnect($conexion);        
+    }
+
+    function del_competencia($idCompetencia){
+        $conexion = connect();
+        
+        $sql = "DELETE FROM competencia WHERE idCompetencia = '$idCompetencia'";
+        
+        if(mysqli_query($conexion,$sql)){
+            echo "Competencia Borrada Exitosamente";
+            disconnect($conexion);
+            return true;
+        }else{
+            echo "Error: ".$sql."<br>".mysqli_error($conexion);
+            disconnect($conexion);
+            return false;
+        }
+        
+        disconnect($conexion);
+    }
+
+    function del_usuario($usuario){
+        $conexion = connect();
+        
+        $sql = "DELETE FROM usuario WHERE usuario = '$usuario'";
+        
+        if(mysqli_query($conexion,$sql)){
+            echo "Usuario Borrado Exitosamente";
+            disconnect($conexion);
+            return true;
+        }else{
+            echo "Error: ".$sql."<br>".mysqli_error($conexion);
+            disconnect($conexion);
+            return false;
+        }
+        
+        disconnect($conexion);       
+    }
+
 ?>
