@@ -66,7 +66,7 @@ function IconSelect($$elementID, $$parameters) {
             });
            
         }else{
-            alert("Element not found.");
+            /*alert("Puto el que lo lea");*/
         }
         
     }

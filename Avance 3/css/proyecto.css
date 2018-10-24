@@ -178,32 +178,31 @@ body {
     position: relative;
     left: 2%;
     margin-top: 5%; 
-    z-index: -1;
     padding: 10px;
 }
 
 .boton1{
      display: block;
     position: absolute;
-    left: 20%;
+    left: 30%;
     bottom: 30%;
     top: 30%;
-    z-index: -1;
+    z-index: 2
     padding: 10px;
+    
 }
 
 .boton2{
      display: block;
     position: absolute;
-    left:30%;
+    left:40%;
     top:0%;
-    z-index: -1;
     padding: 10px;
 }
 .boton3{
      display: block;
     position: absolute;
-    left: 25%;
+    left: 40%;
     top: 58%;
    
     padding: 10px;
@@ -211,7 +210,7 @@ body {
 .boton4{
      display: block;
     position: absolute;
-    left: 50%;
+    left: 60%;
     top: 0%;
   
     padding: 10px;
@@ -220,15 +219,17 @@ body {
      display: block;
     position: absolute;
     top: 30%; 
-    left: 60%;
+    left: 70%;
   
     padding: 10px;
 }
 .boton6{
-     display: block;
+    
+    display: block;
     position: absolute;
-    top: 58%;
-    left: 42%;
+    top: 80%;
+    left: 50%;
+    padding: 30px 30px;
     
    
     
@@ -338,6 +339,11 @@ atributo {
 .material-icons {
     opacity: 0.8; !important
     color: black; !important
+}
+
+.texto-navbar {
+    font-family: Comfortaa;
+    color: white;
 }
 
 .texto {
