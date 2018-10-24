@@ -104,10 +104,13 @@ function deleteClanbyName($clanName){
        
 }
 
-function createClan ($nombre, $nombreAlbergue, $municipio, $idNivel ){
+/*function createClan ($idClan,$nombre, $nombreAlbergue, $municipio){
     
     $conn = connectDb();
     $idClan=uniqid();
+    
+    $nivelSql = ""
+    
     $sql= "INSERT INTO grupos (idClan, nombre, nombreAlbergue, municipio, idNivel) VALUES (\"" . $idClan . "\", \"".$nombre . "\",".$nombreAlbergue . "," . $municipio . ",\"" . $idNivel . "\")";
     
     if(mysqli_query($conn, $sql)) {
@@ -125,7 +128,7 @@ function createClan ($nombre, $nombreAlbergue, $municipio, $idNivel ){
     
     closeDb($conn);
     
-}
+}*/
 
 
 

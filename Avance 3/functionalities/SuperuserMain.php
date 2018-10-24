@@ -1,8 +1,7 @@
 <?php
-    session_start();
-    
     require_once("../main/funciones.php");
     require("../main/util.php");
+    require("util_danny.php");
     
     include("../header-footer/_header.html");
     include("_superuserMain.html");
@@ -21,7 +20,9 @@
         
     }else if(isset($_POST['delete_usuario'])){
         delete_usuario();
-    }
+    }/*else if(isset($_POST['submit_clan'])){
+        create_clan();
+    }*/
 
 
 
@@ -62,4 +63,12 @@
         del_usuario($usuario);
     }
 
+    /*function create_clan(){
+        $idClan = $_POST['idClan'];
+        $nombre = $_POST['nombre'];
+        $nombreAlbergue = $_POST['nombreAlbergue'];
+        $municipio = $_POST['municipio'];
+         
+        createClan($idClan,$nombre,$nombreAlbergue,$municipio);
+    }*/
 ?>
