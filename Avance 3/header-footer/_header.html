@@ -30,8 +30,14 @@
                 <a herf="#" class="brand -logo"></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <div class="c">
+<<<<<<< HEAD
                         <li><a href="../main/index.php"><c>Mundo de Yoto</c></a></li>
                         <li><a href="../main/SueloFertil.php">Suelo Fertil</a></li>
+=======
+
+                        <li><a href="../main/index.php"><c>Mundo de Yoto</c></a></li>
+                        <li><a href="#">Suelo Fertil</a></li>
+>>>>>>> c865541f758e7dfda2418f28d659f99aa8a0169c
                         <li><a href="#">Talleres</a></li>
                         <li><a href="#">Proyectos</a></li>
                         <li><button data-target="modals" class="btn modal-trigger waves-effect waves-light blue-grey darken-3 ">Iniciar Sesión</button></li>
@@ -41,21 +47,31 @@
         </nav>
     </div>
         
+        <?php if (isset($_SESSION["mensaje"])): ?>
+                <div class="blue texto"><?= $_SESSION["mensaje"] ?></div>
+            <?php endif; ?>
+    
+            <?php if (isset($error)): ?>
+                <div class="red-text">Error: <?= $error ?></div>
+            <?php endif; ?>
         
         <div id="modals" class="modal texto">
-            <div class="modal-content">
-                <h3 class="texto">Inicio de Sesión</h3>
-                    <form>
+                    
+            <?php if (isset($_SESSION["usuario"]) == false): ?>
+            <form action="index.php" method="POST">
+                <div class="modal-content">
+                    <h3 class="texto">Inicio de Sesión</h3>
                         <div class="input-field">
                               <i class="material-icons prefix">perm_identity</i>
-                              <input type="text" id="autocomplete-input" class="autocomplete">
+                              <input type="text" id="autocomplete-input" name="usuario" class="autocomplete" placeholder="Usuario">
                               <label for="autocomplete-input"><black>Nombre de Héroe</black></label>
                         </div>
                         <div class="input-field col s6 m6 l6">
                             <i class="material-icons prefix">lock_outline</i>
-                            <input type="password" id="autocomplete-input" class="autocomplete">
+                            <input type="password" id="autocomplete-input" name="contrasena" class="autocomplete">
                             <label for="autocomplete-input"><black>Contraseña</black></label>
                         </div>   
+<<<<<<< HEAD
                     </form>
                     <div class="cotainer centered">
                         <p>No tienes un usuario? Registrate <a class="teal-text" href="../functionalities/Registro.php">aquí</a>.</p>
@@ -64,5 +80,31 @@
             <div class="modal-footer">
               <a href="#!" class="texto modal-close waves-effect waves-green btn-flat">Entrar</a>
             </div>
+=======
+                        <div class="cotainer centered">
+                            <p>No tienes un usuario? Registrate <a class="blue-text" href="../functionalities/Registro.php">aquí</a>.</p>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                  <input href="#!" class="modal-close btn waves-effect waves-light btn blue-grey darken-3 " type="submit" name="submit" value="Inicar Sesión">
+                
+                    <a class="btn modal-close waves-effect waves-light-red btn blue-grey"><i class="material-icons">close</i></a>
+                </div>
+            </form>
+            <?php endif; ?>
+            
+            <?php if (isset($_SESSION["usuario"])): ?>
+               <div class="modal-content">
+                    <h3 class="texto">NOMBRE:</h3>
+                </div>
+                <div class="modal-footer">
+                  <input href="#!" class="texto modal-close waves-effect waves-green btn-flat" type="submit" name="submit" value="Salir">
+                
+                    <a href="../main/controllerSalir.php" class="modal-close btn waves-effect waves-light btn blue-grey darken-3 ">Cerrar Sesión</a>
+                    
+                </div>
+            <?php endif; ?>
+            
+>>>>>>> c865541f758e7dfda2418f28d659f99aa8a0169c
         </div>
         

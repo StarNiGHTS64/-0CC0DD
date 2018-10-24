@@ -5,24 +5,24 @@
         <br/>
         
         <div class="row">
-            <form>
+            <form action="Registro.php" method="POST">
             <div class="col s8 m8 l8">  
                 <div class="input-field col s4 m4 l4">
                   <i class="material-icons prefix">perm_identity</i>
-                  <input type="text" id="autocomplete-input" class="autocomplete">
+                  <input type="text" id="autocomplete-input" class="autocomplete validate" name="nombre">
                   <label for="autocomplete-input"><black>Nombre(s)</black></label>
                 </div>
                 <div class="input-field col s4 m4 l4">
-                  <input type="text" id="autocomplete-input" class="autocomplete">
+                  <input type="text" id="autocomplete-input" class="autocomplete validate" name="aPaterno">
                     <label for="autocomplete-input"><black>Apellido Paterno</black></label>
                 </div>
                 <div class="input-field col s4 m4 l4">
-                  <input type="text" id="autocomplete-input" class="autocomplete">
+                  <input type="text" id="autocomplete-input" class="autocomplete validate" name="aMaterno">
                     <label for="autocomplete-input"><black>Apellido Materno</black></label>
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix">perm_identity</i>
-                    <select >
+                    <select class="validate" name="sexo">
                       <option value="" disabled selected>Sexo</option>
                       <option value="1">Niño</option>
                       <option value="2">Niña</option>
@@ -31,12 +31,12 @@
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix">date_range</i>
-                    <input type="text" class="datepicker" name="bday">
+                    <input type="text" class="datepicker validate" name="bday">
                     <label for="autocomplete-input"><black>Fecha de nacimiento</black></label>
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix">location_on</i>
-                    <select>
+                    <select class="validate" name="location">
                       <option value="" disabled selected>Ubicación</option>
                       <option value="1">Albergue1</option>
                       <option value="2">Albergue2</option>
@@ -45,17 +45,17 @@
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix">email</i>
-                  <input type="email" id="autocomplete-input" class="autocomplete">
+                  <input type="email" id="autocomplete-input" class="autocomplete validate" name="email">
                     <label for="autocomplete-input"><black>Correo Electrónico</black></label>
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix">lock_outline</i>
-                  <input type="password" id="autocomplete-input" class="autocomplete">
+                  <input type="password" id="autocomplete-input" class="autocomplete validate" name="contrasena">
                     <label for="autocomplete-input"><black>Contraseña</black></label>
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix">lock_outline</i>
-                  <input type="password" id="autocomplete-input" class="autocomplete">
+                  <input type="password" id="autocomplete-input" class="autocomplete validate" name="contrasena_confirm">
                     <label for="autocomplete-input"><black>Confirmar Contraseña</black></label>
                 </div>
                 </div>
@@ -65,17 +65,17 @@
             <div class="col s4 m4 l4 center-align">
                 <div class="center-align">
                     <p>Imagen de Héroe</p>
-                    <div id="my-icon-select"></div>
+                    <div class="validate" name="urlAvatar" id="my-icon-select"></div>
                     
                 </div>                
                 <div class="input-field col s8 m8 l8 push-l2 ">
-                  <input type="text" id="autocomplete-input" class="autocomplete">
+                  <input type="text" id="autocomplete-input" class="autocomplete validate" name="apodo">
                     <label for="autocomplete-input"><black>Nombre de Héroe</black></label>
                 </div>
             </div>
         
             <div class="input-field col s2 l2 m2 push-l10">
-                <button class="btn waves-effect waves-light btn blue-grey darken-3 " type="submit" name="register">Submit
+                <button id="submit" name="submit" class="btn waves-effect waves-light btn blue-grey darken-3 " type="submit" name="register">Submit
                     <i class="material-icons right">send</i>
                 </button>
             </div>    
