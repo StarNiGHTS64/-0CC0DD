@@ -1,5 +1,6 @@
 <?php
-    
+
+
     function connect() {
                                 //servidor_bd, usuario, passwd, nombre_bd
         $conexion = mysqli_connect("localhost","root","","mundoyoto");
@@ -71,6 +72,23 @@
         disconnect($conexion);
         return true;
     }
-
     
+    function add_mision($idMision,$nombre, $descripcion){
+        $conexion = connect();
+        
+        $sql = "INSERT INTO tareas(idMision,nombre,descripcion) VALUES ('$idMision','$nombre','$descripcion');";
+        
+        if(mysqli_query($conexion,$sql)){
+            echo "Registro de mision exitosa";
+            disconnect($conexion);
+            return true;
+        }else{
+            echo "Error: ".$sql."<br>".mysqli_error($conexion);
+            disconnect($conexion);
+            return false;
+        }
+        
+        disconnect($conexion);
+    }
+
 ?>
