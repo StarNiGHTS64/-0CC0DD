@@ -1,4 +1,3 @@
-
 <?php
     session_start();
 
@@ -17,12 +16,12 @@
 
 
     if (isset($_SESSION["usuario"])) {
-        $_SESSION["mensaje"]='<h3> BIENVENDO'.$_SESSION["usuario"].'</h3>';
+
         include("../header-footer/_header.html");
         include("Yoto-Main.html");
         
     } else if (isset($_POST["usuario"]) && login($_POST["usuario"], $_POST["contrasena"]) == true) {
-        echo "Hola";
+        if ($_POST["usuario"] == 'SuperAdmin')
         $_SESSION["usuario"] = $_POST["usuario"];
             
         include("../header-footer/_header.html");

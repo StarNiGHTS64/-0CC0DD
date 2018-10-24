@@ -33,14 +33,16 @@
                         <li><a href="#">Suelo Fertil</a></li>
                         <li><a href="#">Talleres</a></li>
                         <li><a href="#">Proyectos</a></li>
-                        <li><button data-target="modals" class="btn modal-trigger waves-effect waves-light blue-grey darken-3 ">Iniciar Sesión</button></li>
+                        <li><button data-target="modals" class="btn modal-trigger waves-effect waves-light blue-grey darken-3 ">
+                            <?php if (isset($_POST["usuario"])== false): ?>Iniciar Sesión<?php endif; ?>
+                            <?php if (isset($_POST["usuario"])): ?><?=  $_POST["usuario"] ?><?php endif; ?></button></li>
                     </div>
                 </ul>
             </div>
         </nav>
         
-        <?php if (isset($_SESSION["mensaje"])): ?>
-                <div class="blue texto"><?= $_SESSION["mensaje"] ?></div>
+        <?php if (isset($_POST["usuario"])): ?>
+                <div class="blue-text texto">Bienvenido <?=  $_POST["usuario"] ?></div>
             <?php endif; ?>
     
             <?php if (isset($error)): ?>
@@ -55,7 +57,7 @@
                     <h3 class="texto">Inicio de Sesión</h3>
                         <div class="input-field">
                               <i class="material-icons prefix">perm_identity</i>
-                              <input type="text" id="autocomplete-input" name="usuario" class="autocomplete" placeholder="Usuario">
+                              <input type="text" id="autocomplete-input" name="usuario" class="autocomplete">
                               <label for="autocomplete-input"><black>Nombre de Héroe</black></label>
                         </div>
                         <div class="input-field col s6 m6 l6">
@@ -77,12 +79,20 @@
             
             <?php if (isset($_SESSION["usuario"])): ?>
                <div class="modal-content">
-                    <h3 class="texto">NOMBRE:</h3>
+                    <h3 class="texto">Sesión iniciada como:</h3>
+                   <?php if (isset($_SESSION["usuario"])): ?>
+                   <?php endif; ?>
+                   
+                   <?php if (isset($_SESSION["usuario"])): ?>
+                   <?php endif; ?>
+                   
+                   <h2 class="texto">Privilegios:
+                   </h2>
                 </div>
                 <div class="modal-footer">
-                  <input href="#!" class="texto modal-close waves-effect waves-green btn-flat" type="submit" name="submit" value="Salir">
                 
                     <a href="../main/controllerSalir.php" class="modal-close btn waves-effect waves-light btn blue-grey darken-3 ">Cerrar Sesión</a>
+                    <a class="btn modal-close waves-effect waves-light-red btn blue-grey"><i class="material-icons">close</i></a>
                     
                 </div>
             <?php endif; ?>
