@@ -21,7 +21,14 @@ $(document).ready(function(){
     $('.carousel').carousel();
   });
 
+ $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+    
 
+ 
+  
+        
 function getRequestObject() {
   // Asynchronous objec created, handles browser DOM differences
 
