@@ -59,6 +59,27 @@ function getGruposNinosbyId($group_id, $nino_id){
     
 }
 
+function getNinosDeGrupo ($group_id){
+    $conn=connectDb();
+    $sql="SELECT N.nombre
+    FROM ninos N, ninos_grupos NG
+    WHERE NG.idClan = <= '".$group_id."'
+    AND N.idNino = NG.idNino";
+    $result=mysqli_query($conn, $sql);
+    closeDb($conn);
+    return $result;
+}
+function getAtributosDNino($group_id, $nino_id){
+    
+    $conn=connectDB();
+    $sql="SELECT C.nombre, NC.valor 
+    FROM ninos_grupos NG, ninos_competencia NC, N.ninos, competencia C
+    WHERE NC.idNino= N.idNino, 
+    N.idNino=1
+    AND G.idClan=2"
+    
+    
+}
 function getGrupoNinoAtributobyId($group_id, $nino_id, $atributo_id){
     
     $conn=connectDb();
@@ -77,6 +98,30 @@ function getGrupoNinoAtributobyId($group_id, $nino_id, $atributo_id){
     return $result; 
     
 }
+
+function getGrupos(){
+    
+    $conn=connectDb();
+    $sql= "SELECT g.nombre 
+    FROM grupos G";
+    
+    $result=mysqli_query($conn, $sql);
+    closeDb($conn);
+    return $result;
+} 
+
+ function getAtributos(){
+     
+     $conn=connectDB();
+     $sql="SELECT nombre FROM competencia";
+     
+     $result=mysqli_query($conn, $sql);
+     closeDb($conn);
+     return $result;    
+ }
+
+ 
+
 
 function updateAtributo($nino_id, $atributo_id, $valor){
     
