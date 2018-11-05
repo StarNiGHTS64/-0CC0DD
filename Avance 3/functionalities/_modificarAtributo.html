@@ -15,10 +15,8 @@
          <div class="input-field col s4">
              
         <form action="" method="post">
-        <select name = "select1">
-        <option value="" disabled selected>Selecciona un grupo</option>
-        <option value="1">Grupo 1</option>
-        <option value="2">Grupo 2 </option>
+        <select name = "select1" id="selectGrupo">
+        
         </select>
              </form>
 </div>
@@ -28,13 +26,23 @@
       
          <div class="input-field col s4">
     <select name = "select2">
-      <option value="" disabled selected>Selecciona niño</option>
-      <option value="1">Juan</option>
-      <option value="2">Mariana</option>
-      <option value="3">Diego</option>
-        <option value="4">Paco</option>
-        <option value="5">Andrea</option>
-        <option value="6">Alexia</option>
+      <option value="" disabled selected>Selecciona Equipo</option>
+      <option value="1">Minichiquis</option>
+      <option value="2">Kdrones</option>
+    
+    </select>
+    
+         
+   
+  </div>
+            
+            
+         <div class="input-field col s4">
+    <select name = "select2">
+      <option value="" disabled selected>Selecciona filtro</option>
+      <option value="1">Por niño</option>
+      <option value="2">Por atributo</option>
+    
     </select>
     
          
@@ -53,10 +61,7 @@
     </select>
     
              <br> <br> <br>
-              <div class="right-align">
-         <input type="submit" class="button" name="insert" value="insert" />
-            <input type="submit" class="button" name="select" value="select" />
-    </div>
+         
              
     
             </div>
@@ -65,82 +70,13 @@
  
        
             
-            <?php 
-            require_once "util_danny.php";
-            
-            if(isset($_POST['select1'])){
-            $select1 = $_POST['select1'];
-                if (isset($_POST['action'])) {
-                    switch ($_POST['action']) {
-                        case 'insert':
-                            insert();
-                            break;
-                        case 'select':
-                            select();
-                            break;
-                    }
-                }
-                }
-            
-    function select() {
-    echo "The select function is called.";
-    exit;
-}
-    function insert()
-    {
-       
-         $result =getGruposCompetenciasbyId($select1, 1);
-            echo "<table>";
-            echo "<tr> <th> nombre </th> </tr> <tr> <th> valor </th> </tr>";
-            while ($row = mysqli_fetch_array($result)){
-            $nombre = $row['nombre'];
-            $valor = $row['valor'];
-             echo "<tr>
-                    <td>".$nombre."</td>
-    
-                    <td>  ".$valor."</td>
-
-                    </tr>";
-               
-                        }
-
-                echo "</table>";
-    
-    }
-
-
-                    ?>
-            
 
     
     </div>
       
         
-      
-      
-      
-
-    <script>
+    <script src="../js/dannyjs.js">
         
-        $(document).ready(function(){
-    $('.button').click(function(){
-        var clickBtnValue = $(this).val();
-        var ajaxurl = 'ajax.php',
-        data =  {'action': clickBtnValue};
-        $.post(ajaxurl, data, function (response) {
-            // Response div goes here.
-            alert("action performed successfully");
-        });
-    });
-
-});
-    
-  $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
-  $(document).ready(function(){
-    $('select').formSelect();
-  });
-         
-     
+   
+              
     </script>
