@@ -67,6 +67,50 @@ function getEquipodeGrupo($idGrupo){
     return json_encode($return);
 }
 
+function getNinosdeEquipo ($idEquipo){
+     $conn = connectDB();
+    $sql="SELECT n.idNino, n.nombre FROM nino n, nino_equipo ne, equipo e WHERE n.idNino=ne.idNino AND ne.idEquipo=e.idEquipo AND e.idEquipo='".$idEquipo."'";
+    $result = mysqli_query($conn,$sql);
+    $return =array();
+    $i=0;
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+     $return[$i]=[
+         'idNino' => $row["idNino"],
+         'nombre' => $row["nombre"]
+     ];
+        $i++;
+    }
+    
+    
+    //debug_to_console($linea);
+    closeDb($conn);
+    return json_encode($return);
+    
+}
+
+function getAtributo (){
+     $conn = connectDB();
+    $sql="SELECT n.nombre FROM competencia";
+    $result = mysqli_query($conn,$sql);
+    $return =array();
+    $i=0;
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+     $return[$i]=[
+         'nombre' => $row["nombre"]
+     ];
+        $i++;
+    }
+    
+    
+    //debug_to_console($linea);
+    closeDb($conn);
+    return json_encode($return);
+    
+}
+
+
+
+
 /*function getDropDownGruposdeMaestro(){
     $conn=connectDB();
     $aux=(getGrupodeMaestro(1));
