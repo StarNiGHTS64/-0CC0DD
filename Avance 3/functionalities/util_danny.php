@@ -47,6 +47,26 @@ function getGrupodeMaestro($idMaestro){
     return json_encode($return);
 }
 
+function getEquipodeGrupo($idGrupo){
+    $conn = connectDB();
+    $sql="SELECT e.nombre FROM equipo e, grupo g, grupo_equipo ge WHERE e.idEquipo=ge.idEquipo AND g.idGrupo=ge.idGrupo and g.idGrupo='".$idGrupo."'";
+    $result = mysqli_query($conn,$sql);
+    $return =array();
+    $i=0;
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+     $return[$i]=[
+         'idEquipo' => $row["idEquipo"],
+         'nombre' => $row["nombre"]
+     ];
+        $i++;
+    }
+    
+    
+    //debug_to_console($linea);
+    closeDb($conn);
+    return json_encode($return);
+}
+
 /*function getDropDownGruposdeMaestro(){
     $conn=connectDB();
     $aux=(getGrupodeMaestro(1));
