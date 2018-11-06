@@ -1,104 +1,39 @@
-<!---------------MISIONES------------------>
-
-<div class="row">
-    <form action="SuperuserMain.php" method="POST" enctype="multipart/form-data">
-        <div class="col s8 m8 l8">
-            
-            <input type="number" name="idMision">
-            
-
-            <input type="text" name="nombre">
-            
-            <input type="text" name="descripcion">
-            
-            
-            <input type="submit" name="submit_mision" class="btn btn-primary" value="Subir Mision">
-        </div>
-    </form>
-</div>
-
-<div class="row">
-    <form action="SuperuserMain.php" method="POST" enctype="multipart/form-data">
-        <div class="col s8 m8 l8">
-            <input type="number" name="idMision">
-            
-            <input type="submit" name="delete_mision" class="btn btn-primary" value="Borrar Mision">
-        </div>
-    </form>
-</div>
-
-<!---------------COMPETENCIAS------------------>
-
-<div class="row">
-    <form action="SuperuserMain.php" method="POST" enctype="multipart/form-data">
-        <div class="col s8 m8 l8">
-            
-            <input type="number" name="idCompetencia">
-
-            <input type="text" name="nombre">
-            
-            <input type="text" name="descripcion">
-            
-            
-            <input type="submit" name="submit_competencia" class="btn btn-primary" value="Subir Competencia">
-        </div>
-    </form>
-</div>
-
-<div class="row">
-    <form action="SuperuserMain.php" method="POST" enctype="multipart/form-data">
-        <div class="col s8 m8 l8">
-            <input type="number" name="idCompetencia">
-            
-            <input type="submit" name="delete_competencia" class="btn btn-primary" value="Borrar Competencia">
-        </div>
-    </form>
-</div>
-
-<!---------------USUARIOS------------------>
-
-<div class="row">
-    <form action="SuperuserMain.php" method="POST" enctype="multipart/form-data">
-        <div class="col s8 m8 l8">
-            <input type="number" name="usuario">
-            
-            <input type="submit" name="delete_usuario" class="btn btn-primary" value="Eliminar Usuario">
-        </div>
-    </form>
-</div>
-
-<!---------------GRUPOS------------------>
+    <ul id="slide-out" class="sidenav">
+      <li><a href="#!">First Sidebar Link</a></li>
+      <li><a href="#!">Second Sidebar Link</a></li>
+      <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+          <li>
+            <a class="collapsible-header">Dropdown<i class="material-icons">arrow_drop_down</i></a>
+            <div class="collapsible-body">
+              <ul>
+                <li><a href="#!">First</a></li>
+                <li><a href="#!">Second</a></li>
+                <li><a href="#!">Third</a></li>
+                <li><a href="#!">Fourth</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#!">First Sidebar Link</a></li>
+      <li><a href="#!">Second Sidebar Link</a></li>
+      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Dropdown<i class="material-icons right">arrow_drop_down</i></a></li>
+      <ul id='dropdown1' class='dropdown-content'>
+        <li><a href="#!">First</a></li>
+        <li><a href="#!">Second</a></li>
+        <li><a href="#!">Third</a></li>
+        <li><a href="#!">Fourth</a></li>
+      </ul>
+    </ul>
+    <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          
 
 
-
-<!---------------ATRIBUTOS------------------>
-
-
-<!---------------CLAN------------------>
-
-<div class="row">
-    <form action="SuperuserMain.php" method="POST" enctype="multipart/form-data">
-        <div class="col s8 m8 l8">
-            
-            <input type="number" name="idClan">
-
-            <input type="text" name="nombre">
-            
-            <input type="text" name="nombreAlbergue">
-            
-            <input type="text" name="municipio">
-            
-            <input type="submit" name="submit_clan" class="btn btn-primary" value="Crear Clan">
-        </div>
-    </form>
-</div>
-
-<div class="row">
-    <form action="SuperuserMain.php" method="POST" enctype="multipart/form-data">
-        <div class="col s8 m8 l8">
-            <input type="number" name="idCompetencia">
-            
-            <input type="submit" name="delete_competencia" class="btn btn-primary" value="Borrar Competencia">
-        </div>
-    </form>
-</div>
+<script type="text/javascript">
+    $(function(){
+        $(".button-collapse").sideNav();
+    });
+</script>
