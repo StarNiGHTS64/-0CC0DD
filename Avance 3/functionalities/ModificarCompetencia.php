@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once ("util_danny.php");
+require_once ("ModificarAtributoConsultas.php");
 
     $request = $_GET["drop"];
     if($request=="grupo"){
