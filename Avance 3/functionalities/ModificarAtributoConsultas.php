@@ -74,7 +74,6 @@ function getEquipodeGrupo($idGrupo){
 function getNinodeEquipo($idEquipo){
     $conn = connectDB();
     $sql="SELECT n.idNino, n.nombre FROM equipo e, nino n, nino_equipo ne WHERE e.idEquipo=ne.idEquipo AND ne.idNino = n.idNino AND e.idEquipo='".$idEquipo."'";
->>>>>>> RamaDanny
     $result = mysqli_query($conn,$sql);
     $return =array();
     $i=0;
@@ -91,10 +90,7 @@ function getNinodeEquipo($idEquipo){
     closeDb($conn);
     return json_encode($return);
 
-    
 }
-
-
 
 function getCompetencia(){
      $conn = connectDB();
@@ -106,7 +102,6 @@ function getCompetencia(){
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
      $return[$i]=[
          'idCompetencia' => $row["idCompetencia"],
-
          'nombre' => $row["nombre"]
      ];
         $i++;
