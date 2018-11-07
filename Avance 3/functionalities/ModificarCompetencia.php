@@ -1,16 +1,7 @@
 <?php
 session_start();
-require_once ("util_danny.php");
-<<<<<<< HEAD
-   
-    $datos = getGrupodeMaestro($_GET['idMaestro']);
-    $data = getEquipodeGrupo($_GET['idEquipo']);
-    echo $datos, $data; 
-    
+require_once ("ModificarAtributoConsultas.php");
 
-/*    $data = getEquipodeGrupo($_GET['idEquipo']);
-    echo $data; */
-=======
 
     $request = $_GET["drop"];
     if($request=="grupo"){
@@ -25,5 +16,5 @@ require_once ("util_danny.php");
     }
 
     echo $datos; 
->>>>>>> RamaDanny
+
 ?>
