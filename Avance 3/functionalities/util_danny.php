@@ -49,7 +49,9 @@ function getGrupodeMaestro($idMaestro){
 
 function getEquipodeGrupo($idGrupo){
     $conn = connectDB();
-    $sql="SELECT e.nombre FROM equipo e, grupo g, grupo_equipo ge WHERE e.idEquipo=ge.idEquipo AND g.idGrupo=ge.idGrupo and g.idGrupo='".$idGrupo."'";
+
+    $sql="SELECT e.nombre, e.idEquipo FROM equipo e, grupo g, grupo_equipo ge WHERE e.idEquipo=ge.idEquipo AND g.idGrupo=ge.idGrupo and g.idGrupo='".$idGrupo."'";
+
     $result = mysqli_query($conn,$sql);
     $return =array();
     $i=0;
@@ -67,9 +69,12 @@ function getEquipodeGrupo($idGrupo){
     return json_encode($return);
 }
 
-function getNinosdeEquipo ($idEquipo){
-     $conn = connectDB();
-    $sql="SELECT n.idNino, n.nombre FROM nino n, nino_equipo ne, equipo e WHERE n.idNino=ne.idNino AND ne.idEquipo=e.idEquipo AND e.idEquipo='".$idEquipo."'";
+
+
+function getNinodeEquipo($idEquipo){
+    $conn = connectDB();
+    $sql="SELECT n.idNino, n.nombre FROM equipo e, nino n, nino_equipo ne WHERE e.idEquipo=ne.idEquipo AND ne.idNino = n.idNino AND e.idEquipo='".$idEquipo."'";
+
     $result = mysqli_query($conn,$sql);
     $return =array();
     $i=0;
@@ -85,29 +90,29 @@ function getNinosdeEquipo ($idEquipo){
     //debug_to_console($linea);
     closeDb($conn);
     return json_encode($return);
-    
-}
 
-function getAtributo (){
+
+function getCompetencia(){
      $conn = connectDB();
-    $sql="SELECT n.nombre FROM competencia";
+    $sql="SELECT idCompetencia, nombre FROM competencia";
+
     $result = mysqli_query($conn,$sql);
     $return =array();
     $i=0;
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
      $return[$i]=[
+
+         'idCompetencia' => $row["idCompetencia"],
          'nombre' => $row["nombre"]
      ];
         $i++;
     }
-    
-    
+
     //debug_to_console($linea);
     closeDb($conn);
     return json_encode($return);
     
 }
-
 
 
 

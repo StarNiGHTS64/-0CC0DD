@@ -15,7 +15,7 @@
          <div class="input-field col s4">
              
         <form action="" method="post">
-        <select name = "select1" id="selectGrupo">
+        <select name="select1" id="selectGrupo" onchange="dropdownEquipo(this.value)">
         
         </select>
              </form>
@@ -23,10 +23,11 @@
 
             
            
-      
-         <div class="input-field col s4">
-    <select name = "select2" id="selectEquipo">
-    
+
+
+         <div class="input-field col s4 hide" id="dropEquipo">
+    <select name = "select2" id="selectEquipo" onchange="filtroOnChange(this.value)">
+
     </select>
     
          
@@ -35,31 +36,23 @@
             
             
          <div class="input-field col s4">
-    <select name = "select3" id="selectFiltro">
-      <option value="" disabled selected>Selecciona filtro</option>
+
+    <select name = "select2" id="dropFiltro"> 
+    <option value="" disabled selected>Selecciona filtro</option>
       <option value="1">Por niño</option>
       <option value="2">Por atributo</option>
-    
     </select>
     
          
    
   </div>
-         <div class="input-field col s4">
-    <select name="select4" id="SelectAtributo">
-      <option value="" disabled selected>Selecciona atributo</option>
-      <option value="1">Desarrollo físico</option>
-      <option value="2">Desarrollo cognitivo</option>
-      <option value="3">Gestión de Emociones</option>
-        <option value="4">Estético/Arte</option>
-        <option value="5">Desarrollo Ecológico</option>
-        <option value="6">Desarrollo productivo </option>
-        <option value="7">Desarrollo intrapersonal </option>
+
+         <div class="input-field col s4 hide" id="selectAtributo">
+    <select name="select3" id="select3" onchange="generarTabla(this.value)">
+
     </select>
     
              <br> <br> <br>
-         
-             
     
             </div>
             
