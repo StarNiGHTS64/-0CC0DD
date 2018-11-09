@@ -2,11 +2,6 @@
 session_start();
 require_once ("util_danny.php");
 
-   
-    $datos = getGrupodeMaestro($_GET['idMaestro']);
-    $data = getEquipodeGrupo($_GET['idEquipo']);
-    echo $datos, $data; 
-    
 
 /*    $data = getEquipodeGrupo($_GET['idEquipo']);
     echo $data; */
@@ -22,8 +17,13 @@ require_once ("util_danny.php");
         
     }else if($request=="competencia"){
         $datos = getCompetencia();
+    }else if ($request="tablaNino"){
+        $datos=getCompetenciaValordeNino($_GET['idNino']);
+        
+        
     }
 
     echo $datos; 
+    
 
 ?>
