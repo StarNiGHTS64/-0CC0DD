@@ -42,8 +42,6 @@ function dropdownEquipo(idGrupo){
 
 function filtroOnChange(idEquipo){
     document.getElementById("dropFiltro").setAttribute('onchange','dropFiltro(this.value,'+idEquipo+')');
-    var aux = document.getElementById("filtro");
-    aux.className = "input-field col s4 show";
 }
 
 function dropFiltro(idFiltro, idEquipo){
@@ -61,6 +59,10 @@ function dropFiltro(idFiltro, idEquipo){
 
 
 
+
+
+
+
 function dropdownAtributo(){
     
    $.get('ModificarCompetencia.php',{
@@ -72,7 +74,7 @@ function dropdownAtributo(){
             console.log(datos);
             aux = document.getElementById("select3");
             var data = JSON.parse(datos);
-            var str="<option value=''  disabled selected>Selecciona una competencia </option>";
+            var str="<option value=''  disabled selected>Selecciona una competencia /option>";
             for (var i=0; i<data.length;i++){
                  str += "<option value='"+data[i].idCompetencia+"'>"+data[i].nombre+"</option>";
             }
@@ -96,42 +98,11 @@ function dropdownNino(idEquipo){
             var str="<option value=''  disabled selected>Selecciona un Niño</option>";
             for (var i=0; i<data.length;i++){
                  str += "<option value='"+data[i].idNino+"'>"+data[i].nombre+"</option>";
-                
             }
             console.log(str);
             aux.innerHTML=str;
             $('select').formSelect();
         });  
 }
-
-
-
-
-function generarTabla(idNino){
-    console.log(idNino);
-    $.get('ModificarCompetencia.php',{
-        'idNino':idNino,
-        'drop':"tablaNino",  
-    }).done(function(datos){
-            var aux = document.getElementById("tablaespacio");
-             
-            console.log(datos);
-            var data = JSON.parse(datos);
-           var str="";
-        
-            for (var i=0; i<data.length;i++){
-                console.log("hola");
-                 str += "<div class='input-field col s6'><p>" + data[i].nombre + "</p></div><div class='input-field col s6'><form action='#'><p class='range-field'><input type='range' min='0' max='100' value='"+data[i].valor + "'/></p></form></div>";             
-                
-            }
-           
-            console.log(str);
-            aux.innerHTML=str;
-            $('select').formSelect();
-        });  
-}
-
-
-  
 
 
