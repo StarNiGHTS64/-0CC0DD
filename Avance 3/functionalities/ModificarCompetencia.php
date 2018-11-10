@@ -2,10 +2,6 @@
 session_start();
 require_once ("util_danny.php");
 
-   
-  
-
-
 
     $request = $_GET["drop"];
     if($request=="grupo"){
@@ -17,8 +13,13 @@ require_once ("util_danny.php");
         
     }else if($request=="competencia"){
         $datos = getCompetencia();
+    }else if ($request="tablaNino"){
+        $datos=getCompetenciaValordeNino($_GET['idNino']);
+        
+        
     }
 
     echo $datos; 
+    
 
 ?>

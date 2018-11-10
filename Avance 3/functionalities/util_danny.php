@@ -79,9 +79,7 @@ function getNinodeEquipo($idEquipo){
     $i=0;
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
      $return[$i]=[
-
-         'idEquipo' => $row["idEquipo"],
-
+        
          'idNino' => $row["idNino"],
 
          'nombre' => $row["nombre"]
@@ -95,6 +93,62 @@ function getNinodeEquipo($idEquipo){
     closeDb($conn);
     return json_encode($return);
 }
+
+
+
+
+
+function getCompetencia(){
+     $conn = connectDB();
+    $sql="SELECT idCompetencia, nombre FROM competencia";
+    $result = mysqli_query($conn,$sql);
+    $return =array();
+    $i=0;
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+     $return[$i]=[
+         'idCompetencia' => $row["idCompetencia"],
+         'nombre' => $row["nombre"]
+     ];
+        $i++;
+    }
+    //debug_to_console($linea);
+    closeDb($conn);
+    return json_encode($return);
+    
+}
+
+function debug_to_console( $data ) {
+    $output = $data;
+    if ( is_array( $output ) )
+        $output = implode( ',', $output);
+
+    echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
+}
+
+function getCompetenciaValordeNino($idNino){
+    $conn = connectDB();
+    $sql="SELECT c.nombre, nc.valor FROM nino n, competencia c, nino_competencia nc WHERE n.idNino=nc.idNino AND c.idCompetencia=nc.idCompetencia AND n.idNino='".$idNino."'";
+    
+    $result = mysqli_query($conn,$sql);
+    $return =array();
+    $i=0;
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+     $return[$i]=[
+        
+         'nombre' => $row["nombre"],
+
+         'valor' => $row["valor"]
+     ];
+        $i++;
+    }
+    
+    
+    //debug_to_console($linea);
+
+    closeDb($conn);
+    return json_encode($return);
+}
+
 
 /*function getDropDownGruposdeMaestro(){
     $conn=connectDB();
