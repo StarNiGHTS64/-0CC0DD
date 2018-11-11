@@ -149,7 +149,28 @@ function getCompetenciaValordeNino($idNino){
     return json_encode($return);
 }
 
-function get
+function getNinoValordeCompetencia($idEquipo, $idCompetencia){
+    
+    $conn = connectDB();
+    $sql="SELECT n.nombre, nc.valor FROM nino n, nino_competencia nc, equipo e, nino_equipo ne, competencia c WHERE n.idNino=ne.idNino AND e.idEquipo=ne.idEquipo AND c.idCompetencia=nc.idCompetencia AND n.idNino=nc.idNino AND e.idEquipo='".$idEquipo."' AND c.idCompetencia='".$idCompetencia."'";
+    
+    $result=mysqli_query($conn, $sql);
+    $return =array();
+    $i=0;
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+     $return[$i]=[
+        
+         'nombre' => $row["nombre"],
+
+         'valor' => $row["valor"]
+     ];
+        $i++;
+    }
+   
+    closeDb($conn);
+    return json_encode($return);
+    
+}
 
 
 /*function getDropDownGruposdeMaestro(){
