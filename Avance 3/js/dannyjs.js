@@ -1,4 +1,6 @@
- $(document).ready(function(){
+var bandera = 0; 
+
+$(document).ready(function(){
         $.get('ModificarCompetencia.php',{
             'idMaestro':1,
             'drop': "grupo"
