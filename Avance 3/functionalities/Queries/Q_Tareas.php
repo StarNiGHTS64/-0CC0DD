@@ -1,13 +1,13 @@
 <?php
     require_once("../../main/funciones.php");
     
-    if($_POST["Response"][2]=="uploadTar"){
-        insert_tarea($_POST["Response"][0],$_POST["Response"][1]);
+    if($_POST["Response"][3]=="uploadTar"){
+        insert_tarea($_POST["Response"][0],$_POST["Response"][1],$_POST["Response"][2]);
     }
 
-    function insert_tarea($nombreTarea,$descripcionTarea){
+    function insert_tarea($nombreTarea,$descripcionTarea,$idCompetencia){
         $con = connect();
-        $sql = "INSERT INTO tarea(nombre,descripcion) VALUES ('$nombreTarea','$descripcionTarea');";
+        $sql = "INSERT INTO tarea(nombre,descripcion,idCompetencia) VALUES ('$nombreTarea','$descripcionTarea','$idCompetencia');";
         
         if(mysqli_query($con,$sql)){
             echo "Registro de tarea exitosa";

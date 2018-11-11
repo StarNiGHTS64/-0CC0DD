@@ -29,9 +29,10 @@ $(document).ready(function(event){
         
         var $form = $(this),
             nameTar = $form.find("input[name='nombreTarea']").val(),
-            descTar = $form.find("textarea[name='descripcionTarea']").val();
-        
-        $.post( "Queries/Q_Tareas.php", {"Response": [nameTar,descTar,"uploadTar"]}).done(function( data ) {
+            descTar = $form.find("textarea[name='descripcionTarea']").val(),
+            idDesc = $form.find("option:selected").val();
+            alert(idDesc);
+        $.post( "Queries/Q_Tareas.php", {"Response": [nameTar,descTar,idDesc,"uploadTar"]}).done(function( data ) {
                 alert( "Data Loaded: " + data );
         });
     });
