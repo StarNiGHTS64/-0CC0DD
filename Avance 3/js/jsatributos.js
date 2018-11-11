@@ -110,7 +110,7 @@ function hola(){
 }
 
 
-
+/*
 
 function generarTabla(idNino){
     console.log(idNino);
@@ -135,7 +135,7 @@ function generarTabla(idNino){
             $('select').formSelect();
         });  
 }
-
+*/
 
   
 
