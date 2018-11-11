@@ -5,4 +5,5 @@
     
     include("../header-footer/_header.html");
     include("_superuserMain.html");
+    include("../header-footer/_footer.html");
 ?>
