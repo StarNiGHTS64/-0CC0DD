@@ -14,12 +14,13 @@ require_once ("util_danny.php");
         
     }else if($request=="competencia"){
         $datos = getCompetencia();
-    }else if ($request="tablaNino"){
+    } /*else if ($request="tablaNino"){
         $datos=getCompetenciaValordeNino($_GET['idNino']);  
-    }else id($request="tablaComp"){
+    }
+    else if($request="tablaComp"){
         $datos = getNinoValordeCompetencia($_GET['idEquipo'], $_GET['idCompetencia']); 
     }
-
+*/
 
 
 

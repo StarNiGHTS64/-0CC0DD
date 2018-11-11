@@ -1,6 +1,4 @@
-var bandera = 0; 
-
-$(document).ready(function(){
+ $(document).ready(function(){
         $.get('ModificarCompetencia.php',{
             'idMaestro':1,
             'drop': "grupo"
@@ -74,7 +72,6 @@ function dropdownAtributo(){
             console.log(datos);
             aux = document.getElementById("select3");
             var data = JSON.parse(datos);
-            bandera=1;
             var str="<option value=''  disabled selected>Selecciona una competencia </option>";
             for (var i=0; i<data.length;i++){
                  str += "<option value='"+data[i].idCompetencia+"'>"+data[i].nombre+"</option>";
@@ -108,42 +105,14 @@ function dropdownNino(idEquipo){
 }
 
 
-
-
-
-
-
-
-
-function tablaDeCompetencia(idCompetencia, idEquipo){
-   console.log(idCompetencia);
-    $.get('ModificarCompetencia.php',{
-        'idNino':idNino,
-        'drop':"tablaComp",  
-    }).done(function(datos){
-            var aux = document.getElementById("tablaespacio");
-             console.log("hola");
-            console.log(datos);
-            var data = JSON.parse(datos);
-           var str="";
-        console.log("hola");
-            for (var i=0; i<data.length;i++){
-                console.log("hola");
-                 str += "<div class='input-field col s6'><p>" + data[i].nombre + "</p></div><div class='input-field col s6'><form action='#'><p class='range-field'><input type='range' min='0' max='100' value='" + data[i].valor + "'/></p></form></div>";             
-                
-            }
-           
-            console.log(str);
-            aux.innerHTML=str;
-            $('select').formSelect();
-        });    
-    
+function hola(){
+    console.log(hola);
 }
 
 
 
 
-function tablaDeNino(idNino){
+function generarTabla(idNino){
     console.log(idNino);
     $.get('ModificarCompetencia.php',{
         'idNino':idNino,
