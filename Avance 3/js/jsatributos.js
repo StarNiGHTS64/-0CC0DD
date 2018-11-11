@@ -114,14 +114,14 @@ function generarTabla(idNino){
         'drop':"tablaNino",  
     }).done(function(datos){
             var aux = document.getElementById("tablaespacio");
-             
+             console.log("hola");
             console.log(datos);
-            var data = JSON.parse(JSON.stringify(datos));
+            var data = JSON.parse(datos);
            var str="";
-        
+        console.log("hola");
             for (var i=0; i<data.length;i++){
                 console.log("hola");
-                 str += "<div class='input-field col s6'><p>" + data[i].nombre + "</p></div><div class='input-field col s6'><form action='#'><p class='range-field'><input type='range' min='0' max='100' value='"+data[i].valor + "'/></p></form></div>";             
+                 str += "<div class='input-field col s6'><p>" + data[i].nombre + "</p></div><div class='input-field col s6'><form action='#'><p class='range-field'><input type='range' min='0' max='100' value='" + data[i].valor + "'/></p></form></div>";             
                 
             }
            
@@ -133,5 +133,4 @@ function generarTabla(idNino){
 
 
   
-
 

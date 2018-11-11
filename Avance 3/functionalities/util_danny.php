@@ -127,9 +127,10 @@ function debug_to_console( $data ) {
 
 function getCompetenciaValordeNino($idNino){
     $conn = connectDB();
-    $sql="SELECT c.nombre, nc.valor FROM nino n, competencia c, nino_competencia nc WHERE n.idNino=nc.idNino AND c.idCompetencia=nc.idCompetencia AND n.idNino='".$idNino."'";
-    
+    $sql = "SELECT c.nombre, nc.valor FROM nino n, competencia c, nino_competencia nc WHERE n.idNino=nc.idNino AND c.idCompetencia=nc.idCompetencia AND n.idNino='".$idNino."'";
+ 
     $result = mysqli_query($conn,$sql);
+ 
     $return =array();
     $i=0;
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
@@ -142,12 +143,13 @@ function getCompetenciaValordeNino($idNino){
         $i++;
     }
     
-    
     //debug_to_console($linea);
-
+   
     closeDb($conn);
     return json_encode($return);
 }
+
+function get
 
 
 /*function getDropDownGruposdeMaestro(){

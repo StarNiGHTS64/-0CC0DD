@@ -3,9 +3,6 @@ session_start();
 require_once ("util_danny.php");
 
 
-/*    $data = getEquipodeGrupo($_GET['idEquipo']);
-    echo $data; */
-
 
     $request = $_GET["drop"];
     if($request=="grupo"){
