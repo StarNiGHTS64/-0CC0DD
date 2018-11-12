@@ -1,4 +1,5 @@
 $(document).ready(function(event){
+    
     //Initialize Form
     $('.materialSelect').formSelect();
     
@@ -6,15 +7,21 @@ $(document).ready(function(event){
     $('.materialSelect').on('contentChanged',function(){
         $(this).formSelect();
     });
-    
+            
     //Update Select Option Event
-    $.post("Queries/Q_Competencias.php",{"Response":"lol"},function(data){
+    $.post("Queries/Q_Competencias.php",{"Response":"tarea-select-call"},function(data){
         //alert(data); //Debug Alert
-        
+
         $('#select-competencia').append(data); //Append returned values from php query
-        
+
         $('#select-competencia').trigger('contentChanged'); //Call on event trigger
     });
+    
+    $.post("Queries/Q_Tareas.php",{"Response":"lol"},function(data){
+        alert(data);
+        ("#dispTareas").text(data);
+    });
+        
     
     //Prevent normal form upload
     $(window).keydown(function(event){

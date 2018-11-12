@@ -1,4 +1,70 @@
-<div class="row">
+<button id="tarea-click-trigger" data-target="modal1" class="btn modal-trigger black">Agregar Tarea</button>
+<button data-target="modal2" class="btn modal-trigger black">Agregar Competencia</button>          
+<!--Modal for submit Tarea form-->
+
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h1>Agregar Tarea</h1>
+        <div class="input-field col s6">
+            <form id="upl-tarea">
+                <div class="input-field">
+                    <input id="nombre-tarea" type="text" name="nombreTarea">
+                    <label for="nombre-tarea">Nombre de la tarea</label>
+                </div>
+
+                <div class="input-field">
+                    <textarea id="descripcion-tarea" type="text" class="materialize-textarea" name="descripcionTarea"></textarea>
+                    <label for="descripcion-tarea">Descripción de la tarea</label>
+                </div>
+
+                <div class="input-field">
+                    <select class="materialSelect browser-default" name="selectCompetencia" id="select-competencia">
+                        <option value="" disabled selected>Competencia a evaluar</option>   
+                        <div id="update-comp-select"></div>
+                    </select>
+                </div>
+                <button class="btn waves-effect waves-light black" type="submit" name="subir-tarea">Subir Tarea
+                    <i class="material-icons right">send</i>
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Salir</a>
+    </div>
+</div>
+
+<!-- -->
+
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <h1>Agregar Competencia</h1>
+        <form id="upl-competencia">
+                <h1>Subir Competencia</h1>
+                <div class="input-field">
+                    <input id="nombre-competencia" type="text" name="nombreCompetencia">
+                    <label for="nombre-competencia">Nombre de la competencia</label>
+                </div>
+                <div class="input-field">
+                    <textarea id="descripcion-competencia" class="materialize-textarea" name="descripcionCompetencia"></textarea>
+                    <label for="descripcion-competencia">Descripción de la competencia</label>
+                </div>
+                <button class="btn waves-effect waves-light black" type="submit" name="subir-competencia">Subir Competencia
+                    <i class="material-icons right">send</i>
+                </button>
+        </form>
+    </div>
+    
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Salir</a>
+    </div>
+</div>
+
+<!--Modal for submit Competencia form -->
+
+<!--
+<div id="subir-competencia-card" class="row">
     <div class="col s3"></div>
     <div class="input-field col s6">
         <div class="card-panel z-depth-5">
@@ -12,15 +78,16 @@
                     <textarea id="descripcion-competencia" class="materialize-textarea" name="descripcionCompetencia"></textarea>
                     <label for="descripcion-competencia">Descripción de la competencia</label>
                 </div>
-                <button class="btn waves-effect waves-light" type="submit" name="subir-competencia">Subir Competencia
+                <button class="btn waves-effect waves-light black" type="submit" name="subir-competencia">Subir Competencia
                     <i class="material-icons right">send</i>
                 </button>
             </form>
         </div>
     </div>
 </div>
+-->
 
-
+<!--
 <div class="row">
     <div class="col s3"></div>
     <div class="input-field col s6">
@@ -39,16 +106,10 @@
                 </div>
                 
                 <div class="input-field col s12">
-                    
-                    
-                    
                     <select class="materialSelect" name="selectCompetencia" id="select-competencia">
                         <option value="" disabled selected>Competencia</option>   
                         <div id="update-comp-select"></div>
                     </select>
-                    
-                    
-                    
                 </div>
                 <button class="btn waves-effect waves-light" type="submit" name="subir-tarea">Subir Tarea
                     <i class="material-icons right">send</i>
@@ -57,3 +118,24 @@
         </div>
     </div>
 </div>
+
+<!-- <div class="row">
+    <div class="col s3"></div>
+    <div class="input-field col s6">
+        <div class="card-panel z-depth-5">
+            <h1>Mostrar Competencias</h1>
+            <div></div>
+        </div>
+    </div>
+</div> -->
+
+
+<div class="kek" id="dispTareas"></div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function(){
+       $('.modal').modal();
+    });
+</script>

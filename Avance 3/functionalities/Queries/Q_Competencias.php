@@ -2,7 +2,7 @@
     require_once("../../main/funciones.php");
 
 
-    if($_POST["Response"] == "lol"){
+    if($_POST["Response"] == "tarea-select-call"){
         select_all_competencia();
     }
 
