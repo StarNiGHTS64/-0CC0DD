@@ -3,8 +3,6 @@ session_start();
 require_once ("util_danny.php");
 
 
-/*    $data = getEquipodeGrupo($_GET['idEquipo']);
-    echo $data; */
 
 
     $request = $_GET["drop"];
@@ -17,12 +15,12 @@ require_once ("util_danny.php");
         
     }else if($request=="competencia"){
         $datos = getCompetencia();
-    }else if ($request="tablaNino"){
-        $datos=getCompetenciaValordeNino($_GET['idNino']);
-        
-        
+    }else if ($request="tablaComp"){
+       $datos=getNinoValordeCompetencia($_GET['idEquipo'], $_GET['idCompetencia']);
+            
+    } else if ($request="editAtri"){
+        $datos=modificarCompetencia($_GET['idNino'], $_GET['idCompetencia'], $_GET['valor']);    
     }
-
     echo $datos; 
     
 

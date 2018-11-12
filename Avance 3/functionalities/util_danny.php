@@ -149,6 +149,41 @@ function getCompetenciaValordeNino($idNino){
     return json_encode($return);
 }
 
+function getNinoValordeCompetencia($idEquipo, $idCompetencia){
+    $conn = connectDB();
+    $sql="SELECT n.idNino, n.nombre, nc.valor FROM nino n, nino_competencia nc, equipo e, nino_equipo ne, competencia c WHERE n.idNino=ne.idNino AND e.idEquipo=ne.idEquipo AND c.idCompetencia=nc.idCompetencia AND n.idNino=nc.idNino AND e.idEquipo='".$idEquipo."' AND c.idCompetencia='".$idCompetencia."'";
+    
+    $result = mysqli_query($conn,$sql);
+    $return =array();
+    $i=0;
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+     $return[$i]=[
+         
+         'idNino' => $row["idNino"],
+        
+         'nombre' => $row["nombre"],
+
+         'valor' => $row["valor"]
+     ];
+        $i++;
+    }
+    
+    
+    //debug_to_console($linea);
+
+    closeDb($conn);
+    return json_encode($return);
+}
+
+function modificarCompetencia($idCompetencia, $idNino, $valor){
+    $conn=connectDB();
+    $sql ="UPDATE nino_competencia valor=$valor WHERE idNino= '".$idNino."' AND idCompetencia= '".$idCompetencia."'";
+    $result= mysqli_query($conn, $sql);
+    echo "si entre";
+    closeDb($conn);
+    return $result;
+}
+
 
 /*function getDropDownGruposdeMaestro(){
     $conn=connectDB();
