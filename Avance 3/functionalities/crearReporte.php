@@ -15,11 +15,11 @@ require_once ("util_danny.php");
         
     }else if($request=="competencia"){
         $datos = getCompetencia();
-    }else if ($request=="tablaComp"){
+    }else if ($request="tablaComp"){
        $datos=getNinoValordeCompetencia($_GET['idEquipo'], $_GET['idCompetencia']);
             
-    } else if ($request=="editAtri"){
-        $datos=modificarCompetencia($_GET['idNino'], $_GET['idCompetencia'], $_GET['valor']);
+    } else if ($request="editAtri"){
+        $datos=modificarCompetencia($_GET['idNino'], $_GET['idCompetencia'], $_GET['valor']);    
     }
     echo $datos; 
     
