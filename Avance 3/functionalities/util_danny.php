@@ -175,13 +175,14 @@ function getNinoValordeCompetencia($idEquipo, $idCompetencia){
     return json_encode($return);
 }
 
-function modificarCompetencia($idCompetencia, $idNino, $valor){
+function modificarCompetencia($idNino, $idCompetencia, $valor){
     $conn=connectDB();
-    $sql ="UPDATE nino_competencia valor=$valor WHERE idNino= '".$idNino."' AND idCompetencia= '".$idCompetencia."'";
+    
+    $sql ="UPDATE nino_competencia SET valor='$valor' WHERE idNino= '".$idNino."' AND idCompetencia= '".$idCompetencia."'";
     $result= mysqli_query($conn, $sql);
-    echo "si entre";
+
     closeDb($conn);
-    return $result;
+    return $sql;
 }
 
 
