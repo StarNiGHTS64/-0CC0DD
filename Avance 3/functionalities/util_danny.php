@@ -185,6 +185,31 @@ function modificarCompetencia($idNino, $idCompetencia, $valor){
     return $sql;
 }
 
+function generaGraficaGrupo($idGrupo){
+    
+    $conn=connectDB();
+    $sql="SELECT c.nombre, AVG(valor) as promedio FROM competencia c, nino n, nino_competencia nc, grupo g, nino_grupo ng WHERE n.idNino = ng.idNino AND n.idNino= nc.idNino AND g.idGrupo=ng.idGrupo AND c.idCompetencia=nc.idCompetencia AND g.idGrupo='".$idGrupo."' GROUP BY c.nombre";
+    $result=mysqli_query($conn, $sql);
+    $return =array();
+    $i=0;
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+     $return[$i]=[
+        
+         'nombre' => $row["nombre"],
+
+         'promedio' => $row["promedio"]
+     ];
+        $i++;
+    }
+    
+    
+    //debug_to_console($linea);
+
+    closeDb($conn);
+    return json_encode($return);
+}
+    
+
 
 /*function getDropDownGruposdeMaestro(){
     $conn=connectDB();

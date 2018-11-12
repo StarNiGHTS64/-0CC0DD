@@ -1,9 +1,9 @@
-<body class="background">  
+<body>  
     <ul id="slide-out" class="sidenav">
     
      
     <li><div class="user-view">
-      <div class="background">
+      <div>
        
       </div>
       
@@ -83,7 +83,7 @@
            
       
          <div class="input-field col s4 hide" id="dropEquipo">
-    <select name = "select2" id="selectEquipo" onchange="filtroOnChange(this.value)">
+    <select name = "select2" id="selectEquipo" onchange="dropdownNino(this.value)">
     </select>
     
          
@@ -91,43 +91,24 @@
   </div>
             
             
-         <div id="filtro" class="input-field col s4 hide">
-    <select name = "select2" id="dropFiltro"> 
-    <option value="" disabled selected>Selecciona filtro</option>
-      <!--option value="1">Por niño</option-->
-      <option value="2">Por atributo</option>
-    </select>
-    
-         
-   
-  </div>
-         <div class="input-field  hide" id="selectAtributo">
+      <div class="input-field  hide" id="selectAtributo">
     <select name="select3" id="select3" onchange="generarTabla(this.value)">
      
     </select>
     
-          
-        
-        
+         
+   
+  </div>
+        <br><br>
+          <canvas id="myChart"></canvas>
         
         
   </div>
      
-    
-     <script src="../js/reportesjs.js"> </script>
-        
-    
-
-        
-    <script>
-    
-  $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>   
      
-  $(document).ready(function(){
-    $('select').formSelect();
-  });
+        <script src=../js/reportesjs.js>
+        
        </script>
    
     
