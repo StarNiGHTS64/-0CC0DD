@@ -27,7 +27,7 @@
     }
 
 
-    function select_all_tarea(){
+    function query_all_tarea(){
         $con = connect();
         
         $out = '';

@@ -43,4 +43,28 @@
         
         return $out;
     }
+
+    function query_all_competencia(){
+        $con = connect();
+        $out = '';
+
+        $sql = "SELECT * FROM competencia";
+        $result = mysqli_query($con,$sql);
+
+
+        $out .= '<table><tr><th>Tarea:</th><th>Descripcion:</th></tr>';
+
+
+        while($row = mysqli_fetch_array($result)){
+            $out .='<tr><td>'.$row["nombre"].'</td><td>'.$row["idCompetencia"].'</td></tr>';
+        }
+
+        disconnect($con);
+
+        $out.='</table>';
+
+        echo $out;
+
+        return $out;
+    }
 ?>

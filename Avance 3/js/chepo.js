@@ -17,9 +17,14 @@ $(document).ready(function(event){
         $('#select-competencia').trigger('contentChanged'); //Call on event trigger
     });
     
+    $('#dispTareas').on('update',function(){
+    });
+    
+    //Write into div
     $.post("Queries/Q_Tareas.php",{"Response":"lol"},function(data){
-        alert(data);
-        ("#dispTareas").text(data);
+        //alert(data);
+        $("#dispTareas").html(data);
+        $('#dispTareas').trigger('update');
     });
         
     
@@ -38,7 +43,7 @@ $(document).ready(function(event){
             nameTar = $form.find("input[name='nombreTarea']").val(),
             descTar = $form.find("textarea[name='descripcionTarea']").val(),
             idDesc = $form.find("option:selected").val();
-            alert(idDesc);
+            //alert(idDesc);
         $.post( "Queries/Q_Tareas.php", {"Response": [nameTar,descTar,idDesc,"uploadTar"]}).done(function( data ) {
                 alert( "Data Loaded: " + data );
         });
