@@ -74,5 +74,9 @@
 				exit('¡Historia publicada con éito!');
 			}
 		}
+        
+        if ($_POST['key'] == 'showStory') {
+            
+        }
 	}
 ?>

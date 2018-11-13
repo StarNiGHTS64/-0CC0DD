@@ -218,11 +218,6 @@
         }
 
         function isNotEmpty(caller) {
-            if (caller.val() == '') {
-                caller.css('border', '1px solid red');
-                return false;
-            } else
-                caller.css('border', '');
             
             if (caller == 'tierra'){
                 if (caller.val() == "Azul" || "Amarilla" || "Rosa" || "Blanca" || "Verde" || "Roja" || "Morada")
@@ -232,7 +227,13 @@
                     return false;
                 }
             }
-
+            
+            if (caller.val() == '') {
+                caller.css('border', '1px solid red');
+                return false;
+            } else
+                caller.css('border', '');
+            
             return true;
         }
     </script>
