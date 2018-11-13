@@ -132,7 +132,7 @@ function generarTabla(idCompetencia){
                 arr[i]=data[i].idNino;
                 arr2[i]=data[i].valor;
             }
-           str += "<div class='input-field col s6'><button class ='btn' onclick='edit()' id='"+ i + "' > Editar</button></div>";
+           str += "<div class='input-field col s6'><button class ='btn' onclick='edit()' id='"+ i + "' > Guardar </button></div>";
            console.log(arr);
            console.log(arr2);
            
@@ -175,18 +175,18 @@ function edit(){
          var auxValor=0;
          var aux=arr2.length;
     
-        for (var i=0; i<aux; i++){
+        /*for (var i=0; i<aux; i++){
           
             arr2[i]=document.getElementById(i).value;
       
         console.log(arr2);
-        }
+        }*/
         
          for (var i=0; i<aux; i++){
              nombreNino=arr[i];
              auxValor=arr2[i];
              
-             consult(nombreNino, auxValor)
+             consult(nombreNino, auxValor);
          }
     console.log(arr2);
     if(aux>0){
