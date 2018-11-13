@@ -9,51 +9,51 @@
             <div class="col s8 m8 l8">  
                 <div class="input-field col s4 m4 l4">
                   <i class="material-icons prefix">perm_identity</i>
-                  <input type="text" id="autocomplete-input" class="autocomplete validate" name="nombre">
+                  <input type="text" id="nombre" class="autocomplete validate" name="nombre">
                   <label for="autocomplete-input"><black>Nombre(s)</black></label>
                 </div>
                 <div class="input-field col s4 m4 l4">
-                  <input type="text" id="autocomplete-input" class="autocomplete validate" name="aPaterno">
+                  <input type="text" id="aPaterno" class="autocomplete validate" name="aPaterno">
                     <label for="autocomplete-input"><black>Apellido Paterno</black></label>
                 </div>
                 <div class="input-field col s4 m4 l4">
-                  <input type="text" id="autocomplete-input" class="autocomplete validate" name="aMaterno">
+                  <input type="text" id="aMaterno" class="autocomplete validate" name="aMaterno">
                     <label for="autocomplete-input"><black>Apellido Materno</black></label>
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix">perm_identity</i>
-                    <select class="validate" name="sexo">
+                    <select class="validate" id="sexo" name="sexo">
                       <option value="" disabled selected>Sexo</option>
-                      <option value="1">Niño</option>
-                      <option value="2">Niña</option>
+                      <option value="nino">Niño</option>
+                      <option value="nina">Niña</option>
                     </select>
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix">date_range</i>
-                    <input type="text" class="datepicker validate" name="bday">
+                    <input type="text" id="fecha" class="datepicker validate" name="bday">
                     <label for="autocomplete-input"><black>Fecha de nacimiento</black></label>
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix">location_on</i>
-                    <select class="validate" name="grupo">
+                    <select class="validate" id="grupo" name="grupo">
                       <option value="" disabled selected>Grupo</option>
-                      <option value="1">Grupo 1</option>
-                      <option value="2">Grupo 2</option>
+                      <option value="Grupo1">Grupo 1</option>
+                      <option value="Grupo2">Grupo 2</option>
                     </select>
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix">email</i>
-                  <input type="email" id="autocomplete-input" class="autocomplete validate" name="email">
+                  <input type="email" id="email" class="autocomplete validate" name="email">
                     <label for="autocomplete-input"><black>Correo Electrónico</black></label>
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix">lock_outline</i>
-                  <input type="password" id="autocomplete-input" class="autocomplete validate" name="contrasena">
+                  <input type="password" id="passwd" class="autocomplete validate" name="contrasena">
                     <label for="autocomplete-input"><black>Contraseña</black></label>
                 </div>
                 <div class="input-field col s6 m6 l6">
                     <i class="material-icons prefix">lock_outline</i>
-                  <input type="password" id="autocomplete-input" class="autocomplete validate" name="contrasena_confirm">
+                  <input type="password" id="verpasswd" class="autocomplete validate" name="contrasena_confirm">
                     <label for="autocomplete-input"><black>Confirmar Contraseña</black></label>
                 </div>
                 </div>
@@ -68,13 +68,13 @@
                     
                 </div>                
                 <div class="input-field col s8 m8 l8 push-l2 ">
-                  <input type="text" id="autocomplete-input" class="autocomplete validate" name="usuario">
+                  <input type="text" id="apodo" class="autocomplete validate" name="usuario">
                     <label for="autocomplete-input"><black>Nombre de Héroe</black></label>
                 </div>
             </div>
         
             <div class="input-field col s2 l2 m2 push-l9">
-                <button id="submit" name="submit" class="btn waves-effect waves-light btn blue-grey darken-3 " type="submit" name="register">Submit
+                <button id="submit" name="submit" class="btn waves-effect waves-light btn blue-grey darken-3" type="submit" name="register">Submit
                     <i class="material-icons right">send</i>
                 </button>
             </div>    
@@ -83,3 +83,62 @@
         </div>
     </div>
 </div>
+
+
+<script type="text/javascript">
+
+    function manageData (key) {
+        var nombre = $("#nombre");
+        var aPaterno = $("#aPaterno");
+        var aMaterno = $("#aMaterno");
+        var sexo = $("#sexo");
+        var fecha = $("#fecha");
+        var grupo = $("#grupo");
+        var email = $("#email");
+        var passwd = $("#passwd");
+        var verpasswd = $("#verpasswd");
+        var my_icon_select = $("#my-icon-select");
+        var apodo = $("#apodo");
+        
+        if (isNotEmpty(nombre) && isNotEmpty(aPaterno) && isNotEmpty(aMaterno) && isNotEmpty(sexo) && isNotEmpty(fecha) && isNotEmpty(grupo) && isNotEmpty(email) && isNotEmpty(passwd) && isNotEmpty(verpasswd) && isNotEmpty(my_icon_select) && isNotEmpty(apodo)) {
+            $.ajax({
+                url: 'Registro.php',
+                method: 'POST',
+                dataType: 'text',
+                data: {
+                    key: key,
+                    nombre: nombre.val(),
+                    aPaterno: aPaterno.val(),
+                    aMaterno: aMaterno.val(),
+                    sexo: sexo.val(),
+                    fecha: fecha.val(),
+                    grupo: grupo.val(),
+                    email: email.val(),
+                    passwd: passwd.val(),
+                    verpasswd: verpasswd.val(),
+                    my_icon_select: my_icon_select.var(),
+                    apodo: apodo.val()
+                }, success: function (response) {
+                    if (response != 'success')
+                        alert(response);
+                }else {
+                $("#submit").attr('value', 'Registrar').attr('onclick', "manageData('addNew')").fadeIn();"
+            });  
+        } else {alert("Something went wrong");}
+        
+        
+    }
+    
+    function isNotEmpty (caller) {
+        if (caller.val() == '') {
+            caller.css('border' , '1xp solid red');
+            return false;
+        }
+        else {
+            caller.css('border' , '1');
+            
+        }
+        return true;
+    }
+
+</script>

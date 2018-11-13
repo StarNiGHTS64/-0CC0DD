@@ -20,12 +20,19 @@
         include("../header-footer/_header.html");
         include("Yoto-Main.html");
         
-    } else if (isset($_POST["usuario"]) && login($_POST["usuario"], $_POST["contrasena"]) == true) {
+    } else if (isset($_POST["usuario"]) && login($_POST["usuario"],  $_POST["contrasena"]) == true){
         
         $_SESSION["usuario"] = $_POST["usuario"];
-            
-        include("../header-footer/_header.html");
-        include("Yoto-Main.html");
+        
+        if ($_POST["usuario"] == 'Admin') {
+            require_once("Yoto-Main.html"/*PAGINA PARA EL SUPER!!!!!*/);
+        }
+        
+        else {
+
+            include("../header-footer/_header.html");
+            include("Yoto-Main.html");
+        }
         
     } else if (isset($_POST["usuario"]) && $_POST["usuario"] == "" && $_POST["contrasena"] == "" 
                 && isset($_POST["usuario"])  && isset($_POST["contrasena"]) ) {

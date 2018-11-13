@@ -2,6 +2,45 @@
     session_start();
     require("../main/funciones.php");
     
+    if (isset($_POST['key'])){
+        
+        $conn = new mysqli('localhost', 'root', '', 'mundoyoto');
+        
+        $nombre = $conn->real_escape_string($_POST['nombre']);
+        $aPaterno = $conn->real_escape_string($_POST['aPaterno']);
+        $aMaterno = $conn->real_escape_string($_POST['aMaterno']);
+        $sexo = $conn->real_escape_string($_POST['sexo']);
+        $fecha = $conn->real_escape_string($_POST['fecha']);
+        $grupo = $conn->real_escape_string($_POST['grupo']);
+        $email = $conn->real_escape_string($_POST['email']);
+        $passwd = $conn->real_escape_string($_POST['passwd']);
+        $verpaswd = $conn->real_escape_string($_POST['verpasswd']);
+        $my_icon_select = $conn->real_escape_string($_POST['my_icon_select']);
+        $apodo = $conn->real_escape_string($_POST['apodo']);
+                
+        if ($_POST['key'] == 'addNew') {
+          
+            $sql = $conn->query("SELECT usuario FROM `usuario` WHERE usuario = '$apodo'");
+            if ($sql->num_rows > 0) {
+                exit("¡Nombre de Usuario Ya Registrado!");
+            } 
+            else {
+                
+                $conn->query("INSERT INTO usuario (usuario, contrasena) VALUES ('$apodo',hash('sha512', '$passwd'))");
+                
+                $conn->query("INSERT INTO nino (nombre, apellidoPaterno, apellidoMaterno, sexo, fechaNacimiento, correo, urlavatar) VALUES ('$nombre','$aPaterno','$aMaterno','$sexo','$fecha','$email','$my_icon_select')");
+                
+                //insertar nino-grupo
+                
+            }
+        
+        }
+       
+            
+        
+    }
+/*
+
     if (isset($_SESSION["usuario"])) {
         header("location:../main/index.php");
     } else if (isset($_POST["usuario"])) {
@@ -51,5 +90,5 @@
             include("_registro.html");
             include("../header-footer/_footer.html");
     }
-  
+  */
   ?>

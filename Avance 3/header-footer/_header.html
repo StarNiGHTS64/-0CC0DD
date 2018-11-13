@@ -7,7 +7,7 @@
         <link href="../css/material.css" rel="stylesheet">
 
         <!--Import materialize.css-->
-         <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css" media="screen,projection"/>      
+        <link type="text/css" rel="stylesheet" href="../materialize/css/materialize.min.css" media="screen,projection"/>      
         <link rel="stylesheet" type="text/css" href="../css/custom.css"/>
         <link rel="stylesheet" href="../css/w3.css">
         <link type="text/css" rel="stylesheet" href="../css/proyecto.css"/>
@@ -38,20 +38,16 @@
                        <!-- <li><a data-target="working" href="#">Proyectos</a></li> -->
                         <li><button data-target="working" class="btn modal-trigger waves-effect waves-light blue-grey darken-3 ">Proyectos</button></li>
                         <li><button data-target="modals" class="btn modal-trigger waves-effect waves-light blue-grey darken-3 ">
-                        <?php if (isset($_POST["usuario"])== false): ?>Iniciar Sesión<?php endif; ?>
-                        <?php if (isset($_POST["usuario"])): ?><?=  $_POST["usuario"] ?><?php endif; ?></button></li>
+                        <?php if (isset($_SESSION["usuario"])== false): ?>Iniciar Sesión<?php endif; ?>
+                        <?php if (isset($_SESSION["usuario"])): ?><?=  $_POST["usuario"] ?><?php endif; ?></button></li>
                     </div>
                 </ul>
             </div>
         </nav>
     </div>
-        
-        <?php if (isset($_POST["usuario"])): ?>
-                <div class="blue-text texto">Bienvenido <?=  $_POST["usuario"] ?></div>
-            <?php endif; ?>
-    
+            
             <?php if (isset($error)): ?>
-                <div class="red-text">Error: <?= $error ?></div>
+                <div class="red-text right-align">Error: <?= $error ?></div>
             <?php endif; ?>
         
         <div id="modals" class="modal texto">

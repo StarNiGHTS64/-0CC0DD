@@ -23,9 +23,18 @@
         $usuario = $conexion->real_escape_string($usuario);
         $contrasena = $conexion->real_escape_string($contrasena);
         
+        $hashpass = hash('sha256', $contrasena);
+        
+        //HARDCODE!!!!!!
+        $one = hash('sha256', 'perro');
+        $two = hash('sha256', '1234');
+        $three = hash('sha256', 'contraseña');
+        
+       
+        
          //Specification of the SQL query
-        $query='SELECT usuario FROM `usuario` WHERE usuario = "'.$usuario.
-                '" AND contrasena = "'.$contrasena.'"';
+        $query="SELECT usuario FROM `usuario` WHERE usuario = '.$usuario.
+                '";
          // Query execution; returns identifier of the result group
          
         $results = $conexion->query($query);
@@ -35,9 +44,19 @@
                                         //          MYSQLI_ASSOC to use only name (string) indexes
                                         //          MYSQLI_BOTH, to use both
 
-            mysqli_free_result($results);
-            disconnect($conexion);
-            return $row["usuario"];
+            if ($hashpass == $one || $hashpass == $two || $hashpass == $three){
+                mysqli_free_result($results);
+                $_SESSION['usuario'] = $usuario;
+                $_SESSION['contrasena'] = $contrasena;
+                disconnect($conexion);
+                return $row["usuario"];
+            }
+            
+            else {
+                mysqli_free_result($results);
+                disconnect($conexion);
+                return false;
+            }
         }
         // it releases the associated results
         mysqli_free_result($results);
@@ -82,97 +101,6 @@
         }
         
         disconnect($conexion);
-    }
-
-
-    function add_mision($idMision,$nombre, $descripcion){
-        $conexion = connect();
-        
-        $sql = "INSERT INTO tareas(idMision,nombre,descripcion) VALUES ('$idMision','$nombre','$descripcion');";
-        
-        if(mysqli_query($conexion,$sql)){
-            echo "Registro de mision exitosa";
-            disconnect($conexion);
-            return true;
-        }else{
-            echo "Error: ".$sql."<br>".mysqli_error($conexion);
-            disconnect($conexion);
-            return false;
-        }
-        
-        disconnect($conexion);
-    }
-
-    function del_mision($idMision){
-        $conexion = connect();
-        
-        $sql = "DELETE FROM tareas WHERE idMision = '$idMision'";
-        
-        if(mysqli_query($conexion,$sql)){
-            echo "Mision Borrada Exitosamente";
-            disconnect($conexion);
-            return true;
-        }else{
-            echo "Error: ".$sql."<br>".mysqli_error($conexion);
-            disconnect($conexion);
-            return false;
-        }
-        
-        disconnect($conexion);
-    }
-
-    function add_competencia($idCompetencia,$nombre,$descripcion){
-        $conexion = connect();
-        
-        $sql = "INSERT INTO competencia(idCompetencia,nombre,descripcion) VALUES ('$idCompetencia','$nombre','$descripcion');";
-        
-        if(mysqli_query($conexion,$sql)){
-            echo "Registro de competencia exitosa";
-            disconnect($conexion);
-            return true;
-        }else{
-            echo "Error: ".$sql."<br>".mysqli_error($conexion);
-            disconnect($conexion);
-            return false;
-        }
-        
-        disconnect($conexion);        
-    }
-
-    function del_competencia($idCompetencia){
-        $conexion = connect();
-        
-        $sql = "DELETE FROM competencia WHERE idCompetencia = '$idCompetencia'";
-        
-        if(mysqli_query($conexion,$sql)){
-            echo "Competencia Borrada Exitosamente";
-            disconnect($conexion);
-            return true;
-        }else{
-            echo "Error: ".$sql."<br>".mysqli_error($conexion);
-            disconnect($conexion);
-            return false;
-        }
-        
-        disconnect($conexion);
-    }
-
-    function del_usuario($usuario){
-        $conexion = connect();
-        
-        $sql = "DELETE FROM usuario WHERE usuario = '$usuario'";
-        
-        if(mysqli_query($conexion,$sql)){
-            echo "Usuario Borrado Exitosamente";
-            disconnect($conexion);
-            return true;
-        }else{
-            echo "Error: ".$sql."<br>".mysqli_error($conexion);
-            disconnect($conexion);
-            return false;
-        }
-        
-        disconnect($conexion);       
     }
 
 ?>
