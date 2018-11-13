@@ -3,7 +3,7 @@ $(document).ready(function(event){
     //Initialize Form
     $('.materialSelect').formSelect();
     
-    //Add event listener
+    //Add event listener for select
     $('.materialSelect').on('contentChanged',function(){
         $(this).formSelect();
     });
@@ -18,13 +18,25 @@ $(document).ready(function(event){
     });
     
     $('#dispTareas').on('update',function(){
+        //Empty
     });
     
-    //Write into div
+    //Write table into div
     $.post("Queries/Q_Tareas.php",{"Response":"lol"},function(data){
         //alert(data);
         $("#dispTareas").html(data);
         $('#dispTareas').trigger('update');
+    });
+    
+    //CRUD button: Action for delete
+    $('body').on("click",".something2",function(){
+        var $buttonVal = $(this),
+            idTar = $(this).attr("name");
+        $.post("Queries/Q_Tareas.php",{"Response":[idTar,"deleteTar"]}).done(function(data){
+            //Empty
+            alert(data);
+            
+        });
     });
         
     
@@ -45,7 +57,8 @@ $(document).ready(function(event){
             idDesc = $form.find("option:selected").val();
             //alert(idDesc);
         $.post( "Queries/Q_Tareas.php", {"Response": [nameTar,descTar,idDesc,"uploadTar"]}).done(function( data ) {
-                alert( "Data Loaded: " + data );
+                //alert( "Data Loaded: " + data );
+            //Empty
         });
     });
     
