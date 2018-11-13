@@ -127,11 +127,12 @@ function generarTabla(idCompetencia){
             var data = JSON.parse(datos);
            var str="";
             for (var i=0; i<data.length;i++){
-                 str += "<div class='row'><div class='input-field col s6'><p>" + data[i].nombre + "</p></div><div class='input-field col s6'><form action='#'><p class='range-field'><input type='range' id='"+ i +"' min='0' max='100' value='" + data[i].valor + "'/></p></form></div> </div> ";  
+                 str += "<div class='row'><div class='input-field col s6'><p>" + data[i].nombre + "</p></div><div class='input-field col s6'><form action='#'><p class='range-field'><input type='range' id='"+ i +"' min='0' max='100' value='" + data[i].valor + "'/></p></form></div> </div> "; 
+                
                 arr[i]=data[i].idNino;
                 arr2[i]=data[i].valor;
             }
-           str += "<div class='input-field col s6'><button class ='btn' onclick='edit()' id='"+ i + "' > Editar</button></div>";
+           str += "<div class='input-field col s6'><button class ='btn' onclick='edit()' id='"+ i + "' > Guardar </button></div>";
            console.log(arr);
            console.log(arr2);
            
@@ -143,8 +144,7 @@ function generarTabla(idCompetencia){
            if(aux==0){
                alert("No hay niños con ese filtro");
            }
-           /*arr=[];
-           arr2=[];*/
+           
            
         });  
   
@@ -175,25 +175,28 @@ function edit(){
          var auxValor=0;
          var aux=arr2.length;
     
-        for (var i=0; i<aux; i++){
-            if(document.getElementbyId(i).vale==true){
+        /*for (var i=0; i<aux; i++){
+          
             arr2[i]=document.getElementById(i).value;
-        }
+      
         console.log(arr2);
-        }
+        }*/
         
          for (var i=0; i<aux; i++){
              nombreNino=arr[i];
              auxValor=arr2[i];
              
-             consult(nombreNino, auxValor)
+             consult(nombreNino, auxValor);
          }
+    console.log(arr2);
     if(aux>0){
     alert("Nuevas Calificaciones guardadas");
         } else{
             alert("no hay cambios a guardar");
         }
    
+    arr=[];
+           arr2=[];
 }
        
               
