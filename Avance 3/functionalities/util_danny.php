@@ -149,6 +149,114 @@ function getCompetenciaValordeNino($idNino){
     return json_encode($return);
 }
 
+function getNinoValordeCompetencia($idEquipo, $idCompetencia){
+    $conn = connectDB();
+    $sql="SELECT n.idNino, n.nombre, nc.valor FROM nino n, nino_competencia nc, equipo e, nino_equipo ne, competencia c WHERE n.idNino=ne.idNino AND e.idEquipo=ne.idEquipo AND c.idCompetencia=nc.idCompetencia AND n.idNino=nc.idNino AND e.idEquipo='".$idEquipo."' AND c.idCompetencia='".$idCompetencia."'";
+    
+    $result = mysqli_query($conn,$sql);
+    $return =array();
+    $i=0;
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+     $return[$i]=[
+         
+         'idNino' => $row["idNino"],
+        
+         'nombre' => $row["nombre"],
+
+         'valor' => $row["valor"]
+     ];
+        $i++;
+    }
+    
+    
+    //debug_to_console($linea);
+
+    closeDb($conn);
+    return json_encode($return);
+}
+
+function modificarCompetencia($idNino, $idCompetencia, $valor){
+    $conn=connectDB();
+    
+    $sql ="UPDATE nino_competencia SET valor='$valor' WHERE idNino= '".$idNino."' AND idCompetencia= '".$idCompetencia."'";
+    $result= mysqli_query($conn, $sql);
+
+    closeDb($conn);
+    return $sql;
+}
+
+function generaGraficaGrupo($idGrupo){
+    
+    $conn=connectDB();
+    $sql="SELECT c.nombre, AVG(valor) as promedio FROM competencia c, nino n, nino_competencia nc, grupo g, nino_grupo ng WHERE n.idNino = ng.idNino AND n.idNino= nc.idNino AND g.idGrupo=ng.idGrupo AND c.idCompetencia=nc.idCompetencia AND g.idGrupo='".$idGrupo."' GROUP BY c.nombre";
+    $result=mysqli_query($conn, $sql);
+    $return =array();
+    $i=0;
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+     $return[$i]=[
+        
+         'nombre' => $row["nombre"],
+
+         'promedio' => $row["promedio"]
+     ];
+        $i++;
+    }
+    
+    
+    //debug_to_console($linea);
+
+    closeDb($conn);
+    return json_encode($return);
+}
+
+function generaGraficaEquipo($idEquipo){
+    
+    $conn=connectDB();
+    $sql="SELECT c.nombre, AVG(valor) as promedio FROM competencia c, nino n, nino_competencia nc, equipo e, nino_equipo ne WHERE n.idNino = ne.idNino AND n.idNino= nc.idNino AND e.idEquipo=ne.idEquipo AND c.idCompetencia=nc.idCompetencia AND e.idEquipo='".$idEquipo."' GROUP BY c.nombre";
+    $result=mysqli_query($conn, $sql);
+    $return =array();
+    $i=0;
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+     $return[$i]=[
+        
+         'nombre' => $row["nombre"],
+
+         'promedio' => $row["promedio"]
+     ];
+        $i++;
+    }
+    
+    
+    //debug_to_console($linea);
+
+    closeDb($conn);
+    return json_encode($return);
+}
+    
+function generaGraficaNino($idNino){
+    
+    $conn=connectDB();
+    $sql="SELECT c.nombre, nc.valor FROM nino n, nino_competencia nc, competencia c WHERE n.idNino=nc.idNino AND c.idCompetencia=nc.idCompetencia AND n.idNino='".$idNino."'";
+    $result=mysqli_query($conn, $sql);
+    $return =array();
+    $i=0;
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+     $return[$i]=[
+        
+         'nombre' => $row["nombre"],
+
+         'valor' => $row["valor"]
+     ];
+        $i++;
+    }
+    
+    
+    //debug_to_console($linea);
+
+    closeDb($conn);
+    return json_encode($return);
+}
+
 
 /*function getDropDownGruposdeMaestro(){
     $conn=connectDB();

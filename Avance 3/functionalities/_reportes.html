@@ -1,9 +1,9 @@
-<body class="background">  
+<body>  
     <ul id="slide-out" class="sidenav">
     
      
     <li><div class="user-view">
-      <div class="background">
+      <div>
        
       </div>
       
@@ -67,76 +67,48 @@
     
         <p>Para hacer un reporte selecciona:</p>
         <br>
-    <div class="row">
+    
+    
+        <div class="row">
          <div class="input-field col s4">
-    <select>
-      <option value="" disabled selected>Selecciona un albergue</option>
-      <option value="1">Querétaro</option>
-      <option value="2">San Juan </option>
-      <option value="3">Humilpan</option>
+             
+        <form action="" method="post">
+        <select name="select1" id="selectGrupo" onchange="dropdownEquipo(this.value)">
+        
+        </select>
+             </form>
+</div>
+
+            
+           
+      
+         <div class="input-field col s4 hide" id="dropEquipo">
+    <select name = "select2" id="selectEquipo" onchange="dropdownNino(this.value)">
     </select>
     
-              <select>
-      <option value="" disabled selected>Selecciona un grupo</option>
-      <option value="1">Grupo 1</option>
-      <option value="2">Grupo 2 </option>
-      <option value="3">Grupo 3</option>
-    </select>
-    
-  </div>
-         <div class="input-field col s4">
-    <select>
-      <option value="" disabled selected>Selecciona niño</option>
-      <option value="1">Juan</option>
-      <option value="2">Pepe</option>
-      <option value="3">Sofía</option>
-    </select>
-    
-              <select>
-      <option value="" disabled selected>Selecciona sexo</option>
-        <option value="1">Hombre</option>
-      <option value="2">Mujer</option>
-      <option value="3">Otro</option>
-    </select>
+         
    
   </div>
-         <div class="input-field col s4">
-    <select>
-      <option value="" disabled selected>Selecciona valor</option>
-      <option value="1">Decisión cognitiva</option>
-      <option value="2">Desarrollo corporal</option>
-      <option value="3">Inclusión y diversidad</option>
+            
+            
+      <div class="input-field  hide" id="selectAtributo">
+    <select name="select3" id="select3" onchange="generaGraficoNino(this.value)" >
+     
     </select>
     
-             <br> <br> <br>
-              <div class="right-align">
-         <a class="waves-effect waves-light btn right-align blue-grey darken-2"> Generar reportes </a>
+         
+   
+  </div>
+        <br><br><br> <br>
+          <canvas id="myChart"></canvas>
         
-    </div>
-    
+        
   </div>
      
-    
-    </div>
-        
-       <div class="center-align"> 
-    <img class="responsive-img" src="../img/grafica.PNG">
-        </div>
-        <br>
-        <br>
-
-    </div>
-
-        
-    <script>
-    
-  $(document).ready(function(){
-    $('.sidenav').sidenav();
-  });
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>   
      
-  $(document).ready(function(){
-    $('select').formSelect();
-  });
-      
-    </script>
+        <script src=../js/reportesjs.js>
+        
+       </script>
+   
     
