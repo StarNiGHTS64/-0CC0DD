@@ -1,7 +1,7 @@
 <?php
 	if (isset($_POST['key'])) {
 
-		$conn = new mysqli('localhost', 'root', '', 'mundoyotox');
+		$conn = new mysqli('localhost', 'root', '', 'mundoyoto');
 
 		if ($_POST['key'] == 'getRowData') {
 			$rowID = $conn->real_escape_string($_POST['rowID']);
