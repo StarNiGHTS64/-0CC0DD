@@ -35,7 +35,9 @@ $(document).ready(function(event){
         $.post("Queries/Q_Tareas.php",{"Response":[idTar,"deleteTar"]}).done(function(data){
             //Empty
             alert(data);
-            
+            $('tr').find('td').fadeOut(1000,function(){
+                $('tr').remove;
+            })
         });
     });
         
