@@ -112,7 +112,7 @@
          
         function view(rowID) {
             $.ajax({
-                url: 'Hpcuatetex.php',
+                url: 'agregaHistoria.php',
                 method: 'POST',
                 dataType: 'json',
                 data: {
@@ -120,11 +120,31 @@
                     rowID: rowID,                
                 }, success: function (response){
                     $("#titulo").html(response.titulo);
-                    $("#descripcion").html(response.descripcion;
+                    $("#descripcion").html(response.descripcion);
                 }
                 
             });
         }
-            
+         
+         function getExistingData(start, limit) {
+            $.ajax({
+                url: 'agregaHistoria.php',
+                method: 'POST',
+                dataType: 'text',
+                data: {
+                    key: 'getExistingData',
+                    start: start,
+                    limit: limit,
+                    
+                }, success: function (response) {
+                    if (response != "reachedMax") {
+                        $('tbody').append(response);
+                        start += limit;
+                        getExistingData(start, limit);
+                    } else
+                        $(".table").DataTable();
+                }
+            });
+        }            
      
      </script>
