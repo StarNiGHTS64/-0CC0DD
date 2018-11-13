@@ -42,6 +42,18 @@ $(document).ready(function(event){
             writbl();
         });
     });
+    
+    //CRUD btton: ACtion for edit
+    $('body').on("click",".something1",function(){
+        var $buttonVal = $(this),
+            idTar = $(this).attr("name");
+        $.post("Queries/Q_Tarea.php",{"Response":[idTar,"editTar"]}).done(function(data){
+            //alert(data);
+            $("#editTareaModal").html(data);
+            //writbl();
+        });
+        //upl_tarea();
+    });
         
     
     //Prevent normal form upload
@@ -52,20 +64,23 @@ $(document).ready(function(event){
         } 
     });
       
-    //Submit Tarea
-    $("#upl-tarea").submit(function(){
-        
-        var $form = $(this),
-            nameTar = $form.find("input[name='nombreTarea']").val(),
-            descTar = $form.find("textarea[name='descripcionTarea']").val(),
-            idDesc = $form.find("option:selected").val();
-            //alert(idDesc);
-        $.post( "Queries/Q_Tareas.php", {"Response": [nameTar,descTar,idDesc,"uploadTar"]}).done(function( data ) {
-                //alert( "Data Loaded: " + data );
-            //Empty
-        });
-    });
+    upl_tarea();
     
+    function upl_tarea(){
+    //Submit Tarea
+        $("#upl-tarea").submit(function(){
+
+            var $form = $(this),
+                nameTar = $form.find("input[name='nombreTarea']").val(),
+                descTar = $form.find("textarea[name='descripcionTarea']").val(),
+                idDesc = $form.find("option:selected").val();
+                //alert(idDesc);
+            $.post( "Queries/Q_Tareas.php", {"Response": [nameTar,descTar,idDesc,"uploadTar"]}).done(function( data ) {
+                //alert( "Data Loaded: " + data );
+                //Empty
+            });
+        });
+    }
     
     //Submit Competencia
     $("#upl-competencia").submit(function(){
@@ -73,8 +88,8 @@ $(document).ready(function(event){
         var $form = $(this),
             nameComp = $form.find("input[name='nombreCompetencia']").val(),
             descComp = $form.find("textarea[name='descripcionCompetencia']").val();
-          $.post( "Queries/Q_Competencias.php", {"Response": [nameComp,descComp,"uploadComp"]}).done(function( data ) {
-                alert( "Data Loaded: " + data );
+        $.post( "Queries/Q_Competencias.php", {"Response": [nameComp,descComp,"uploadComp"]}).done(function( data ) {
+                //alert( "Data Loaded: " + data );
         });
     });
 });
