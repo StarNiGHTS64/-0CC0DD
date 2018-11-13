@@ -2,7 +2,7 @@
     require_once("../../main/funciones.php");
     
     if($_POST["Response"]=="lol"){
-        select_all_tarea();
+        query_all_tarea();
     }
 
     else if($_POST["Response"][3]=="uploadTar"){
