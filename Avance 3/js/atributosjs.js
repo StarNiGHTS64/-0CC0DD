@@ -129,13 +129,23 @@ function generarTabla(idCompetencia){
             for (var i=0; i<data.length;i++){
                  str += "<div class='row'><div class='input-field col s6'><p>" + data[i].nombre + "</p></div><div class='input-field col s6'><form action='#'><p class='range-field'><input type='range' id='"+ i +"' min='0' max='100' value='" + data[i].valor + "'/></p></form></div> </div> ";  
                 arr[i]=data[i].idNino;
+                arr2[i]=data[i].valor;
             }
            str += "<div class='input-field col s6'><button class ='btn' onclick='edit()' id='"+ i + "' > Editar</button></div>";
            console.log(arr);
            console.log(arr2);
+           
+          
             console.log(str);
             aux.innerHTML=str;
             $('select').formSelect();
+           var aux= arr.length;
+           if(aux==0){
+               alert("No hay niños con ese filtro");
+           }
+           /*arr=[];
+           arr2=[];*/
+           
         });  
   
 }
@@ -163,10 +173,13 @@ function generarTabla(idCompetencia){
 function edit(){
      var nombreNino ="";
          var auxValor=0;
-         var aux=arr.length;
+         var aux=arr2.length;
     
         for (var i=0; i<aux; i++){
+            if(document.getElementbyId(i).vale==true){
             arr2[i]=document.getElementById(i).value;
+        }
+        console.log(arr2);
         }
         
          for (var i=0; i<aux; i++){
@@ -175,7 +188,12 @@ function edit(){
              
              consult(nombreNino, auxValor)
          }
+    if(aux>0){
     alert("Nuevas Calificaciones guardadas");
+        } else{
+            alert("no hay cambios a guardar");
+        }
+   
 }
        
               
@@ -202,6 +220,9 @@ function tablaDeCompetencia(idCompetencia, idEquipo){
         });  
 }
 
+function isEmpty(str) {
+    return (!str || 0 === str.length);
+}
 
 
 
@@ -222,6 +243,7 @@ function tablaDeNino(idNino){
                  str += "<div class='input-field col s6'><p>" + data[i].nombre + "</p></div><div class='input-field col s6'><form action='#'><p class='range-field'><input type='range' min='0' max='100' value='"+data[i].valor + "'/></p></form></div>";             
                 
             }
+           
            
             console.log(str);
             aux.innerHTML=str;

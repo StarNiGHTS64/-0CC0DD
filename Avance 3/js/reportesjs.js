@@ -1,4 +1,7 @@
 
+var arr=[];
+    var arr2=[];
+
 $(document).ready(function(){
         $.get('crearReporte.php',{
             'idMaestro':1,
@@ -28,7 +31,7 @@ function dropdownEquipo(idGrupo){
         'drop':"equipo",  
     }).done(function(datos){
             var aux = document.getElementById("dropEquipo");
-           /* aux.className = "input-field col s4 show";*/
+           aux.className = "input-field col s4 show";
             console.log(datos);
             aux = document.getElementById("selectEquipo");
             var data = JSON.parse(datos);
@@ -37,26 +40,27 @@ function dropdownEquipo(idGrupo){
             for (var i=0; i<data.length;i++){
                  str += "<option value='"+data[i].idEquipo+"'>"+data[i].nombre+"</option>";
             }
-           generaGrafico(idGrupo);
+            
+            generaGraficoGrupo(idGrupo);
             console.log(str);
             aux.innerHTML=str;
             $('select').formSelect();
         });    
 }
 
+    
 
-function generaGrafico(idGrupo){
-
- console.log(idGrupo);
+function generaGraficoGrupo(idGrupo){
+    
     $.get('crearReporte.php',{
         'idGrupo':idGrupo,
         'drop':"graphgrupo",  
     }).done(function(datos){
             console.log(datos);
-        var arr=[];
-        var arr2=[];
+       
         var datas = JSON.parse(datos);
-        for (var i=0; i<datas.length;i++){
+        
+       for (var i=0; i<datas.length;i++){
             arr[i]=datas[i].nombre;
             arr2[i]=datas[i].promedio;
             
@@ -64,8 +68,69 @@ function generaGrafico(idGrupo){
         console.log(arr);
         console.log(arr2);
         
-var ctx = document.getElementById("myChart");
-var myChart = new Chart(ctx, {
+        creargraph();
+        arr=[];
+        arr2=[];
+        });  
+
+}
+
+function generaGraficoEquipo(idEquipo){
+    
+    $.get('crearReporte.php',{
+        'idEquipo':idEquipo,
+        'drop':"graphequipo",  
+    }).done(function(datos){
+            console.log(datos);
+       
+        var datas = JSON.parse(datos);
+        
+       for (var i=0; i<datas.length;i++){
+            arr[i]=datas[i].nombre;
+            arr2[i]=datas[i].promedio;
+            
+        }
+        console.log(arr);
+        console.log(arr2);
+        
+        creargraph();
+        arr=[];
+        arr2=[];
+        });  
+
+}
+function generaGraficoNino(idNino){
+    
+    $.get('crearReporte.php',{
+        'idNino':idNino,
+        'drop':"graphnino",  
+    }).done(function(datos){
+            console.log(datos);
+       
+        var datas = JSON.parse(datos);
+        
+       for (var i=0; i<datas.length;i++){
+            arr[i]=datas[i].nombre;
+            arr2[i]=datas[i].valor;
+            
+        }
+        console.log(arr);
+        console.log(arr2);
+        
+        creargraph();
+        arr=[];
+        arr2=[];
+        });  
+
+}
+function creargraph(){
+    var ctx = document.getElementById("myChart");
+   if  (window.myChart != undefined || window.myChart !=null){
+       window.myChart.clear;
+       window.myChart.destroy;
+   }   
+window.myChart = new Chart(ctx, {
+    
     type: 'bar',
     data: {
         labels: arr,
@@ -103,18 +168,11 @@ var myChart = new Chart(ctx, {
         }
     }
 });
-
-        
-
-
-        
-        });  
-
 }
 
 
 
-/*
+
 
 
 
@@ -137,12 +195,14 @@ function dropdownNino(idEquipo){
             }
             console.log(str);
             aux.innerHTML=str;
+            generaGraficoEquipo(idEquipo);
+    
             $('select').formSelect();
         });  
 }
 
 
-
+/*
 
    
 function generaGrafico(idGrupo){
