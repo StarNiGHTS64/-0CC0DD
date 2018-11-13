@@ -21,12 +21,16 @@ $(document).ready(function(event){
         //Empty
     });
     
-    //Write table into div
-    $.post("Queries/Q_Tareas.php",{"Response":"lol"},function(data){
-        //alert(data);
-        $("#dispTareas").html(data);
-        $('#dispTareas').trigger('update');
-    });
+    function writbl(){
+        //Write table into div
+        $.post("Queries/Q_Tareas.php",{"Response":"lol"},function(data){
+            //alert(data);
+            $("#dispTareas").html(data);
+            $('#dispTareas').trigger('update');
+        });
+    }
+    
+    writbl();
     
     //CRUD button: Action for delete
     $('body').on("click",".something2",function(){
@@ -34,8 +38,8 @@ $(document).ready(function(event){
             idTar = $(this).attr("name");
         $.post("Queries/Q_Tareas.php",{"Response":[idTar,"deleteTar"]}).done(function(data){
             //Empty
-            alert(data);
-            
+            //alert("hello world");
+            writbl();
         });
     });
         
