@@ -7,7 +7,7 @@ $(document).ready(function(event){
 
     $('.materialSelect').formSelect();
 
-    $('.materialSelect').on('contentChanged',function(){
+    $('.materialSelect').on('contentChanged',function(){.js 
         $(this).formSelect();
     });
         
