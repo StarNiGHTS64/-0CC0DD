@@ -2,6 +2,7 @@
     session_start();
     require("../main/funciones.php");
     
+    
     if (isset($_SESSION["usuario"])) {
         header("location:../main/index.php");
     } else if (isset($_POST["usuario"])) {
@@ -51,5 +52,5 @@
             include("_registro.html");
             include("../header-footer/_footer.html");
     }
-  
+
   ?>
