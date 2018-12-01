@@ -1,41 +1,36 @@
 $(document).ready(function(event){
     
-    writbl();
-    upl_tarea();
+    $(document).ready(function(){
+       $('.modal').modal();
+    });
     
-    $('#dispTareas').on('update',function(){});
+    //$('#dispTareas').on('update',function(){});
 
     $('.materialSelect').formSelect();
 
-    $('.materialSelect').on('contentChanged',function(){.js 
+    $('.materialSelect').on('contentChanged',function(){ 
         $(this).formSelect();
-    });
-        
-    $(window).keydown(function(event){
-        if(event.keyCode == 13){
-            event.preventDefault();
-            return false;
-        } 
     });
     
     function writbl(){
             $.post("Queries/Q_Tareas.php",{"Response":"lol"},function(data){
             $("#dispTareas").html(data);
-            $('#dispTareas').trigger('update');
+            //$('#dispTareas').trigger('update');
         });
     }
       
     //Upload Tarea
-    function upl_tarea(){
-        $("#upl-tarea").submit(function(){
+    
+        $("#upl-tarea").on('click',function(event){
+            event.preventDefault();
             var $form = $(this),
                 nameTar = $form.find("input[name='nombreTarea']").val(),
                 descTar = $form.find("textarea[name='descripcionTarea']").val(),
                 idDesc = $form.find("option:selected").val();
-            $.post( "Queries/Q_Tareas.php", {"Response": [nameTar,descTar,idDesc,"uploadTar"]}).done(function( data ) {    
+            $.post( "Queries/Q_Tareas.php", {"Response": [nameTar,descTar,idDesc,"uploadTar"]}).done(function( data ) {
+                writbl();
             });
         });
-    }
     
     //Submit Competencia
     $("#upl-competencia").submit(function(){
