@@ -1,0 +1,40 @@
+.bg-gray {
+    background: #b0bec5;
+}
+
+.bg-lgray{
+    background: #eceff1;
+}
+
+.btn-yoto {
+    background-color: #37474f;
+    color: whitesmoke;
+}
+
+.field {
+    border-radius: 12px !important;
+    
+}
+
+/*para los tooltips de eliminar y otros*/
+.ttip {
+    font-family: Comfortaa;
+    color: white;
+}
+
+option:hover {
+    color: red !important;
+}
+
+.darks {
+    background-color: #212529 !important;
+    color: white !important;
+}
+
+.btn-yass {
+    background-color: #00af48;
+}
+
+.btn-edd {
+    background-color: #00b8d4;
+}
