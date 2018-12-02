@@ -35,11 +35,12 @@
 							<td id="titulo_'.$data["idHistoria"].'">'.$data["titulo"].'</td>
                             
 							<td>
-                                <input type="button" style="margin: 2%;"onclick="viewORedit('.$data["idHistoria"].', \'view\')" value="Ver" class="btn btn-info">
+                                <input type="button" style="margin: 3%;"onclick="viewORedit('.$data["idHistoria"].', \'view\')" value="Ver" class="btn btn-yass">
                                 
-								<input type="button"  style="margin: 2%;" onclick="viewORedit('.$data["idHistoria"].', \'edit\')" value="Editar" class="btn btn-dark">
+								<input type="button"  style="margin: 3%;" onclick="viewORedit('.$data["idHistoria"].', \'edit\')" value="Editar" class="btn btn-edd">
 								
-								<input type="button" style="margin: 8%;"onclick="deleteRow('.$data["idHistoria"].')" value="X" class="btn btn-warning">
+								<input type="button" style="margin-left: 25%;"onclick="deleteRow('.$data["idHistoria"].')" value="X" class="btn btn-danger ttip" data-toggle="tooltip" data-placement="right" title="Eliminar">
+
 							</td>
 						</tr>
 					';
