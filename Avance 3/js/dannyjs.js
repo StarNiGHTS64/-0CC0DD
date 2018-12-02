@@ -1,8 +1,4 @@
-
-var comp= 0 ;
-var arr=[];
-var arr2=[];
-$(document).ready(function(){
+ $(document).ready(function(){
         $.get('ModificarCompetencia.php',{
             'idMaestro':1,
             'drop': "grupo"
@@ -34,8 +30,6 @@ function dropdownEquipo(idGrupo){
             console.log(datos);
             aux = document.getElementById("selectEquipo");
             var data = JSON.parse(datos);
-            equipo=idGrupo;
-            console.log(equipo);
             var str="<option value=''  disabled selected>Selecciona un Equipo</option>";
             for (var i=0; i<data.length;i++){
                  str += "<option value='"+data[i].idEquipo+"'>"+data[i].nombre+"</option>";
@@ -48,8 +42,6 @@ function dropdownEquipo(idGrupo){
 
 function filtroOnChange(idEquipo){
     document.getElementById("dropFiltro").setAttribute('onchange','dropFiltro(this.value,'+idEquipo+')');
-    var aux = document.getElementById("filtro");
-    aux.className = "input-field col s4 show";
 }
 
 function dropFiltro(idFiltro, idEquipo){
@@ -67,10 +59,14 @@ function dropFiltro(idFiltro, idEquipo){
 
 
 
-function dropdownAtributo(idEquipo){
+
+
+
+
+function dropdownAtributo(){
     
    $.get('ModificarCompetencia.php',{
-        'idEquipo':idEquipo, 
+        
         'drop':"competencia",  
     }).done(function(datos){
             var aux = document.getElementById("selectAtributo");
@@ -78,8 +74,7 @@ function dropdownAtributo(idEquipo){
             console.log(datos);
             aux = document.getElementById("select3");
             var data = JSON.parse(datos);
-            bandera=1;
-            var str="<option value=''  disabled selected>Selecciona una competencia </option>";
+            var str="<option value=''  disabled selected>Selecciona una competencia /option>";
             for (var i=0; i<data.length;i++){
                  str += "<option value='"+data[i].idCompetencia+"'>"+data[i].nombre+"</option>";
             }
@@ -114,104 +109,21 @@ function dropdownNino(idEquipo){
 
 
 
-function generarTabla(idCompetencia){
-       $.get('ModificarCompetencia.php',{
-      'idEquipo':equipo,
-        'idCompetencia':idCompetencia,
+function generarTabla(idEquipo, idCompetencia){
+    
+    
+   console.log(idCompetencia);
+    $.get('ModificarCompetencia.php',{
+        'idEquipo':equipo,
+        'idCompetencia':1,
         'drop':"tablaComp",  
     }).done(function(datos){
             var aux = document.getElementById("tablaespacio");
-            console.log(datos);
-           comp= idCompetencia;
-            var data = JSON.parse(datos);
-           var str="";
-            for (var i=0; i<data.length;i++){
-                 str += "<div class='row'><div class='input-field col s6'><p>" + data[i].nombre + "</p></div><div class='input-field col s6'><form action='#'><p class='range-field'><input type='range' id='"+ i +"' min='0' max='100' value='" + data[i].valor + "'/></p></form></div> </div> "; 
-                
-                arr[i]=data[i].idNino;
-                arr2[i]=data[i].valor;
-            }
-           str += "<div class='input-field col s6'><button class ='btn' onclick='edit()' id='"+ i + "' > Guardar </button></div>";
-           console.log(arr);
-           console.log(arr2);
-           
-          
-            console.log(str);
-            aux.innerHTML=str;
-            $('select').formSelect();
-           var aux= arr.length;
-           
-            if(aux==0){
-               alert("No hay niños con ese filtro");
-           }
-           
-           
-        });  
-  
-}
-
-
-
-
-    function consult(nombreNino, auxValor){
-     $.get('ModificarCompetencia.php',{
-         'idCompetencia': comp,
-         'idNino': nombreNino,
-         'valor': auxValor,
-         'idEquipo':equipo,
-         
-        'drop':"editAtri",  
-    }).done(function(datos){
-         
-          console.log(datos);
-         
-        });  
-    
-    
-}
-     
-function edit(){
-     var nombreNino ="";
-         var auxValor=0;
-         var aux=arr2.length;
-        console.log(aux);
-    
-        /*for (var i=0; i<aux; i++){
-          
-            arr2[i]=document.getElementById(i).value;
-      
-        console.log(arr2);
-        }*/
-        
-         for (var i=0; i<aux; i++){
-             nombreNino=arr[i];
-             auxValor=arr2[i];
-             
-             consult(nombreNino, auxValor);
-         }
-    console.log(arr2);
-    if(aux>0){
-    alert("Nuevas Calificaciones guardadas");
-        } else{
-            alert("no hay cambios a guardar");
-        }
-   
-            arr=[];
-           arr2=[];
-}
-       
-              
-
-function tablaDeCompetencia(idCompetencia, idEquipo){
-   $.get('ModificarCompetencia.php',{
-      'idEquipo':idEquipo,
-        'idCompetencia':idCompetencia,
-        'drop':"tablaComp",  
-    }).done(function(datos){
-            var aux = document.getElementById("tablaespacio");
+             console.log("hola");
             console.log(datos);
             var data = JSON.parse(datos);
            var str="";
+        console.log("hola");
             for (var i=0; i<data.length;i++){
                 console.log("hola");
                  str += "<div class='input-field col s6'><p>" + data[i].nombre + "</p></div><div class='input-field col s6'><form action='#'><p class='range-field'><input type='range' min='0' max='100' value='" + data[i].valor + "'/></p></form></div>";             
@@ -221,17 +133,14 @@ function tablaDeCompetencia(idCompetencia, idEquipo){
             console.log(str);
             aux.innerHTML=str;
             $('select').formSelect();
-        });  
-}
-
-function isEmpty(str) {
-    return (!str || 0 === str.length);
-}
-
-
-
-function tablaDeNino(idNino){
-       console.log(idNino);
+        });    
+    
+    
+    
+    
+    
+    
+    /*
     $.get('ModificarCompetencia.php',{
         'idNino':idNino,
         'drop':"tablaNino",  
@@ -246,14 +155,12 @@ function tablaDeNino(idNino){
                 console.log("hola");
                  str += "<div class='input-field col s6'><p>" + data[i].nombre + "</p></div><div class='input-field col s6'><form action='#'><p class='range-field'><input type='range' min='0' max='100' value='"+data[i].valor + "'/></p></form></div>";             
                 
+>>>>>>> AtributosDa
             }
-           
-           
             console.log(str);
             aux.innerHTML=str;
             $('select').formSelect();
-        }); 
+        });  */
 }
 
 
-  

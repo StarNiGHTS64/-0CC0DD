@@ -46,11 +46,9 @@
             
                         
             <div class="historia texto">
-                <!--h4 class="texto" id="titulo">Historia:</h4>
-                <p id="descripcion"> Entro a mi casa. Respiro profundamente y aprecio lo que me rodea. En las curvas paredes está la recopilación de mis ideas. Las que tuve de niña y las que tuve la noche anterior.</p><p>Observo mis creaciones. Veo los juguetes que armé, los juegos que inventé, las muñecas que construí. Veo a mi alrededor una parte de las ideas que vienen a mí.</p><p>Recuerdo con alegría todas las ideas que he tenido. Recuerdo los juegos con mis amigos en el bosque, recuerdo las adivinanzas, los cantos, los juguetes que inventé. Recuerdo las dudas. Pero sobre todo, recuerdo la alegría que siento cada vez que invento al algo nuevo. Recuerdo las veces que no ha salido bién, pero recuerdo todavía más las veces en que las cosas salieron bien o mejor de lo que creí.</p><p>Recuerdo mis amigos imaginarios, mis mascotas imaginarias, mis aventuras imaginarias, Recuerdo todos los mundos que he visto con mi imaginación. Recuerdo las lecciones que he aprendido: El no darme por vencida, el ayudar a otros, el ser creativa, el hacer amigos, el compartir, pero sobretodo, no tener miedo a pensar, ni miedo a soñar.</p><p>Sueño y veo que podría hacer por los demás. Quiero ser profesora. Me imagino a mi misma parada entre niños, todos como iguales. Me veo contando historias, enseñando números y letras, enseñando a reír y a soñar.</p><p>Cierro mis ojos grandes. Incluso cuando cierro los ojos sé que no pierdo la luz. Cierro los ojos y siento mediante la piel espíritu de lo que me rodea.</p><p>Siento el calor del fuego, la energía de la tierra, el aroma del maíz. Siento la presencia de los demás huéspedes; la tuya, la mía.</p><p>Siento al mundo que me rodea. Siento, imagino, pienso, ideo.</p><p>¿Qué puedo regresarle al mundo que me ha dado todo? ¿Qué puedo tomar del rayo, del fuego y del Sol?</p><p>Y me rodea el miedo: miedo a las ideas que vienen de pronto. Siento la idea en el pecho y en el estómago. </p><p>Lo veo. Veo reflejada en las curvas paredes los números, las letras, lo que crearé. </p> <p>Observó con atención los detalles grandes y pequeños. Observó para transformar ideas en palabras y palabras en acciones.</p><p>Abro los ojos. Tengo una nueva idea. Me pongo a trabajar.</p><p class="firma" id="autor"></p-->
+                <h4 class="texto" id="titulo">Historia:</h4>
+                <p id="descripcion"> Entro a mi casa. Respiro profundamente y aprecio lo que me rodea. En las curvas paredes está la recopilación de mis ideas. Las que tuve de niña y las que tuve la noche anterior.</p><p>Observo mis creaciones. Veo los juguetes que armé, los juegos que inventé, las muñecas que construí. Veo a mi alrededor una parte de las ideas que vienen a mí.</p><p>Recuerdo con alegría todas las ideas que he tenido. Recuerdo los juegos con mis amigos en el bosque, recuerdo las adivinanzas, los cantos, los juguetes que inventé. Recuerdo las dudas. Pero sobre todo, recuerdo la alegría que siento cada vez que invento al algo nuevo. Recuerdo las veces que no ha salido bién, pero recuerdo todavía más las veces en que las cosas salieron bien o mejor de lo que creí.</p><p>Recuerdo mis amigos imaginarios, mis mascotas imaginarias, mis aventuras imaginarias, Recuerdo todos los mundos que he visto con mi imaginación. Recuerdo las lecciones que he aprendido: El no darme por vencida, el ayudar a otros, el ser creativa, el hacer amigos, el compartir, pero sobretodo, no tener miedo a pensar, ni miedo a soñar.</p><p>Sueño y veo que podría hacer por los demás. Quiero ser profesora. Me imagino a mi misma parada entre niños, todos como iguales. Me veo contando historias, enseñando números y letras, enseñando a reír y a soñar.</p><p>Cierro mis ojos grandes. Incluso cuando cierro los ojos sé que no pierdo la luz. Cierro los ojos y siento mediante la piel espíritu de lo que me rodea.</p><p>Siento el calor del fuego, la energía de la tierra, el aroma del maíz. Siento la presencia de los demás huéspedes; la tuya, la mía.</p><p>Siento al mundo que me rodea. Siento, imagino, pienso, ideo.</p><p>¿Qué puedo regresarle al mundo que me ha dado todo? ¿Qué puedo tomar del rayo, del fuego y del Sol?</p><p>Y me rodea el miedo: miedo a las ideas que vienen de pronto. Siento la idea en el pecho y en el estómago. </p><p>Lo veo. Veo reflejada en las curvas paredes los números, las letras, lo que crearé. </p> <p>Observó con atención los detalles grandes y pequeños. Observó para transformar ideas en palabras y palabras en acciones.</p><p>Abro los ojos. Tengo una nueva idea. Me pongo a trabajar.</p><p class="firma" id="autor"></p>
             </div>
-            
-            
             <br/>
             <h4 class="texto">Personajes</h4>
             <div class="col s6 m6 l6 ">
@@ -104,27 +102,29 @@
 
     </div>
     </div>
+     
      <script type="text/javascript">
-        
-        $(document).ready(function getTierra (idTierra) {
-            var titulo = $("#titulo");
-            var descripcion = $('#descripcion');
-            
-           $.ajax({
-                url: 'MostrarHistorias.php',
-               method: 'POST',
-               dataType: 'text',
-               data: {
-                   key: 'showStory',
-                   idTierra: idTierra,
-                   titulo: titulo.val(),
-                   descripcion: descripcion.val()                   
-               }, success: function (response) {
-                   $('.historia').append(response);
-                   getTierra(idTierra);
-                   
-               }
-           });
+        $(document).ready(funtion(){
+            $("#titulo").val("");
+            $("#descripcion").val("");
         });
          
+         
+        function view(rowID) {
+            $.ajax({
+                url: 'Hpcuatetex.php',
+                method: 'POST',
+                dataType: 'json',
+                data: {
+                    key: 'viewData',
+                    rowID: rowID,                
+                }, success: function (response){
+                    $("#titulo").html(response.titulo);
+                    $("#descripcion").html(response.descripcion;
+                }
+                
+            });
+        }
+            
+     
      </script>

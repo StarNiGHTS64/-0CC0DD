@@ -35,11 +35,9 @@
 							<td id="titulo_'.$data["idHistoria"].'">'.$data["titulo"].'</td>
                             
 							<td>
-                                <input type="button" style="margin: 2%;"onclick="viewORedit('.$data["idHistoria"].', \'view\')" value="Ver" class="btn btn-info">
-                                
-								<input type="button"  style="margin: 2%;" onclick="viewORedit('.$data["idHistoria"].', \'edit\')" value="Editar" class="btn btn-dark">
-								
-								<input type="button" style="margin: 8%;"onclick="deleteRow('.$data["idHistoria"].')" value="X" class="btn btn-warning">
+								<input type="button" onclick="viewORedit('.$data["idHistoria"].', \'edit\')" value="Editar" class="btn btn-primary">
+								<input type="button" onclick="viewORedit('.$data["idHistoria"].', \'view\')" value="Ver" class="btn">
+								<input type="button" onclick="deleteRow('.$data["idHistoria"].')" value="Eliminar" class="btn btn-danger">
 							</td>
 						</tr>
 					';
@@ -76,9 +74,5 @@
 				exit('¡Historia publicada con éito!');
 			}
 		}
-        
-        if ($_POST['key'] == 'showStory') {
-            
-        }
 	}
 ?>

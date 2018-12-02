@@ -2,10 +2,19 @@
 
 function connectDb(){
     
+    /*
+    $server = "localhost";
+    $username = "suelofer_daniela";
+    $password = "hola1234";
+    $dbname = "suelofer_mundodeyoto";
+    */
+    
     $server = "localhost";
     $username = "root";
     $password = "";
     $dbname = "mundodeyoto";
+
+    
 
     $con=mysqli_connect($server, $username, $password, $dbname);
 
@@ -240,6 +249,7 @@ function generaGraficaNino($idNino){
     $result=mysqli_query($conn, $sql);
     $return =array();
     $i=0;
+    
     while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
      $return[$i]=[
         
@@ -256,6 +266,33 @@ function generaGraficaNino($idNino){
     closeDb($conn);
     return json_encode($return);
 }
+
+function dispnino($idNino){
+    
+    $conn=connectDB();
+    $sql="SELECT n.apodo, c.nombre, nc.valor FROM nino n, nino_competencia nc, competencia c WHERE n.idNino=nc.idNino AND c.idCompetencia=nc.idCompetencia AND n.idNino='".$idNino."'";
+    $result=mysqli_query($conn, $sql);
+    $return =array();
+    $i=0;
+    
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+     $return[$i]=[
+         
+         'apodo' => $row["apodo"],        
+         'nombre' => $row["nombre"],
+
+         'valor' => $row["valor"]
+     ];
+        $i++;
+    }
+    
+    
+    //debug_to_console($linea);
+
+    closeDb($conn);
+    return json_encode($return);
+}
+ 
 
 
 /*function getDropDownGruposdeMaestro(){

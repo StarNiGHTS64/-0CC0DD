@@ -125,9 +125,11 @@ function generaGraficoNino(idNino){
 }
 function creargraph(){
     var ctx = document.getElementById("myChart");
-   if  (window.myChart != undefined || window.myChart !=null){
+    //console.log(window.myChart);
+   if  (window.myChart){
        window.myChart.clear;
        window.myChart.destroy;
+       console.log("reinicio de grafico");
    }   
 window.myChart = new Chart(ctx, {
     
