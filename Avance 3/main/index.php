@@ -1,42 +1,42 @@
 <?php
     session_start();
 
-    require("funciones.php");
+    require_once("funciones.php");
     require_once("util.php");
 
     //Limpiar datos
-    if (isset($_POST["usuario"])) {
-        $_POST["usuario"] = limpia_entrada($_POST["usuario"]);
+    if (isset($_POST['nombre'])) {
+        $_POST['nombre'] = limpia_entrada($_POST['nombre']);
     }
     
-    if (isset($_POST["contrasena"])) {
-        $_POST["contrasena"] = limpia_entrada($_POST["contrasena"]);
+    if (isset($_POST['contrasena'])) {
+        $_POST['contrasena'] = limpia_entrada($_POST['contrasena']);
     }
     
 
-
-    if (isset($_SESSION["usuario"])) {
+    if (isset($_SESSION['nombre'])) {
 
         include("../header-footer/_header.html");
         include("Yoto-Main.html");
+       
         
-    } else if (isset($_POST["usuario"]) && login($_POST["usuario"], $_POST["contrasena"]) == true) {
         
-        $_SESSION["usuario"] = $_POST["usuario"];
+        
+    } else if (isset($_POST['nombre']) && isset($_POST['contrasena']) && login($_POST['nombre'], hash('sha512', $_POST['contrasena'])) != false) {
+        $_SESSION['nombre'] = $_POST['nombre'];
             
         include("../header-footer/_header.html");
         include("Yoto-Main.html");
         
-    } else if (isset($_POST["usuario"]) && $_POST["usuario"] == "" && $_POST["contrasena"] == "" 
-                && isset($_POST["usuario"])  && isset($_POST["contrasena"]) ) {
+    } else if (isset($_POST['nombre'])  && isset($_POST["contrasena"]) && $_POST['nombre'] == '' && $_POST['contrasena'] == '' ) {
         
         $error = "Ingresa tu usuario y contraseña";
             include("../header-footer/_header.html");
             include("Yoto-Main.html");
         
-    } else if(isset($_POST["usuario"]) || isset($_POST["contrasena"]) ) {
+    } else if(isset($_POST['nombre']) || isset($_POST['contrasena']) ) {
         
-        sleep(3);
+        sleep(2);
         $error = "Usuario y/o contraseña incorrectos";
         include("../header-footer/_header.html");
         include("Yoto-Main.html");
