@@ -1,3 +1,28 @@
+<div id="tableManager" class="modal fade field">
+    <div class="modal-dialog">
+        <div class="modal-content bg-gray">
+            <div class="modal-header">
+                <h2 class="modal-titula hvr">Nueva Competencia</h2>
+            </div>
+            
+            <div class="modal-body">
+                <div id="modal-body">
+                    <div id="edit-competencia-content">
+                        <input type="text" class="form-control field bg-lgray hvr" placeholder="Competencia" id="nombre-competencia" name="nombre-competencia"><br>
+                        <textarea class="form-control field bg-lgray" id="descripción-competencia" placeholder="Descripción de la competencia" name="descripcion-competencia"></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <input type="button" class="btn btn-yoto" data-dismiss="modal" value="Cerrar">
+                <input type="button" value="Agregar" class="btn btn-yoto" data-dismiss="modal" id="upl-competencia">
+            </div>
+        </div>
+    </div>
+</div>      
+
+
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h2>Competencias</h2>
@@ -12,8 +37,8 @@
                             <td>Opciones</td>
                         </tr>
                     </thead>
-                    <tbody>
-
+                    <tbody id="tabla-competencia">
+                        
                     </tbody>
                 </table>
 

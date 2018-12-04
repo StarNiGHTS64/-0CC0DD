@@ -2,8 +2,12 @@
     require_once("../../main/funciones.php");
 
 
-    if($_POST["Response"] == "tarea-select-call"){
-        select_all_competencia();
+    if($_POST["Response"] == "competencia-view"){
+        query_all_competencia();
+    }
+
+    if($_POST["Response"][1] == "competencia-delete"){
+        delete_competencia($_POST["Response"][0]);
     }
 
     if($_POST["Response"][2] == "uploadComp"){
@@ -25,6 +29,10 @@
         }
         
         disconnect($con);
+    }
+
+    function delete_competencia($idCompetencia){
+        
     }
 
     function select_all_competencia(){
@@ -51,17 +59,19 @@
         $sql = "SELECT * FROM competencia";
         $result = mysqli_query($con,$sql);
 
-
-        $out .= '<table><tr><th>Tarea:</th><th>Descripcion:</th></tr>';
-
-
         while($row = mysqli_fetch_array($result)){
-            $out .='<tr><td>'.$row["nombre"].'</td><td>'.$row["idCompetencia"].'</td></tr>';
+            $out .='<tr><td>'.$row["idCompetencia"].'</td><td>'.$row["nombre"].'</td><td>'.$row["descripcion"].'</td><td>
+                                    
+                                <input type="button" style="margin: 3%;"onclick="viewORedit('.$row["idCompetencia"].', \'view\')" value="Ver" class="btn btn-yass">
+                                
+								<input type="button"  style="margin: 3%;" onclick="viewORedit('.$row["idCompetencia"].', \'edit\')" value="Editar" class="btn btn-edd">
+								
+								<input type="button" style="margin-left: 20%;"onclick="deleteRow('.$row["idCompetencia"].')" value="X" class="btn btn-danger ttip" data-toggle="tooltip" data-placement="right" title="Eliminar">
+                                
+                                </td></tr>';
         }
 
         disconnect($con);
-
-        $out.='</table>';
 
         echo $out;
 

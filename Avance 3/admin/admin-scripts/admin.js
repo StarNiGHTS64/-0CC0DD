@@ -23,6 +23,85 @@ $(document).ready(function() {
             });
 
             getExistingData(0, 50);
+//=====================================================================================
+    
+            function writbl(){
+                $.post("../../functionalities/Queries/Q_Tareas.php",{"Response":"lol"},function(data){
+                    $("#dispTareas").html(data);
+                    //$('#dispTareas').trigger('update');
+                });
+            }
+      
+        //Upload Tarea
+
+            $("#upl-tarea").on('click',function(event){
+                event.preventDefault();
+                var $form = $(this),
+                    nameTar = $form.find("input[name='nombreTarea']").val(),
+                    descTar = $form.find("textarea[name='descripcionTarea']").val(),
+                    idDesc = $form.find("option:selected").val();
+                $.post( "functionalities/Queries/Q_Tareas.php", {"Response": [nameTar,descTar,idDesc,"uploadTar"]}).done(function( data ) {
+                    writbl();
+                });
+            });
+    
+    
+    //=======================================================================================================================
+    
+            $.post("../../functionalities/Queries/Q_Competencias.php",{"Response":"competencia-view"}).done(function(data){
+                //alert(data);
+                $('#tabla-competencia').html(data);
+            });
+    
+            //Submit Competencia
+            $("#upl-competencia").on('click',function(){
+
+                var $form = $("#edit-competencia-content"),
+                    nameComp = $form.find("input[name='nombre-competencia']").val(),
+                    descComp = $form.find("textarea[name='descripcion-competencia']").val();
+                $.post( "../../functionalities/Queries/Q_Competencias.php", {"Response": [nameComp,descComp,"uploadComp"]}).done(function( data ) {
+                    $.post("../../functionalities/Queries/Q_Competencias.php",{"Response":"competencia-view"}).done(function(data){
+                        $('#tabla-competencia').html(data);
+                    });
+                });
+            });
+    
+    
+            
+    
+    //=======================================================================================================================
+    
+            //CRUD button: Action for delete
+            $('body').on("click",".something2",function(){
+                var $buttonVal = $(this),
+                    idTar = $(this).attr("name");
+                $.post("../../functionalities/Queries/Q_Tareas.php",{"Response":[idTar,"deleteTar"]}).done(function(data){
+                    //Empty
+                    //alert("hello world");
+                    writbl();
+                });
+            });
+    
+            //CRUD btton: ACtion for edit
+            $('body').on("click",".something1",function(){
+                var $buttonVal = $(this),
+                    idTar = $(this).attr("name");
+                    $.post("Queries/Q_Tarea.php",{"Response":[idTar,"editTar"]}).done(function(data){
+                    //alert(data);
+                    $("#editTareaModal").html(data);
+                    //writbl();
+                });
+                //upl_tarea();
+            });
+    
+    
+            //Update Select Option Event
+            $.post("../../functionalities/Queries/Q_Competencias.php",{"Response":"tarea-select-call"},function(data){
+                $('#select-competencia').append(data);
+                $('#select-competencia').trigger('contentChanged'); 
+            });
+            
+    
         });
 
         function deleteRow(rowID) {
