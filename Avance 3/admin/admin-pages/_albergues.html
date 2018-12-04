@@ -1,4 +1,41 @@
-<div class="row">
+
+<div id="tableManagerAlbergue" class="modal fade field">
+            <div class="modal-dialog">
+                <div class="modal-content bg-gray">
+                    <div class="modal-header">
+                        <h2 class="modal-titulo hvr">Nuevo Albergue</h2>
+                    </div>
+
+                    <div class="modal-body">
+                        <div id="editContentAlbergue">
+                            <input type="text" class="form-control field bg-lgray" placeholder="Nombre del albergue" id="nombreAlbergue"><br>
+                            <input type="text" class="form-control field bg-lgray" placeholder="Municipio" id="municipioAlbergue"><br>
+                            <input type="text" class="form-control field bg-lgray" placeholder="Direccion del albergue" id="direccionAlbergue"><br>
+                            <input type="hidden" id="editRowIDAlbergue" value="0">
+                        </div>
+
+                        <div id="showContentAlbergue" style="display:none;">
+                            
+                            <h3>Nombre del albergue</h3>
+                            <div id="nombreViewAlbergue"></div>
+                            <hr>
+                            <h3>Municipio</h3>
+                            <div id="municipioViewAlbergue" style="overflow-y: scroll; height: 300px;"></div>
+                            <hr>
+                            <div id="direccionViewAlbergue" style="overflow-y: scroll; height: 300px;"></div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-yoto" data-dismiss="modal" value="Cerrar" id="closeBtn" style="display: none;">
+                        <input type="button" id="manageBtn" onclick="manageDataAlbergue('addNewAlbergue')" value="Agregar" class="btn btn-yoto">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h2>Albergues</h2>
 
