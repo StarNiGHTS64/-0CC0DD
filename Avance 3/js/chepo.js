@@ -1,5 +1,6 @@
 $(document).ready(function(event){
     
+<<<<<<< HEAD
     //Initialize Form
     $('.materialSelect').formSelect();
     
@@ -11,6 +12,9 @@ $(document).ready(function(event){
     //Update Select Option Event
     $.post("Queries/Q_Competencias.php",{"Response":"tarea-select-call"},function(data){
         //alert(data); //Debug Alert
+=======
+    //$('#dispTareas').on('update',function(){});
+>>>>>>> 539cac071020343b58be977ff2fe75c3b8e5b6e9
 
         $('#select-competencia').append(data); //Append returned values from php query
 

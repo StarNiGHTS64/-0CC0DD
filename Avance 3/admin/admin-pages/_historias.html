@@ -1,0 +1,66 @@
+<div id="tableManager" class="modal fade field">
+            <div class="modal-dialog">
+                <div class="modal-content bg-gray">
+                    <div class="modal-header">
+                        <h2 class="modal-titulo hvr">Nueva Historia</h2>
+                    </div>
+
+                    <div class="modal-body">
+                        <div id="editContent">
+                            <input type="text" class="form-control field bg-lgray" placeholder="Título" id="titulo"><br>
+                            
+                            Tierra:  <select class="custom-select field bg-lgray hvr" id="tierra">
+                                <option value="Azul">Azul</option>
+                                <option value="Amarilla">Amarilla</option>
+                                <option value="Rosa">Rosa</option>
+                                <option value="Blanca">Blanca</option>
+                                <option value="Verde">Verde</option>
+                                <option value="Roja">Roja</option>
+                                <option value="Morada">Morada</option>
+                            </select><br><br>
+                            
+                            <textarea class="form-control field bg-lgray" id="autor" placeholder="Autor"></textarea><br>
+                            <textarea class="form-control field bg-lgray" id="descripcion" placeholder="Cuneta la historia"></textarea><br>
+                            <input type="hidden" id="editRowID" value="0">
+                        </div>
+
+                        <div id="showContent" style="display:none;">
+                            
+                            <h3>Autor</h3>
+                            <div id="autorView"></div>
+                            <hr>
+                            <h3>Descripción</h3>
+                            <div id="descripcionView" style="overflow-y: scroll; height: 300px;"></div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-yoto" data-dismiss="modal" value="Cerrar" id="closeBtn" style="display: none;">
+                        <input type="button" id="manageBtn" onclick="manageData('addNew')" value="Agregar" class="btn btn-yoto">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h2>Historias</h2>
+
+                <input style="float: right" type="button" class="btn btn-yoto" id="addNew" value="Agregar">
+                <br><br>
+                <table class="table table-hover table-bordered" id="tabla-de-competencias">
+                    <thead class="darks">
+                        <tr>
+                            <td>#Historia</td>
+                            <td>Tierra</td>
+                            <td>Título</td>
+                            <td>Opciones</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+
+            </div>
+        </div>

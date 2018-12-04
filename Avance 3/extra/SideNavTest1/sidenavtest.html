@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>thenewboston</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="super.css">
+</head>
+<body>
+
+    <div id="wrapper">
+        
+        <!-- Sidebar -->
+        <nav id="sidebar-wrapper">
+            <div class="profile-view">
+                <img class="img-responsive img-rounded" src="descarga.jpg">
+                <p>Chepo [Nombre]</p>
+                <p>Administrador [Rol aquí]</p>
+            </div>
+            
+            
+            <div>
+                <ul class="sidebar-nav">
+                    
+                    <li><a href="#">Reportes</a></li>
+                    
+                    <li><a href="#" id="usuarios-btn" data-toggle="collapse" data-target="#usuarios-submenu" aria-expanded="false">Usuarios<b class="caret"></b></a>
+                        <ul class="nav collapse sub-menu" role="menu" aria-labelledby="#usuarios-btn" id="usuarios-submenu">
+                            <li><a href="#">Niños</a></li>
+                        	<li><a href="#">Maestros</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="#" id="administrar-btn" data-toggle="collapse" data-target="#administrar-submenu" aria-expanded="false">Administrar<b class="caret"></b></a>
+                        <ul class="nav collapse sub-menu" role="menu" aria-labelledby="#administrar-btn" id="administrar-submenu">
+                            <li><a href="#">Plan de estudios</a></li>
+                        	<li><a href="#">Tareas</a></li>
+                            <li><a href="#">Niveles</a></li>
+                            <li><a href="#">Grupos</a></li>
+                            <li><a href="#">Equipos</a></li>
+                            <li><a href="#">Albergues</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="#">Competencias</a></li>
+                    <li><a href="#">Historias</a></li>
+                </ul>
+            </div>
+            
+        </nav>
+
+        <!-- Page content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <nav class="navbar navbar-light bg-light">
+                        <a href="#" class="btn side-bar-button nav-item" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger white"></span></a>
+
+                        <div id="text-pos" class="navheader nav-item">
+                             <span class="navbar-brand mb-0 h1">Panel de control</span>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <!-- Menu toggle script -->
+    <script>
+        $("#menu-toggle").click( function (e){
+            e.preventDefault();
+            $("#wrapper").toggleClass("menuDisplayed");
+        });
+    </script>
+
+</body>
+</html>

@@ -1,10 +1,15 @@
 <!DOCTYPE html>
+<?php
+    error_reporting(0);
+?>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <title>Test</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="css/personaje.css">
+    
 
     
 </head>
@@ -18,19 +23,46 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h2 class="modal-title">Registrar Nivel</h2>
+                        <h2 class="modal-title">Registrar Personaje</h2>
                     </div>
                     <div class="modal-body">
                         <div id="editContent">
-                            <input type="text" class="form-control" placeholder="Nombre Nivel.." id="nombre"><br>
-                            <textarea class="form-control" id="descripcion" placeholder="Direccion Description"></textarea><br>
+                            <input type="text" class="form-control" placeholder="Ali" id="nombrePersonaje"><br>
+                            <textarea class="form-control" id="biografia" placeholder="Descripcion del personaje..."></textarea><br>
+                            <input type="text" class="form-control" placeholder="40" id="fuerza"><br>
+                            <input type="text" class="form-control" placeholder="75" id="mente"><br>
+                            <input type="text" class="form-control" placeholder="80" id="simpatia"><br>
+                            <input type="text" class="form-control" placeholder="95" id="magia"><br>
+                            <input type="text" class="form-control" placeholder="75" id="cultivos"><br>
+                            <input type="text" class="form-control" placeholder="80" id="tecnologia"><br>
+                            <input type="text" class="form-control" placeholder="60" id="carisma"><br>
                             <input type="hidden" id="editRowID" value="0">
+                            
                         </div>
                         <div id="showContent" style="display: none">
-                            <h3>Descripcion</h3>
-                            <div id="descripcionView"></div>
+                            <h3>Biografia</h3>
+                            <div id="biografiaView"></div>
                             <hr>
-                            
+                            <h3>Fuerza</h3>
+                            <div id="fuerzaView"></div>
+                            <hr>
+                            <h3>Mente</h3>
+                            <div id="menteView"></div>
+                            <hr>
+                            <h3>Simpatia</h3>
+                            <div id="simpatiaView"></div>
+                            <hr>
+                            <h3>Magia</h3>
+                            <div id="magiaView"></div>
+                            <hr>
+                            <h3>Cultivos</h3>
+                            <div id="cultivosView"></div>
+                            <hr>
+                            <h3>Tecnologia</h3>
+                            <div id="tecnologiaView"></div>
+                            <hr>
+                            <h3>Carisma</h3>
+                            <div id="carismaView"></div>
                         </div>
                         
                     </div>
@@ -48,7 +80,7 @@
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h2>Niveles</h2>
+                <h2>Personajes</h2>
 
                 <input style="float: right" type="button" class="btn btn-success" id="addNew" value="Add New">
                 <br><br>
@@ -57,6 +89,8 @@
                         <tr>
                             <td>ID</td>
                             <td>Nombre</td>
+                            <td>Biografia</td>
+                            <td>imagen</td>
                             <td>Opciones</td>
                         </tr>
                     </thead>
@@ -84,8 +118,15 @@
                $("#showContent").fadeOut();
                $("#editContent").fadeIn();
                $("#editRowID").val(0);
-               $("#descripcion").val("");
-               $("#nombre").val("");
+               $("#carisma").val("");
+               $("#tecnologia").val("");
+               $("#cultivos").val("");
+               $("#magia").val("");
+               $("#simpatia").val("");
+               $("#mente").val("");
+               $("#fuerza").val("");
+               $("#biografia").val("");
+               $("#nombrePersonaje").val("");
                $("#closeBtn").fadeOut();
                $("#manageBtn").attr('value', 'Add New').attr('onclick', "manageData('addNew')").fadeIn();
             });
@@ -96,14 +137,14 @@
         function deleteRow(rowID) {
             if (confirm('Esta seguro de querer eliminar?')) {
                 $.ajax({
-                    url: 'level.php',
+                    url: 'personaje.php',
                     method: 'POST',
                     dataType: 'text',
                     data: {
                         key: 'deleteRow',
                         rowID: rowID
                     }, success: function (response) {
-                        $("#country_"+rowID).parent().remove();
+                        $("#personaje_"+rowID).parent().remove();
                         alert(response);
                     }
                 });
@@ -114,7 +155,7 @@
         
         function viewORedit(rowID, type) {
             $.ajax({
-                url: 'level.php',
+                url: 'personaje.php',
                 method: 'POST',
                 dataType: 'json',
                 data: {
@@ -124,20 +165,34 @@
                     if (type == "view") {
                         $("#showContent").fadeIn();
                         $("#editContent").fadeOut();
-                        $("#descripcionView").html(response.descripcion);
+                        $("#biografiaView").html(response.biografia);
+                        $("#fuerzaView").html(response.fuerza);
+                        $("#menteView").html(response.mente);
+                        $("#simpatiaView").html(response.simpatia);
+                        $("#magiaView").html(response.magia);
+                        $("#cultivosView").html(response.cultivos);
+                        $("#tecnologiaView").html(response.tecnologia);
+                        $("#carismaView").html(response.carisma);
                         $("#manageBtn").fadeOut();
                         $("#closeBtn").fadeIn();
                     } else {
                         $("#editContent").fadeIn();
                         $("#editRowID").val(rowID);
                         $("#showContent").fadeOut();
-                        $("#descripcion").val(response.descripcion);
-                        $("#nombre").val(response.nombre);
+                        $("#nombrePersonaje").val(response.nombrePersonaje);
+                        $("#biografia").val(response.biografia);
+                        $("#fuerza").val(response.fuerza);
+                        $("#mente").val(response.mente);
+                        $("#simpatia").val(response.simpatia);
+                        $("#magia").val(response.magia);
+                        $("#cultivos").val(response.cultivos);
+                        $("#tecnologia").val(response.tecnologia);
+                        $("#carisma").val(response.carisma);
                         $("#closeBtn").fadeOut();
                         $("#manageBtn").attr('value', 'Save Changes').attr('onclick', "manageData('updateRow')");
                     }
 
-                    $(".modal-title").html(response.nombre);
+                    $(".modal-title").html(response.nombrePersonaje);
                     $("#tableManager").modal('show');
                 }
             });
@@ -147,7 +202,7 @@
         
         function getExistingData(start, limit) {
             $.ajax({
-                url: 'level.php',
+                url: 'personaje.php',
                 method: 'POST',
                 dataType: 'text',
                 data: {
@@ -168,27 +223,48 @@
         /*Add a new country to the table*/
         
         function manageData(key) {
-            var nombre = $("#nombre");
-            var descripcion = $("#descripcion");
+            var nombrePersonaje = $("#nombrePersonaje");
+            var biografia = $("#biografia");
+            var fuerza = $("#fuerza");
+            var mente = $("#mente");
+            var simpatia = $("#simpatia");
+            var magia = $("#magia");
+            var cultivos = $("#cultivos");
+            var tecnologia = $("#tecnologia");
+            var carisma = $("#carisma");
             var editRowID = $("#editRowID");
 
-            if (isNotEmpty(nombre) && isNotEmpty(descripcion)) {
+            if (isNotEmpty(nombrePersonaje) && isNotEmpty(biografia) && isNotEmpty(fuerza) && isNotEmpty(mente) && isNotEmpty(simpatia) && isNotEmpty(magia) && isNotEmpty(cultivos) && isNotEmpty(tecnologia) && isNotEmpty(carisma)) {
                 $.ajax({
-                   url: 'level.php',
+                   url: 'personaje.php',
                    method: 'POST',
                    dataType: 'text',
                    data: {
                        key: key,
-                       nombre: nombre.val(),
-                       descripcion: descripcion.val(),
+                       nombrePersonaje: nombrePersonaje.val(),
+                       biografia: biografia.val(),
+                       fuerza: fuerza.val(),
+                       mente: mente.val(),
+                       simpatia: simpatia.val(),
+                       magia: magia.val(),
+                       cultivos: cultivos.val(),
+                       tecnologia: tecnologia.val(),
+                       carisma: carisma.val(),
                        rowID: editRowID.val()
                    }, success: function (response) {
                        if (response != "success")
                            alert(response);
                        else {
-                           $("#country_"+editRowID.val()).html(nombre.val());
-                           nombre.val('');
-                           descripcion.val('');
+                           $("#personaje_"+editRowID.val()).html(nombrePersonaje.val());
+                           nombrePersonaje.val('');
+                           biografia.val('');
+                           fuerza.val('');
+                           mente.val('');
+                           simpatia.val('');
+                           magia.val('');
+                           cultivos.val('');
+                           tecnologia.val('');
+                           carisma.val('');
                            $("#tableManager").modal('hide');
                            $("#manageBtn").attr('value', 'Add').attr('onclick', "manageData('addNew')");
                        }
