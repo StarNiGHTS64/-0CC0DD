@@ -1,75 +1,80 @@
-<div id="tableManagerNino" class="modal fade field">
-    <div class="modal-dialog">
-        <div class="modal-content bg-gray">
-            <div class="modal-header">
-                <h2 class="modal-titulo hvr">Agregar Niño</h2>
-            </div>
+        <div id="tableManagerNino" class="modal fade field">
+            <div class="modal-dialog">
+                <div class="modal-content bg-gray">
+                    <div class="modal-header">
+                        <h2 class="modal-titulo hvr">Agregar Niño</h2>
+                    </div>
 
-            <div class="modal-body">
-                <div id="editContentNino">
-                    <input type="text" class="form-control field bg-lgray" placeholder="Nombre" id="nombreNino"><br>
-                    <input type="text" class="form-control field bg-lgray" placeholder="Apellido Paterno" id="aPaternoNino"><br>
-                    <input type="text" class="form-control field bg-lgray" placeholder="Apellido Materno" id="aMaternoNino"><br>
-                    <textarea class="form-control field bg-lgray" id="correoNino" placeholder="Correo Electrónico"></textarea><br>
-                    <!--select class="custom-select field bg-lgray hvr" id="tierra">
-                        <option value="Azul">Azul</option>
-                        <option value="Amarilla">Amarilla</option>
-                        <option value="Rosa">Rosa</option>
-                        <option value="Blanca">Blanca</option>
-                        <option value="Verde">Verde</option>
-                        <option value="Roja">Roja</option>
-                        <option value="Morada">Morada</option>
-                    </select><br><br-->
+                    <div class="modal-body">
+                        <div id="editContentNino">
+                            <input type="text" class="form-control field bg-lgray" placeholder="Nombre" id="nombreNino"><br>
+                            <input type="text" class="form-control field bg-lgray" placeholder="Apellido Paterno" id="aPaternoNino"><br>
+                            <input type="text" class="form-control field bg-lgray" placeholder="Apellido Materno" id="aMaternoNino"><br>
+                            <textarea class="form-control field bg-lgray" id="correoNino" placeholder="Correo Electrónico"></textarea><br>
+                            <!--select class="custom-select field bg-lgray hvr" id="tierra">
+                                <option value="Azul">Azul</option>
+                                <option value="Amarilla">Amarilla</option>
+                                <option value="Rosa">Rosa</option>
+                                <option value="Blanca">Blanca</option>
+                                <option value="Verde">Verde</option>
+                                <option value="Roja">Roja</option>
+                                <option value="Morada">Morada</option>
+                            </select><br><br-->
 
-                    
-                    
-                    <input type="hidden" id="editRowIDNino" value="0">
+
+
+                            <input type="hidden" id="editRowIDNino" value="0">
+                        </div>
+
+                        <div id="showContentNino" style="display:none;">
+                            <h3>Nombre</h3>
+                            <div id="nombreViewNino"></div>
+                            <hr>
+                            <h3>Apellido Paterno</h3>
+                            <div id="aPaternoViewNino"></div>
+                            <hr>
+                            <h3>Apellido Materno</h3>
+                            <div id="aMaternoViewNino"></div>
+                            <hr>
+                            <h3>Correo Electrónico</h3>
+                            <div id="correoViewNino"></div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-yoto" data-dismiss="modal" value="Cerrar" id="closeBtnNino" style="display: none;">
+                        <input type="button" id="manageBtnNino" onclick="manageDataNino('addNewNino')" value="Agregar" class="btn btn-yoto">
+                    </div>
                 </div>
-
-                <div id="showContentNino" style="display:none;">
-                    <h3>Nombre</h3>
-                    <div id="nombreViewNino"></div>
-                    <hr>
-                    <h3>Apellido Paterno</h3>
-                    <div id="aPaternoViewNino"></div>
-                    <hr>
-                    <h3>Apellido Materno</h3>
-                    <div id="aMaternoViewNino"></div>
-                    <hr>
-                    <h3>Correo Electrónico</h3>
-                    <div id="correoViewNino"></div>
-                </div>
             </div>
+        </div>
 
-            <div class="modal-footer">
-                <input type="button" class="btn btn-yoto" data-dismiss="modal" value="Cerrar" id="closeBtnNino" style="display: none;">
-                <input type="button" id="manageBtnNino" onclick="manageDataNino('addNewNino')" value="Agregar" class="btn btn-yoto">
+        <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h2>Niños</h2>
+
+                        <input style="float: right" type="button" class="btn btn-yoto" id="addNewNino" value="Agregar">
+                        <br><br>
+                        <table class="table table-hover table-bordered">
+                            <thead class="darks">
+                                <tr>
+                                    <td>#Niño</td>
+                                    <td>Nombre</td>
+                                    <td>Apellido Paterno</td>
+                                    <td>Apellido Materno</td>
+                                    <td>Correo Electrónico</td>
+                                    <td>Opciones</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
-<div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h2>Niños</h2>
-
-                <input style="float: right" type="button" class="btn btn-yoto" id="addNewNino" value="Agregar">
-                <br><br>
-                <table class="table table-hover table-bordered">
-                    <thead class="darks">
-                        <tr>
-                            <td>#Niño</td>
-                            <td>Nombre</td>
-                            <td>Apellido Paterno</td>
-                            <td>Apellido Materno</td>
-                            <td>Correo Electrónico</td>
-                            <td>Opciones</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                    </tbody>
-                </table>
-
-            </div>
-        </div>
+<script>getScript("../admin-scripts/admin.js",2)</script>
