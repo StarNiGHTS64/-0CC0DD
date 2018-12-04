@@ -1,94 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <meta charset="UTF-8">
-    <title>Historias</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/dataTables.bootstrap.min.css">
-    <link rel="stylesheet" href="../css/tablasadmin.css">
-</head>
-<body>
-
-    <div class="container" style="margin-top: 30px;">
-
-        <div id="tableManager" class="modal fade field">
-            <div class="modal-dialog">
-                <div class="modal-content bg-gray">
-                    <div class="modal-header">
-                        <h2 class="modal-titulo hvr">Nueva Historia</h2>
-                    </div>
-
-                    <div class="modal-body">
-                        <div id="editContent">
-                            <input type="text" class="form-control field bg-lgray" placeholder="Título" id="titulo"><br>
-                            
-                            Tierra:  <select class="custom-select field bg-lgray hvr" id="tierra">
-                                <option value="Azul">Azul</option>
-                                <option value="Amarilla">Amarilla</option>
-                                <option value="Rosa">Rosa</option>
-                                <option value="Blanca">Blanca</option>
-                                <option value="Verde">Verde</option>
-                                <option value="Roja">Roja</option>
-                                <option value="Morada">Morada</option>
-                            </select><br><br>
-                            
-                            <textarea class="form-control field bg-lgray" id="autor" placeholder="Autor"></textarea><br>
-                            <textarea class="form-control field bg-lgray" id="descripcion" placeholder="Cuneta la historia"></textarea><br>
-                            <input type="hidden" id="editRowID" value="0">
-                        </div>
-
-                        <div id="showContent" style="display:none;">
-                            
-                            <h3>Autor</h3>
-                            <div id="autorView"></div>
-                            <hr>
-                            <h3>Descripción</h3>
-                            <div id="descripcionView" style="overflow-y: scroll; height: 300px;"></div>
-                        </div>
-                    </div>
-
-                    <div class="modal-footer">
-                        <input type="button" class="btn btn-yoto" data-dismiss="modal" value="Cerrar" id="closeBtn" style="display: none;">
-                        <input type="button" id="manageBtn" onclick="manageData('addNew')" value="Agregar" class="btn btn-yoto">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h2>Historias</h2>
-
-                <input style="float: right" type="button" class="btn btn-yoto" id="addNew" value="Agregar">
-                <br><br>
-                <table class="table table-hover table-bordered">
-                    <thead class="darks">
-                        <tr>
-                            <td>#Historia</td>
-                            <td>Tierra</td>
-                            <td>Título</td>
-                            <td>Opciones</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                    </tbody>
-                </table>
-
-            </div>
-        </div>
-    </div>
-        
-        
-    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="../js/jquery.dataTables.min.js" type="text/javascript"></script>
-    <script src="../js/dataTables.bootstrap.min.js" type="text/javascript"></script>
-        
-        
-        <script type="text/javascript">
-            
-        $(document).ready(function() {
+$(document).ready(function() {
+            $("#menu-toggle").click( function (e){
+                e.preventDefault();
+                $("#wrapper").toggleClass("menuDisplayed");
+            });
+    
+    
             $("#addNew").on('click', function () {
                $("#tableManager").modal('show');
             });
@@ -112,7 +28,7 @@
         function deleteRow(rowID) {
             if (confirm('¿Deseas eliminar la historia?')) {
                 $.ajax({
-                    url: 'agregaHistoria.php',
+                    url: '../../functionalities/agregaHistoria.php',
                     method: 'POST',
                     dataType: 'text',
                     data: {
@@ -129,7 +45,7 @@
 
         function viewORedit(rowID, type) {
             $.ajax({
-                url: 'agregaHistoria.php',
+                url: '../../functionalities/agregaHistoria.php',
                 method: 'POST',
                 dataType: 'json',
                 data: {
@@ -164,7 +80,7 @@
 
         function getExistingData(start, limit) {
             $.ajax({
-                url: 'agregaHistoria.php',
+                url: '../../functionalities/agregaHistoria.php',
                 method: 'POST',
                 dataType: 'text',
                 data: {
@@ -172,12 +88,12 @@
                     start: start,
                     limit: limit
                 }, success: function (response) {
-                    if (response != "reachedMax") {
+                    if (response == "reachedMax") {
+                        $(".table").DataTable();
+                    } else
                         $('tbody').append(response);
                         start += limit;
                         getExistingData(start, limit);
-                    } else
-                        $(".table").DataTable();
                 }
             });
         }
@@ -191,7 +107,7 @@
 
             if (isNotEmpty(titulo) && isNotEmpty(tierra) && isNotEmpty(autor) && isNotEmpty(descripcion)) {
                 $.ajax({
-                   url: 'agregaHistoria.php',
+                   url: '../../functionalities/agregaHistoria.php',
                    method: 'POST',
                    dataType: 'text',
                    data: {
@@ -238,10 +154,4 @@
             
             return true;
         }
-    </script>
-        
-    </body>
-    <footer>
-
-    </footer>
-</html>
+});

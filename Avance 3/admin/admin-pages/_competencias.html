@@ -1,64 +1,18 @@
-<!-- Button trigger modal -->
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<!--
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 style="display: inline-block" class="modal-title" id="exampleModalLabel">Modal title</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div> -->
-
 <div id="exampleModal" class="modal fade field">
             <div class="modal-dialog">
                 <div class="modal-content bg-gray">
                     <div class="modal-header">
-                        <h2 class="modal-titulo hvr">Nueva Historia</h2>
+                        <h2 class="modal-titulo hvr">Nueva Competencia</h2>
                     </div>
 
                     <div class="modal-body">
                         <div id="editContent">
-                            <input type="text" class="form-control field bg-lgray" placeholder="Título" id="titulo"><br>
+                            <input type="text" class="form-control field bg-lgray" placeholder="Nombre de la competencia" id="nombre-competencia"><br>
                             
-                            Tierra:  <select class="custom-select field bg-lgray hvr" id="tierra">
-                                <option value="Azul">Azul</option>
-                                <option value="Amarilla">Amarilla</option>
-                                <option value="Rosa">Rosa</option>
-                                <option value="Blanca">Blanca</option>
-                                <option value="Verde">Verde</option>
-                                <option value="Roja">Roja</option>
-                                <option value="Morada">Morada</option>
-                            </select><br><br>
-                            
-                            <textarea class="form-control field bg-lgray" id="autor" placeholder="Autor"></textarea><br>
-                            <textarea class="form-control field bg-lgray" id="descripcion" placeholder="Cuneta la historia"></textarea><br>
+                            <textarea class="form-control field bg-lgray" id="descripcion-competencia" placeholder="Descripción de la competencia"></textarea><br>
                             <input type="hidden" id="editRowID" value="0">
-                        </div>
-
-                        <div id="showContent" style="display:none;">
                             
-                            <h3>Autor</h3>
-                            <div id="autorView"></div>
-                            <hr>
-                            <h3>Descripción</h3>
-                            <div id="descripcionView" style="overflow-y: scroll; height: 300px;"></div>
+                            
                         </div>
                     </div>
 
@@ -72,16 +26,15 @@
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h2>Historias</h2>
-
+                <h2>Competencias</h2>
                 <input style="float: right" type="button" class="btn btn-yoto" id="addNew" value="Agregar">
                 <br><br>
                 <table class="table table-hover table-bordered">
                     <thead class="darks">
                         <tr>
-                            <td>#Historia</td>
-                            <td>Tierra</td>
-                            <td>Título</td>
+                            <td>#Competencia</td>
+                            <td>Nombre</td>
+                            <td>Descripción</td>
                             <td>Opciones</td>
                         </tr>
                     </thead>
