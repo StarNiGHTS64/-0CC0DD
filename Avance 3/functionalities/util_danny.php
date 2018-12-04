@@ -353,6 +353,37 @@ function dispPersonaje($tierra){
     return json_encode($return);
 }
 
+
+
+
+function dispMision($idComp){
+    
+    $conn=connectDB();
+    $sql="SELECT nombre, descripcion FROM `tarea` WHERE idCompetencia='".$idComp."'";
+    
+    $result=mysqli_query($conn, $sql);
+    $return =array();
+    $i=0;
+    
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+     $return[$i]=[
+        
+         'nombre' => utf8_encode($row["nombre"]),
+
+         'descripcion' => utf8_encode($row["descripcion"])
+     ];
+        $i++;
+    }
+    
+    
+    //debug_to_console($linea);
+
+    closeDb($conn);
+    return json_encode($return);
+}
+
+
+
 /*function getDropDownGruposdeMaestro(){
     $conn=connectDB();
     $aux=(getGrupodeMaestro(1));
