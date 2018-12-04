@@ -4,7 +4,4 @@
 	include("_hpcuatetex.html");
     include("../header-footer/_footer.html");
 
-  
-
-
 ?>
