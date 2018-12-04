@@ -294,6 +294,31 @@ function dispnino($idNino){
 }
  
 
+    
+function dispHistoria($tierra){
+    
+    $conn=connectDB();
+    $sql="SELECT titulo, descripcion FROM historia WHERE tierra LIKE '".$tierra."%'";
+    $result=mysqli_query($conn, $sql);
+    $return =array();
+    $i=0;
+    
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+     $return[$i]=[
+        
+         'titulo' => $row["titulo"],
+
+         'descripcion' => utf8_encode($row["descripcion"])
+     ];
+        $i++;
+    }
+    
+    
+    //debug_to_console($linea);
+
+    closeDb($conn);
+    return json_encode($return);
+}
 
 /*function getDropDownGruposdeMaestro(){
     $conn=connectDB();

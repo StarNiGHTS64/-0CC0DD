@@ -9,6 +9,7 @@ function displayatri(){
             console.log(datos);
             var str= "";
             var arr=["yalliz", "cuatetex", "xayacatl", "nacoxtli", "lyotl", "yeztli", "xihtli"];
+        
             str += "<li><div class='user-view'><a href='#name'><span class='black-text name'><h4 class='texto'>"+data[1].apodo+"</h4></span></a></div></li><li><img class='iconoAvatar' src='../img/MargaritoPng.png' alt='Avatar'></li><div class='texto atributos'>";
         
           for(var i=0; i<data.length; i++){
