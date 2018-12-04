@@ -1,0 +1,115 @@
+#sidebar-wrapper {
+    z-index: 1;
+    position: absolute;
+    width: 0;
+    height: 100%;
+    overflow-y: hidden;
+    background: #000;
+    opacity: 0.9;
+    transition:all 0.5s;
+}
+
+/* Always take up entire screen */
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+    transition: all 0.5s;
+}
+
+
+/* Change with of sidebar from 0 to 250px */
+#wrapper.menuDisplayed #sidebar-wrapper {
+    width: 15em;
+}
+
+/* Since we added left padding, we need to shrink the width by 250px */
+#wrapper.menuDisplayed #page-content-wrapper {
+    padding-left: 15em;
+}
+
+
+/* Sidebar styling - the entire ul list */
+.sidebar-nav {
+    padding: 0;
+    padding-top: 2em;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 20px;
+    line-height: 40px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #ddd;
+}
+
+.sidebar-nav li a:hover {
+    background: white;
+    color: black;
+}
+
+
+.profile-view{
+    padding-top: 2em;
+    color: black;
+    background: white;
+    text-align: center;
+}
+
+.profile-view p{
+    font-size: 1em;
+}
+
+.profile-view img{
+    background: white;
+    display: inline-block;
+    padding: 0;
+    line-height: 50%;
+    width: 50%;
+    height: 50%;
+}
+
+.sub-menu li a{
+    padding-left: 13%;
+}
+
+.caret{
+    margin-left: 5% !important;
+}
+
+.side-bar-button{
+    background: #000;
+}
+
+.white{
+    color: white;
+}
+
+.navheader{
+    float: left;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+    display: inline;
+}
+
+.navbar-brand{
+    float: none;
+}
+
+.navbar{
+    background-color: lightgray;
+}
+
+#menu-toggle{
+    margin-top: 0.8em;
+    margin-left: 1em;
+}
+
+#text-pos{
+    margin-top: -2.8em;
+}

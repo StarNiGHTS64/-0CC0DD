@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin</title>
+    <meta charset="utf-8">
+    <!--
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/super.css">
+    <link rel="stylesheet" href="../../css/dataTables.bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/tablasadmin.css">
+</head>
+<body>
+
+    <div id="wrapper" class="container-fluid">
+        
+        <!-- Sidebar -->
+        <nav id="sidebar-wrapper">
+            <div class="profile-view">
+                <img class="img-responsive img-rounded" src="../../img/AdminPic.jpg">
+                <p>Chepo [Nombre]</p>
+                <p>Administrador [Rol aquí]</p>
+            </div>
+            
+            
+            <div>
+                <ul class="sidebar-nav">
+                    
+                    <li><a href="reportes.php">Reportes</a></li>
+                    
+                    <li><a href="#" id="usuarios-btn" data-toggle="collapse" data-target="#usuarios-submenu" aria-expanded="false">Usuarios<b class="caret"></b></a>
+                        <ul class="nav collapse sub-menu" role="menu" aria-labelledby="#usuarios-btn" id="usuarios-submenu">
+                            <li><a href="ninos.php">Niños</a></li>
+                        	<li><a href="maestros.php">Maestros</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="#" id="administrar-btn" data-toggle="collapse" data-target="#administrar-submenu" aria-expanded="false">Administrar<b class="caret"></b></a>
+                        <ul class="nav collapse sub-menu" role="menu" aria-labelledby="#administrar-btn" id="administrar-submenu">
+                            <li><a href="planestudios.php">Plan de estudios</a></li>
+                        	<li><a href="tareas.php">Tareas</a></li>
+                            <li><a href="niveles.php">Niveles</a></li>
+                            <li><a href="grupos.php">Grupos</a></li>
+                            <li><a href="equipos.php">Equipos</a></li>
+                            <li><a href="albergues.php">Albergues</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="competencias.php">Competencias</a></li>
+                    <li><a href="historias.php">Historias</a></li>
+                </ul>
+            </div>
+            
+        </nav>
+
+        <!-- Page content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <nav class="navbar navbar-light bg-light">
+                        <a href="#" class="btn side-bar-button nav-item" id="menu-toggle"><span class="glyphicon glyphicon-menu-hamburger white"></span></a>
+
+                        <div id="text-pos" class="navheader nav-item">
+                             <span class="navbar-brand mb-0 h1">Panel de control</span>
+                        </div>
+                    </nav>
