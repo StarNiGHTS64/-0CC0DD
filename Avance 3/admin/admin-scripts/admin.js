@@ -1,10 +1,10 @@
-$(document).ready(function() {
             $("#menu-toggle").click( function (e){
                 e.preventDefault();
                 $("#wrapper").toggleClass("menuDisplayed");
             });
-    
-    //////////////////////  BEGIN NINO  /////////////////////////////////////////////
+
+ $(document).ready(function() {
+            //////////////////////  BEGIN NINO  /////////////////////////////////////////////
     
             $("#addNewNino").on('click', function () {
                $("#tableManagerNino").modal('show');
@@ -24,37 +24,15 @@ $(document).ready(function() {
             });
 
             getExistingDataNino(0, 50);
-            //////////////////  END NINO  //////////////////////////////
-    
-            ////////////////////////////////////////////////
-    
-            $("#addNew").on('click', function () {
-               $("#tableManager").modal('show');
-            });
-
-                $("#tableManager").on('hidden.bs.modal', function () {
-                $("#showContentNino").fadeOut();
-                $("#editContentNino").fadeIn();
-                $("#editRowIDNino").val(0);
-                $("#nombreNino").val("");
-                $("#aPaternoNino").val("");
-                $("#aMaternoNino").val("");
-                $("#correoNino").val("");
-                $("#closeBtnNino").fadeOut();
-                $("#manageBtnNino").attr('value', 'Agregar').attr('onclick', "manageDataNino('addNewNino')").fadeIn();
-                $(".modal-titulo").html('Agregar Niño');
-            });
-
-            //getExistingData(0, 50);
-
-        /////////////////////////////////////////////////////////////////////////
-    
+            
         });
+
+//////////////////  END NINO  //////////////////////////////
 
         function deleteRowNino(rowID) {
             if (confirm('¿Deseas el registro del niño?')) {
                 $.ajax({
-                    url: '../admin.php',
+                    url: '../admin-queries/admin.php',
                     method: 'POST',
                     dataType: 'text',
                     data: {
@@ -73,7 +51,7 @@ $(document).ready(function() {
 
         function viewOReditNino(rowID, type) {
             $.ajax({
-                url: '../admin.php',
+                url: '../admin-queries/admin.php',
                 method: 'POST',
                 dataType: 'json',
                 data: {
@@ -109,7 +87,7 @@ $(document).ready(function() {
 
         function getExistingDataNino(start, limit) {
             $.ajax({
-                url: '../admin.php',
+                url: '../admin-queries/admin.php',
                 method: 'POST',
                 dataType: 'text',
                 data: {
@@ -136,7 +114,7 @@ $(document).ready(function() {
 
             if (isNotEmpty(nombreNino) && isNotEmpty(aPaternoNino) && isNotEmpty(aMaternoNino) && isNotEmpty(correoNino)) {
                 $.ajax({
-                   url: '../admin.php',
+                   url: '../admin-queries/admin.php',
                    method: 'POST',
                    dataType: 'text',
                    data: {
