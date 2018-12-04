@@ -22,7 +22,7 @@
         
         
         
-    } else if (isset($_POST['nombre']) && isset($_POST['contrasena']) && login($_POST['nombre'], hash('sha512', $_POST['contrasena'])) != false) {
+    } else if (isset($_POST['nombre']) && isset($_POST['contrasena']) && login($_POST['nombre'], $_POST['contrasena']) == true) {
         $_SESSION['nombre'] = $_POST['nombre'];
             
         include("../header-footer/_header.html");

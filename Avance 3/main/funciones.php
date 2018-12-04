@@ -17,31 +17,26 @@
     }
 
  function login($usuario, $contrasena) {
+     
         $conexion = mysqli_connect("localhost","root","","mundoyoto");
         
         $usuario = $conexion->real_escape_string($usuario);
         $contrasena = $conexion->real_escape_string($contrasena);
-        
+        $clave = hash('sha256', $contrasena);
          //Specification of the SQL query
-        $query='SELECT apodo FROM nino WHERE apodo = "'.$usuario.
-                '" AND contrasena = "'.$contrasena.'"';
-         // Query execution; returns identifier of the result group
-         
-        $results = $conexion->query($query);
-         // cycle to explode every line of the results
-        while ($row = mysqli_fetch_array($results, MYSQLI_BOTH)) {
-                                        // Options: MYSQLI_NUM to use only numeric indexes
-                                        //          MYSQLI_ASSOC to use only name (string) indexes
-                                        //          MYSQLI_BOTH, to use both
-
-            mysqli_free_result($results);
-            mysqli_close($conexion);
-            return $row['nombre'];
-        }
-        // it releases the associated results
-        mysqli_free_result($results);
+        $query = $conexion->query("SELECT usuario, rol FROM usuario WHERE usuario = '$usuario' AND contrasena = '$clave'");
+        
+        if ($query->num_rows > 0) {
+            $data = $query->fetch_array();
+            $_SESSION['rol'] = $data['rol'];
+            $_SESSION['nombre'] = $data['usuario'];
+            return true;
+        } else 
+            return false;
+     
+     
         mysqli_close($conexion);
-        return false;
+        
     }
     
 

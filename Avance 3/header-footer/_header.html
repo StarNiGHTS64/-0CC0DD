@@ -48,7 +48,7 @@
     </div>
         
         <?php if (isset($_SESSION['nombre']) == true): ?>
-                <div class="blue-text texto">Bienvenido <?=  $_SESSION['nombre'] ?></div>
+                <div class="blue-text texto">Bienvenido <?=  $_SESSION['rol'] ?></div>
             <?php endif; ?>
     
             <?php if (isset($error)): ?>
@@ -63,12 +63,12 @@
                     <h3 class="texto">Inicio de Sesión</h3>
                         <div class="input-field">
                               <i class="material-icons prefix">perm_identity</i>
-                              <input type="text" name="usuario" class="autocomplete">
+                              <input type="text" name="nombre" id="nombre" class="autocomplete">
                               <label for="autocomplete-input"><black>Nombre de Héroe</black></label>
                         </div>
                         <div class="input-field col s6 m6 l6">
                             <i class="material-icons prefix">lock_outline</i>
-                            <input type="password" name="contrasena" class="autocomplete">
+                            <input type="password" name="contrasena" id="contrasena" class="autocomplete">
                             <label for="autocomplete-input"><black>Contraseña</black></label>
                         </div>   
                         <div class="cotainer centered">
