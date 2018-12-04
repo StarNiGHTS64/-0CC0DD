@@ -320,6 +320,39 @@ function dispHistoria($tierra){
     return json_encode($return);
 }
 
+    
+function dispPersonaje($tierra){
+    
+    $conn=connectDB();
+    $sql="SELECT nombre, descripcion, fisico, cognitivo, emociones, arte, ecologico, productivo, personal, urlPersonaje FROM personajes WHERE tierra LIKE '".$tierra."%'";
+    $result=mysqli_query($conn, $sql);
+    $return =array();
+    $i=0;
+    
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)){
+     $return[$i]=[
+        
+         'nombre' => utf8_encode($row["nombre"]),
+         'descripcion' => utf8_encode($row["descripcion"]),
+         'fisico' => utf8_encode($row["fisico"]),
+         'cognitivo' => utf8_encode($row["cognitivo"]),
+         'emociones' => utf8_encode($row["emociones"]),
+         'arte' => utf8_encode($row["arte"]),
+         'ecologico' => utf8_encode($row["ecologico"]),
+         'productivo' => utf8_encode($row["productivo"]),
+         'personal' => utf8_encode($row["personal"]),
+         'urlPersonaje' => utf8_encode($row["urlPersonaje"])
+     ];
+        $i++;
+    }
+    
+    
+    //debug_to_console($linea);
+
+    closeDb($conn);
+    return json_encode($return);
+}
+
 /*function getDropDownGruposdeMaestro(){
     $conn=connectDB();
     $aux=(getGrupodeMaestro(1));
