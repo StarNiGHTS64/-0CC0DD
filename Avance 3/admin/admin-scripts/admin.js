@@ -4,108 +4,116 @@ $(document).ready(function() {
                 $("#wrapper").toggleClass("menuDisplayed");
             });
     
+    //////////////////////  BEGIN NINO  /////////////////////////////////////////////
+    
+            $("#addNewNino").on('click', function () {
+               $("#tableManagerNino").modal('show');
+            });
+    
+                $("#tableManagerNino").on('hidden.bs.modal', function () {
+                $("#showContentNino").fadeOut();
+                $("#editContentNino").fadeIn();
+                $("#editRowIDNino").val(0);
+                $("#nombreNino").val("");
+                $("#aPaternoNino").val("");
+                $("#aMaternoNino").val("");
+                $("#correoNino").val("");
+                $("#closeBtnNino").fadeOut();
+                $("#manageBtnNino").attr('value', 'Agregar').attr('onclick', "manageDataNino('addNewNino')").fadeIn();
+                $(".modal-titulo").html('Agregar Niño');
+            });
+
+            getExistingDataNino(0, 50);
+            //////////////////  END NINO  //////////////////////////////
+    
+            ////////////////////////////////////////////////
     
             $("#addNew").on('click', function () {
                $("#tableManager").modal('show');
             });
 
-            $("#tableManager").on('hidden.bs.modal', function () {
-                $("#showContent").fadeOut();
-                $("#editContent").fadeIn();
-                $("#editRowID").val(0);
-                $("#descripcion").val("");
-                $("#autor").val("");
-                $("#tierra").val("");
-                $("#titulo").val("");
-                $("#closeBtn").fadeOut();
-                $("#manageBtn").attr('value', 'Agregar').attr('onclick', "manageData('addNew')").fadeIn();
-                $(".modal-titulo").html('Nueva Historia');
+                $("#tableManager").on('hidden.bs.modal', function () {
+                $("#showContentNino").fadeOut();
+                $("#editContentNino").fadeIn();
+                $("#editRowIDNino").val(0);
+                $("#nombreNino").val("");
+                $("#aPaternoNino").val("");
+                $("#aMaternoNino").val("");
+                $("#correoNino").val("");
+                $("#closeBtnNino").fadeOut();
+                $("#manageBtnNino").attr('value', 'Agregar').attr('onclick', "manageDataNino('addNewNino')").fadeIn();
+                $(".modal-titulo").html('Agregar Niño');
             });
 
-            getExistingData(0, 50);
-    
-//BEGIN ALBERGUE
-            $("#addNewAlbergue").on('click', function () {
-               $("#tableManagerAlbergue").modal('show');
-            });
+            //getExistingData(0, 50);
 
-            $("#tableManagerAlbergue").on('hidden.bs.modal', function () {
-                $("#showContentAlbergue").fadeOut();
-                $("#editContentAlbergue").fadeIn();
-                $("#editRowIDAlbergue").val(0);
-                $("#nombreAlbergue").val("");
-                $("#municipioAlbergue").val("");
-                $("#direccionAlbergue").val("");
-                $("#closeBtn").fadeOut();
-                $("#manageBtn").attr('value', 'Agregar').attr('onclick', "manageDataAlbergue('addNewAlbergue')").fadeIn();
-                $(".modal-titulo").html('Agregar Albergue');
-            });
-
-            getExistingDataAlbergue(0, 50); 
-//END ALBERGUE
+        /////////////////////////////////////////////////////////////////////////
     
         });
 
-        function deleteRow(rowID) {
-            if (confirm('¿Deseas eliminar la historia?')) {
+        function deleteRowNino(rowID) {
+            if (confirm('¿Deseas el registro del niño?')) {
                 $.ajax({
-                    url: '../../functionalities/agregaHistoria.php',
+                    url: '../admin.php',
                     method: 'POST',
                     dataType: 'text',
                     data: {
-                        key: 'deleteRow',
+                        key: 'deleteRowNino',
                         rowID: rowID
                     }, success: function (response) {
-                        $("#tiera_"+rowID).parent().remove();
-                        $("#titulo_"+rowID).parent().remove();
+                        $("#nombreNino_"+rowID).parent().remove();
+                        $("#aPaternoNino_"+rowID).parent().remove();
+                        $("#aMaternoNino_"+rowID).parent().remove();
+                        $("#correoNino_"+rowID).parent().remove();
                         alert(response);
                     }
                 });
             }
         }
 
-        function viewORedit(rowID, type) {
+        function viewOReditNino(rowID, type) {
             $.ajax({
-                url: '../../functionalities/agregaHistoria.php',
+                url: '../admin.php',
                 method: 'POST',
                 dataType: 'json',
                 data: {
-                    key: 'getRowData',
+                    key: 'getRowDataNino',
                     rowID: rowID
                 }, success: function (response) {
-                    if (type == "view") {
-                        $("#showContent").fadeIn();
-                        $("#editContent").fadeOut();
-                        $("#descripcionView").html(response.descripcion);
-                        $("#autorView").html(response.autor);
-                        $("#tierraView").val(response.tierra);
-                        $("#manageBtn").fadeOut();
-                        $("#closeBtn").fadeIn();
-                    } else {
-                        $("#editContent").fadeIn();
-                        $("#editRowID").val(rowID);
-                        $("#showContent").fadeOut();
-                        $("#descripcion").val(response.descripcion);
-                        $("#autor").val(response.autor);
-                        $("#titulo").val(response.titulo);
-                        $("#tierra").val(response.tierra);
-                        $("#closeBtn").fadeOut();
-                        $("#manageBtn").attr('value', 'Guardar Cambios').attr('onclick', "manageData('updateRow')");
+                    if (type == "viewNino") {
+                        $("#showContentNino").fadeIn();
+                        $("#editContentNino").fadeOut();
+                        $("#nombreViewNino").html(response.nombreNino);
+                        $("#aPaternoViewNino").html(response.aPaternoNino);
+                        $("#aMaternoViewNino").html(response.aMaternoNino);
+                        $("#correoViewNino").html(response.correoNino);
+                        $("#manageBtnNino").fadeOut();
+                        $("#closeBtnNino").fadeIn();
+                    } else if (type == "editNino") {
+                        $("#editContentNino").fadeIn();
+                        $("#editRowIDNino").val(rowID);
+                        $("#showContentNino").fadeOut();
+                        $("#nombreNino").val(response.nombreNino);
+                        $("#aPaternoNino").val(response.aPaternoNino);
+                        $("#aMaternoNino").val(response.aMaternoNino);
+                        $("#correoNino").val(response.correoNino);
+                        $("#closeBtnNino").fadeOut();
+                        $("#manageBtnNino").attr('value', 'Guardar Cambios').attr('onclick', "manageDataNino('updateRowNino')");
                     }
 
-                    $(".modal-titulo").html(response.titulo);
-                    $("#tableManager").modal('show');
+                    $(".modal-titulo").html(response.nombreNino);
+                    $("#tableManagerNino").modal('show');
                 }
             });
         }
 
-        function getExistingData(start, limit) {
+        function getExistingDataNino(start, limit) {
             $.ajax({
-                url: '../../functionalities/agregaHistoria.php',
+                url: '../admin.php',
                 method: 'POST',
                 dataType: 'text',
                 data: {
-                    key: 'getExistingData',
+                    key: 'getExistingDataNino',
                     start: start,
                     limit: limit
                 }, success: function (response) {
@@ -114,42 +122,44 @@ $(document).ready(function() {
                     } else
                         $('tbody').append(response);
                         start += limit;
-                        getExistingData(start, limit);
+                        getExistingDataNino(start, limit);
                 }
             });
         }
 
-        function manageData(key) {
-            var titulo = $("#titulo");
-            var autor = $("#autor");
-            var tierra = $("#tierra");
-            var descripcion = $("#descripcion");
-            var editRowID = $("#editRowID");
+        function manageDataNino(key) {
+            var nombreNino = $("#nombreNino");
+            var aPaternoNino = $("#aPaternoNino");
+            var aMaternoNino = $("#aMaternoNino");
+            var correoNino = $("#correoNino");
+            var editRowIDNino = $("#editRowIDNino");
 
-            if (isNotEmpty(titulo) && isNotEmpty(tierra) && isNotEmpty(autor) && isNotEmpty(descripcion)) {
+            if (isNotEmpty(nombreNino) && isNotEmpty(aPaternoNino) && isNotEmpty(aMaternoNino) && isNotEmpty(correoNino)) {
                 $.ajax({
-                   url: '../../functionalities/agregaHistoria.php',
+                   url: '../admin.php',
                    method: 'POST',
                    dataType: 'text',
                    data: {
                        key: key,
-                       titulo: titulo.val(),
-                       autor: autor.val(),
-                       tierra: tierra.val(),
-                       descripcion: descripcion.val(),
-                       rowID: editRowID.val()
+                       nombreNino: nombreNino.val(),
+                       aPaternoNino: aPaternoNino.val(),
+                       aMaternoNino: aMaternoNino.val(),
+                       correoNino: correoNino.val(),
+                       rowID: editRowIDNino.val()
                    }, success: function (response) {
                        if (response != "success")
                            alert(response);
                        else {
-                           $("#titulo_"+editRowID.val()).html(titulo.val());
-                           $("#tierra_"+editRowID.val()).html(tierra.val());
-                           titulo.val('');
-                           tierra.val('');
-                           autor.val('');
-                           descripcion.val('');
-                           $("#tableManager").modal('hide');
-                           $("#manageBtn").attr('value', 'Agregar').attr('onclick', "manageData('addNew')");
+                           $("#nombreNino_"+editRowIDNino.val()).html(nombreNino.val());
+                           $("#aPaternoNino_"+editRowIDNino.val()).html(nombreNino.val());
+                           $("#aMaternoNino_"+editRowIDNino.val()).html(nombreNino.val());
+                           $("#correoNino_"+editRowIDNino.val()).html(correoNino.val());
+                           nombreNino.val('');
+                           correoNino.val('');
+                           aPaternoNino.val('');
+                           aMaternoNino.val('');
+                           $("#tableManagerNino").modal('hide');
+                           $("#manageBtnNino").attr('value', 'Agregar').attr('onclick', "manageDataNino('addNewNino')");
                        }
                    }
                 });
