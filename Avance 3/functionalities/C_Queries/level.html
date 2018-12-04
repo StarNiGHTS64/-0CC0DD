@@ -48,7 +48,7 @@
         
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h2>MySQL Table Manager</h2>
+                <h2>Niveles</h2>
 
                 <input style="float: right" type="button" class="btn btn-success" id="addNew" value="Add New">
                 <br><br>
@@ -56,8 +56,8 @@
                     <thead>
                         <tr>
                             <td>ID</td>
-                            <td>Country Name</td>
-                            <td>Options</td>
+                            <td>Nombre</td>
+                            <td>Opciones</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -94,7 +94,7 @@
         });
         
         function deleteRow(rowID) {
-            if (confirm('Are you sure??')) {
+            if (confirm('Esta seguro de querer eliminar?')) {
                 $.ajax({
                     url: 'level.php',
                     method: 'POST',

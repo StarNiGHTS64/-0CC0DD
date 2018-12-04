@@ -1,7 +1,7 @@
 <?php
 	if (isset($_POST['key'])) {
 
-		$conn = new mysqli('localhost', 'root', '', 'mundoyoto');
+		$conn = new mysqli('localhost', 'root', '', 'mundoyotox');
 
 		if ($_POST['key'] == 'getRowData') {
 			$rowID = $conn->real_escape_string($_POST['rowID']);
@@ -28,9 +28,9 @@
 							<td>'.$data["idNivel"].'</td>
 							<td idNivel="nivel_'.$data["idNivel"].'">'.$data["nombre"].'</td>
 							<td>
-								<input type="button" onclick="viewORedit('.$data["idNivel"].', \'edit\')" value="Edit" class="btn btn-primary">
-								<input type="button" onclick="viewORedit('.$data["idNivel"].', \'view\')" value="View" class="btn">
-								<input type="button" onclick="deleteRow('.$data["idNivel"].')" value="Delete" class="btn btn-danger">
+								<input type="button" onclick="viewORedit('.$data["idNivel"].', \'edit\')" value="Editar" class="btn btn-primary">
+								<input type="button" onclick="viewORedit('.$data["idNivel"].', \'view\')" value="Consultar" class="btn">
+								<input type="button" onclick="deleteRow('.$data["idNivel"].')" value="Eliminar" class="btn btn-danger">
 							</td>
 						</tr>
 					';
@@ -44,7 +44,7 @@
 
         if ($_POST['key'] == 'deleteRow') {
 			$conn->query("DELETE FROM nivel WHERE idNivel='$rowID'");
-			exit('The Row Has Been Deleted!');
+			exit('El nivel ha sido eliminado!');
 		}
         
         /*Toma los datos de las variables y las envia en un metodo */
@@ -66,11 +66,11 @@
 		if ($_POST['key'] == 'addNew') {
 			$sql = $conn->query("SELECT idNivel FROM nivel WHERE nombre = '$nombre'");
 			if ($sql->num_rows > 0)
-				exit("nivel With This Name Already Exists!");
+				exit("Ya existe un nivel con este nombre!");
 			else {
 				$conn->query("INSERT INTO nivel (nombre, descripcion) 
 							VALUES ('$nombre', '$descripcion')");
-				exit('nivel Has Been Inserted!');
+				exit('Se agrego el nivel exitosamente');
 			}
 		}
 	}
