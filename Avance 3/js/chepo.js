@@ -69,5 +69,4 @@ $(document).ready(function(event){
         $('#select-competencia').append(data);
         $('#select-competencia').trigger('contentChanged'); 
     });
-    
 });
