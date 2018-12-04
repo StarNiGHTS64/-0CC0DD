@@ -39,16 +39,16 @@
                        <!-- <li><a data-target="working" href="#">Proyectos</a></li> -->
                         <li><button data-target="working" class="btn modal-trigger waves-effect waves-light blue-grey darken-3 ">Proyectos</button></li>
                         <li><button data-target="modals" class="btn modal-trigger waves-effect waves-light blue-grey darken-3 ">
-                        <?php if (isset($_POST["usuario"])== false): ?>Iniciar Sesión<?php endif; ?>
-                        <?php if (isset($_POST["usuario"])): ?><?=  $_POST["usuario"] ?><?php endif; ?></button></li>
+                        <?php if (isset($_SESSION['nombre'])== false): ?>Iniciar Sesión<?php endif; ?>
+                        <?php if (isset($_SESSION['nombre'])): ?><?=  $_SESSION['nombre'] ?><?php endif; ?></button></li>
                     </div>
                 </ul>
             </div>
         </nav>
     </div>
         
-        <?php if (isset($_POST["usuario"])): ?>
-                <div class="blue-text texto">Bienvenido <?=  $_POST["usuario"] ?></div>
+        <?php if (isset($_SESSION['nombre']) == true): ?>
+                <div class="blue-text texto">Bienvenido <?=  $_SESSION['rol'] ?></div>
             <?php endif; ?>
     
             <?php if (isset($error)): ?>
@@ -57,18 +57,18 @@
         
         <div id="modals" class="modal texto">
                     
-            <?php if (isset($_SESSION["usuario"]) == false): ?>
+            <?php if (isset($_SESSION['nombre']) == false): ?>
             <form action="index.php" method="POST">
                 <div class="modal-content">
                     <h3 class="texto">Inicio de Sesión</h3>
                         <div class="input-field">
                               <i class="material-icons prefix">perm_identity</i>
-                              <input type="text" name="usuario" class="autocomplete">
+                              <input type="text" name="nombre" id="nombre" class="autocomplete">
                               <label for="autocomplete-input"><black>Nombre de Héroe</black></label>
                         </div>
                         <div class="input-field col s6 m6 l6">
                             <i class="material-icons prefix">lock_outline</i>
-                            <input type="password" name="contrasena" class="autocomplete">
+                            <input type="password" name="contrasena" id="contrasena" class="autocomplete">
                             <label for="autocomplete-input"><black>Contraseña</black></label>
                         </div>   
                         <div class="cotainer centered">
@@ -83,7 +83,7 @@
             </form>
             <?php endif; ?>
             
-            <?php if (isset($_SESSION["usuario"])): ?>
+            <?php if (isset($_SESSION['nombre']) == true): ?>
                <div class="modal-content">
                     <h3 class="texto">Sesión iniciada como:</h3>                   
                    <h2 class="texto">Privilegios:
