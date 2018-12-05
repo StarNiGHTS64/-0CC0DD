@@ -10,7 +10,7 @@ $(document).ready(function(){
             var str= "";
            
             for (var i=0; i<data.length;i++){
-                 str += "<h2 class ='texto'>Misión "+i+"</h2> <h3 class='texto'>"+data[i].nombre+"</h3><p>"+data[i].descripcion+"</p><input id='last_name' type='text' class='validate' placeholder='Escribe aquí tu texto de entrega'><br/><br/><a id='boton_attach' class='btn-floating btn-large waves-effect waves-red cyan lighten-2'><i class='material-icons'>attach_file</i></a><label for='boton_attach texto'>Subir archivo</label><br/><br/>  <div class ='right-align'><button class='btn waves-effect waves-light' type='submit' name='action'>Submit <i class='material-icons right'>send</i></button></div>";
+                 str += "<h2 class ='texto'>Misión "+i+"</h2> <h3 class='texto'>"+data[i].nombre+"</h3><p>"+data[i].descripcion+"</p>  <textarea rows='30' cols='180' placeholder='Escribe aqui tu texto'></textarea><br/><br/><a id='boton_attach' class='btn-floating btn-large waves-effect waves-red cyan lighten-2'><i class='material-icons'>attach_file</i></a><label for='boton_attach texto'>Subir archivo</label><br/><br/>  <div class ='right-align'><button class='btn waves-effect waves-light' type='submit' name='action'>Submit <i class='material-icons right'>send</i></button></div></br></br>";
             }
             aux.innerHTML=str; 
             $('select').formSelect();

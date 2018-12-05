@@ -1,4 +1,5 @@
- $(document).ready(function(){
+var equipo = 0;
+$(document).ready(function(){
         $.get('ModificarCompetencia.php',{
             'idMaestro':1,
             'drop': "grupo"
@@ -100,6 +101,7 @@ function dropdownNino(idEquipo){
                  str += "<option value='"+data[i].idNino+"'>"+data[i].nombre+"</option>";
                 
             }
+            equipo=idEquipo;
             console.log(str);
             aux.innerHTML=str;
             $('select').formSelect();
@@ -114,9 +116,9 @@ function generarTabla(idEquipo, idCompetencia){
     
    console.log(idCompetencia);
     $.get('ModificarCompetencia.php',{
-        'idEquipo':equipo,
+        'idEquipo':1,
         'idCompetencia':1,
-        'drop':"tablaComp",  
+        'drop':"tablaComp"  
     }).done(function(datos){
             var aux = document.getElementById("tablaespacio");
              console.log("hola");
