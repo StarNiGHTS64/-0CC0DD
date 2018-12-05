@@ -1,24 +1,71 @@
-<div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h2>Maestros</h2>
+        <div id="tableManagerMtro" class="modal fade field">
+                    <div class="modal-dialog">
+                        <div class="modal-content bg-gray">
+                            <div class="modal-header">
+                                <h2 class="modal-titulo hvr">Registrar Maestro</h2>
+                            </div>
 
-                <input style="float: right" type="button" class="btn btn-yoto" id="addNew" value="Agregar">
-                <br><br>
-                <table class="table table-hover table-bordered">
-                    <thead class="darks">
-                        <tr>
-                            <td>#Maestro</td>
-                            <td>Nombre</td>
-                            <td>Apellido Paterno</td>
-                            <td>Apellido Materno</td>
-                            <td>Correo Electrónico</td>
-                            <td>Opciones</td>
-                        </tr>
-                    </thead>
-                    <tbody>
+                            <div class="modal-body">
+                                <div id="editContentMtro">
+                                    <input type="text" class="form-control field bg-lgray" placeholder="Nombre" id="nombreMtro"><br>
+                                    <input type="text" class="form-control field bg-lgray" placeholder="Apellido Paterno" id="aPaternoMtro"><br>
+                                    <input type="text" class="form-control field bg-lgray" placeholder="Apellido Materno" id="aMaternoMtro"><br>
 
-                    </tbody>
-                </table>
+                                    <textarea class="form-control field bg-lgray" id="correoMtro" placeholder=""></textarea><br>
+                                    <input type="password" class="form-control field bg-lgray" id="contrasenaMtro" placeholder="Contraseña"><br>
+                                    <input type="hidden" id="editRowIDMtro" value="0">
+                                </div>
 
+                                <div id="showContentMtro" style="display:none;">
+
+                                    <h3>Nombre</h3>
+                                    <div id="autorViewMtro"></div>
+                                    <hr>
+                                    <h3>Apellidos</h3>
+                                    <div id="aPaternoViewMtro"></div><div id="aMaternoViewMtro"></div>
+                                    <hr>
+                                    <h3>Correo Electrónico</h3>
+                                    <div id="correoViewMtro"></div>
+                                    <hr>
+                                    <h3>Contraseña de Acceso</h3>
+                                    <div id="contrasenaViewMtro"></div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <input type="button" class="btn btn-yoto" data-dismiss="modal" value="Cerrar" id="closeBtnMtro" style="display: none;">
+                                <input type="button" id="manageBtnMtro" onclick="manageDataMtro('addNewMtro')" value="Agregar" class="btn btn-yoto">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h2>Profesores Registrados</h2>
+
+                        <input style="float: right" type="button" class="btn btn-yoto" id="addNewMtro" value="Agregar">
+                        <br><br>
+                        <table class="table table-hover table-bordered" id="tabla-de-competencias">
+                            <thead class="darks">
+                                <tr>
+                                    <td>ID Profesor</td>
+                                    <td>Nombre</td>
+                                    <td>Apellido Paterno</td>
+                                    <td>Apellido Materno</td>
+                                    <td>Correo</td>
+                                    <td>Contraseña</td>
+                                    <td>Opciones</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
+    </div>
+</div>
+<script>getScript("../admin-scripts/adminMaestro.js",3)</script>
