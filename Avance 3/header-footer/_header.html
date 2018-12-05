@@ -35,10 +35,11 @@
                         <li><a href="../main/index.php"><c>Mundo de Yoto</c></a></li>
                         <li><a href="../main/SueloFertil.php">Suelo Fertil</a></li>
                         <li><a href="../functionalities/Taller.php">Talleres</a></li>
-                        <li><a href="../main/side.html">Admin</a></li>
+                        <?php if (isset($_SESSION['rol']) == true && $_SESSION['rol'] == 'SupRadMIN'): ?><li><a href="../admin/admin-pages/historias.php">PANEL DE CONTROL</a></li><?php endif; ?>
                        <!-- <li><a data-target="working" href="#">Proyectos</a></li> -->
-                        <li><button data-target="working" class="btn modal-trigger waves-effect waves-light blue-grey darken-3 ">Proyectos</button></li>
+                        <?php if (isset($_SESSION['rol']) == true && $_SESSION['rol'] == 'pro'): ?><li><button data-target="working" class="btn modal-trigger waves-effect waves-light blue-grey darken-3 ">Proyectos</button></li><?php endif; ?>
                         <li><button data-target="modals" class="btn modal-trigger waves-effect waves-light blue-grey darken-3 ">
+                            
                         <?php if (isset($_SESSION['nombre'])== false): ?>Iniciar Sesión<?php endif; ?>
                         <?php if (isset($_SESSION['nombre'])): ?><?=  $_SESSION['nombre'] ?><?php endif; ?></button></li>
                     </div>
@@ -47,10 +48,7 @@
         </nav>
     </div>
         
-        <?php if (isset($_SESSION['nombre']) == true): ?>
-                <div class="blue-text texto">Bienvenido <?=  $_SESSION['rol'] ?></div>
-            <?php endif; ?>
-    
+
             <?php if (isset($error)): ?>
                 <div class="red-text">Error: <?= $error ?></div>
             <?php endif; ?>
@@ -85,9 +83,8 @@
             
             <?php if (isset($_SESSION['nombre']) == true): ?>
                <div class="modal-content">
-                    <h3 class="texto">Sesión iniciada como:</h3>                   
-                   <h2 class="texto">Privilegios:
-                   </h2>
+                    <h3 class="texto">Sesión iniciada como:</h3>  <?php if (isset($_SESSION['nombre'])): ?><?=  $_SESSION['nombre'] ?><?php endif; ?> <br><br>
+                   <h2 class="texto">Sesión bajo rol:</h2>  <?php if (isset($_SESSION['rol'])): ?><?=  $_SESSION['rol'] ?><?php endif; ?> 
                 </div>
                 <div class="modal-footer">
                 
@@ -108,7 +105,7 @@
                     <h3 class="texto">Proyectos</h3>
                     
                     <div class="working-content">
-                        <h4 class="texto">KYYAAA!!! Chotto Matte Joven-San. Este apartado aun no esta disponible. Estamos trabajando para tenerla lista lo mas pronto posible. UwU</h4>
+                        <h4 class="texto">Pestaña de Proyectos únicamente disponible para Profesores.</h4>
                     </div>
 
                 </div>
