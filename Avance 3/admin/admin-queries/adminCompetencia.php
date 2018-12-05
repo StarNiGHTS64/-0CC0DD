@@ -35,11 +35,11 @@
 							<td>
 
 
-                                <input type="button" style="margin: 3%;"onclick="viewOReditCompetencia('.$data["idCompetencia"].', \'viewCompetencia\')" value="Ver" class="btn btn-yass">
+                                <input type="button" style="margin: 3%;"onclick="viewOReditCompetencia('.$data["idCompetencia"].', \'viewCompetencia\')" value="&#128065;" class="btn btn-yass">
                                 
-								<input type="button"  style="margin: 3%;" onclick="viewOReditCompetencia('.$data["idCompetencia"].', \'editCompetencia\')" value="Editar" class="btn btn-edd">
+								<input type="button"  style="margin: 3%;" onclick="viewOReditCompetencia('.$data["idCompetencia"].', \'editCompetencia\')" value="&#x270E;" class="btn btn-edd">
 								
-								<input type="button" style="margin-left: 25%;"onclick="deleteRowCompetencia('.$data["idCompetencia"].')" value="X" class="btn btn-danger ttip" data-toggle="tooltip" data-placement="right" title="Eliminar">
+								<input type="button" style="margin-left: 25%;"onclick="deleteRowCompetencia('.$data["idCompetencia"].')" value="&#x2715" class="btn btn-danger ttip" data-toggle="tooltip" data-placement="right" title="Eliminar">
 
 							</td>
 						</tr>

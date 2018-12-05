@@ -7,7 +7,7 @@
 }
 
 .btn-yoto {
-    background-color: #37474f;
+    background-color: #333;
     color: whitesmoke;
 }
 
@@ -32,9 +32,13 @@ option:hover {
 }
 
 .btn-yass {
-    background-color: #00af48;
+    background-color: lightgray;
 }
 
 .btn-edd {
-    background-color: #00b8d4;
+    background-color: lightgray;
+}
+
+.btn-yoto:hover{
+    color: whitesmoke !important;
 }
