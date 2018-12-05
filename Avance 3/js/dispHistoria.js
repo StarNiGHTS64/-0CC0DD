@@ -12,7 +12,7 @@ $(document).ready(function(){
             var str= "";
             
             for (var i=0; i<data.length;i++){
-                 str += "<h4 class='texto'>"+data[i].titulo+"</h4><p>"+ data[i].descripcion+"</p></br>";
+                 str += "<h4 class='texto'>"+data[i].titulo+"</h4><p class='story'>"+ data[i].descripcion+"</p></br>";
             }
             aux.innerHTML=str;
             $('select').formSelect();

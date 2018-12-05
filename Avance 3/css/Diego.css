@@ -67,7 +67,13 @@ atributo {
 .historia {
     padding: 2%;
     border-left: 2pt solid purple;
-    border-radius: 25px;
+    border-radius: 25px; 
+    
+    
+}
+p.story{
+    font-size: large !important;
+    
 }
 
 .mynav {
@@ -109,6 +115,7 @@ atributo {
 .texto {
     font-family: Comfortaa;
     color: black;
+    font-size: 12px !important ;
 }
 
 #yalliz {
