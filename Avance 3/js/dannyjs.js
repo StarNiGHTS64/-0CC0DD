@@ -1,4 +1,5 @@
 var equipo = 0;
+var comp=0;
 $(document).ready(function(){
         $.get('ModificarCompetencia.php',{
             'idMaestro':1,
@@ -42,7 +43,7 @@ function dropdownEquipo(idGrupo){
 }
 
 function filtroOnChange(idEquipo){
-    document.getElementById("dropFiltro").setAttribute('onchange','dropFiltro(this.value,'+idEquipo+')');
+   document.getElementById("dropFiltro").setAttribute('onchange','dropFiltro(this.value,'+idEquipo+')');
 }
 
 function dropFiltro(idFiltro, idEquipo){
@@ -50,7 +51,6 @@ function dropFiltro(idFiltro, idEquipo){
         dropdownNino(idEquipo);
          
     } else {
-        
         dropdownAtributo();  
         
     }
@@ -64,7 +64,7 @@ function dropFiltro(idFiltro, idEquipo){
 
 
 
-function dropdownAtributo(){
+function dropdownAtributo(idEquipo){
     
    $.get('ModificarCompetencia.php',{
         
@@ -79,12 +79,13 @@ function dropdownAtributo(){
             for (var i=0; i<data.length;i++){
                  str += "<option value='"+data[i].idCompetencia+"'>"+data[i].nombre+"</option>";
             }
+        equipo=idEquipo;
             console.log(str);
             aux.innerHTML=str;
             $('select').formSelect();
         });   
 }
-
+/*
 function dropdownNino(idEquipo){
     console.log(idEquipo);
     $.get('ModificarCompetencia.php',{
@@ -109,23 +110,21 @@ function dropdownNino(idEquipo){
 }
 
 
+*/
 
-
-function generarTabla(idEquipo, idCompetencia){
-    
-    
-   console.log(idCompetencia);
+function generarTabla(idCompetencia){
+  console.log(equipo);
     $.get('ModificarCompetencia.php',{
-        'idEquipo':1,
-        'idCompetencia':1,
+        'idEquipo':equipo,
+        'idCompetencia':idCompetencia,
         'drop':"tablaComp"  
     }).done(function(datos){
+          
             var aux = document.getElementById("tablaespacio");
-             console.log("hola");
             console.log(datos);
             var data = JSON.parse(datos);
            var str="";
-        console.log("hola");
+        
             for (var i=0; i<data.length;i++){
                 console.log("hola");
                  str += "<div class='input-field col s6'><p>" + data[i].nombre + "</p></div><div class='input-field col s6'><form action='#'><p class='range-field'><input type='range' min='0' max='100' value='" + data[i].valor + "'/></p></form></div>";             
