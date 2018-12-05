@@ -1,21 +1,62 @@
-<div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h2>Tareas</h2>
+ <div id="tableManagerTarea" class="modal fade field">
+            <div class="modal-dialog">
+                <div class="modal-content bg-gray">
+                    <div class="modal-header">
+                        <h2 class="modal-titulo hvr">Agregar Tarea</h2>
+                    </div>
 
-                <input style="float: right" type="button" class="btn btn-yoto" id="addNew" value="Agregar">
-                <br><br>
-                <table class="table table-hover table-bordered">
-                    <thead class="darks">
-                        <tr>
-                            <td>#Tarea</td>
-                            <td>Nombre</td>
-                            <td>Competencia Evaluada</td>
-                            <td>Opciones</td>
-                        </tr>
-                    </thead>
-                    <tbody>
+                    <div class="modal-body">
+                        <div id="editContentTarea">
+                            <input type="text" class="form-control field bg-lgray" placeholder="Nombre" id="nombreTarea"><br>
+                            <textarea class="form-control field bg-lgray" id="descripcionTarea" placeholder="Descripción de la Tarea"></textarea><br>
+                            Competencia: <select id="competencia-select" class="form-control custom-select field bg-lgray hvr">
+                                              
+                                        </select>
 
-                    </tbody>
-                </table>
+                            <input type="hidden" id="editRowIDTarea" value="0">
+                        </div>
+
+                        <div id="showContentTarea" style="display:none;">
+                            <h3>Nombre</h3>
+                            <div id="nombreViewTarea"></div>
+                            <hr>
+                            <h3>Municipio</h3>
+                            <div id="descripcionViewTarea"></div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-yoto" data-dismiss="modal" value="Cerrar" id="closeBtnTarea" style="display: none;">
+                        <input type="button" id="manageBtnTarea" onclick="manageDataTarea('addNewTarea')" value="Agregar" class="btn btn-yoto">
+                    </div>
+                </div>
             </div>
         </div>
+
+        <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h2>Tareas</h2>
+
+                        <input style="float: right" type="button" class="btn btn-yoto" id="addNewTarea" value="Agregar">
+                        <br><br>
+                        <table class="table table-hover table-bordered">
+                            <thead class="darks">
+                                <tr>
+                                    <td>#Tarea</td>
+                                    <td>Nombre</td>
+                                    <td>Descripción</td>
+                                    <td>Competencia a evaluar</td>
+                                    <td>Opciones</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>getScript("../admin-scripts/adminTareas.js",1)</script>

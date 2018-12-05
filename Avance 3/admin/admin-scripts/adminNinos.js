@@ -1,15 +1,14 @@
-            $("#menu-toggle").click( function (e){
-                e.preventDefault();
-                $("#wrapper").toggleClass("menuDisplayed");
-            });
+$("#menu-toggle").click( function (e){
+    e.preventDefault();
+    $("#wrapper").toggleClass("menuDisplayed");
+});
 
  $(document).ready(function() {
-            //////////////////////  BEGIN NINO  /////////////////////////////////////////////
     
             $("#addNewNino").on('click', function () {
                $("#tableManagerNino").modal('show');
             });
-    
+     
                 $("#tableManagerNino").on('hidden.bs.modal', function () {
                 $("#showContentNino").fadeOut();
                 $("#editContentNino").fadeIn();
@@ -26,8 +25,6 @@
             getExistingDataNino(0, 50);
             
         });
-
-//////////////////  END NINO  //////////////////////////////
 
         function deleteRowNino(rowID) {
             if (confirm('¿Deseas el registro del niño?')) {
@@ -143,119 +140,6 @@
                 });
             }
         }
-
-//BEGIN ALBERGUE
-
-            function deleteRowAlbergue(rowID) {
-            if (confirm('¿Deseas eliminar el albergue?')) {
-                $.ajax({
-                    url: '../admin.php',
-                    method: 'POST',
-                    dataType: 'text',
-                    data: {
-                        key: 'deleteRowAlbergue',
-                        rowID: rowID
-                    }, success: function (response) {
-                        $("#tiera_"+rowID).parent().remove();
-                        $("#titulo_"+rowID).parent().remove();
-                        alert(response);
-                    }
-                });
-            }
-        }
-
-        function viewOReditAlbergue(rowID, type) {
-            $.ajax({
-                url: '../admin.php',
-                method: 'POST',
-                dataType: 'json',
-                data: {
-                    key: 'getRowDataAlbergue',
-                    rowID: rowID
-                }, success: function (response) {
-                    if (type == "view") {
-                        $("#showContentAlbergue").fadeIn();
-                        $("#editContentAlbergue").fadeOut();
-                        $("#nombreViewAlbergue").html(response.nombre);
-                        $("#municipioViewAlbergue").html(response.municipio);
-                        $("#direccionViewAlbergue").html(response.direccion);
-                        $("#manageBtn").fadeOut();
-                        $("#closeBtn").fadeIn();
-                    } else {
-                        $("#editContentAlbergue").fadeIn();
-                        $("#editRowIDAlbergue").val(rowID);
-                        $("#showContentAlbergue").fadeOut();
-                        $("#nombreAlbergue").val(response.nombre);
-                        $("#municipioAlbergue").val(response.municipio);
-                        $("#direccionAlbergue").val(response.direccion);
-                        $("#closeBtn").fadeOut();
-                        $("#manageBtn").attr('value', 'Guardar Cambios').attr('onclick', "manageDataAlbergue('updateRowAlbergue')");
-                    }
-
-                    $(".modal-titulo").html(response.nombre);
-                    $("#tableManagerAlbergue").modal('show');
-                }
-            });
-        }
-
-        function getExistingDataAlbergue(start, limit) {
-            $.ajax({
-                url: '../admin.php',
-                method: 'POST',
-                dataType: 'text',
-                data: {
-                    key: 'getExistingDataAlbergue',
-                    start: start,
-                    limit: limit
-                }, success: function (response) {
-                    if (response == "reachedMax") {
-                        $(".table").DataTable();
-                    } else
-                        $('tbody').append(response);
-                        start += limit;
-                        getExistingDataAlbergue(start, limit);
-                }
-            });
-        }
-
-        function manageDataAlbergue(key) {
-            var nombreAlbergue = $("#nombreAlbergue");
-            var municipio = $("#autor");
-            var tierra = $("#tierra");
-            var descripcion = $("#descripcion");
-            var editRowID = $("#editRowID");
-
-            if (isNotEmpty(titulo) && isNotEmpty(tierra) && isNotEmpty(autor) && isNotEmpty(descripcion)) {
-                $.ajax({
-                   url: '../../functionalities/agregaHistoria.php',
-                   method: 'POST',
-                   dataType: 'text',
-                   data: {
-                       key: key,
-                       titulo: titulo.val(),
-                       autor: autor.val(),
-                       tierra: tierra.val(),
-                       descripcion: descripcion.val(),
-                       rowID: editRowID.val()
-                   }, success: function (response) {
-                       if (response != "success")
-                           alert(response);
-                       else {
-                           $("#titulo_"+editRowID.val()).html(titulo.val());
-                           $("#tierra_"+editRowID.val()).html(tierra.val());
-                           titulo.val('');
-                           tierra.val('');
-                           autor.val('');
-                           descripcion.val('');
-                           $("#tableManager").modal('hide');
-                           $("#manageBtn").attr('value', 'Agregar').attr('onclick', "manageData('addNew')");
-                       }
-                   }
-                });
-            }
-        }
-
-//END ALBERGUE
 
         function isNotEmpty(caller) {
             

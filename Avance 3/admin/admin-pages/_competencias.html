@@ -1,47 +1,58 @@
-<div id="tableManagerCompetencia" class="modal fade field">
-    <div class="modal-dialog">
-        <div class="modal-content bg-gray">
-            <div class="modal-header">
-                <h2 class="modal-titula hvr">Nueva Competencia</h2>
-            </div>
-            
-            <div class="modal-body">
-                <div id="modal-body">
-                    <div id="edit-competencia-content">
-                        <input type="text" class="form-control field bg-lgray hvr" placeholder="Competencia" id="nombre-competencia" name="nombre-competencia"><br>
-                        <textarea class="form-control field bg-lgray" id="descripción-competencia" placeholder="Descripción de la competencia" name="descripcion-competencia"></textarea>
+        <div id="tableManagerCompetencia" class="modal fade field">
+            <div class="modal-dialog">
+                <div class="modal-content bg-gray">
+                    <div class="modal-header">
+                        <h2 class="modal-titulo hvr">Agregar Competencia</h2>
+                    </div>
+
+                    <div class="modal-body">
+                        <div id="editContentCompetencia">
+                            <input type="text" class="form-control field bg-lgray" placeholder="Nombre" id="nombreCompetencia"><br>
+                            <textarea class="form-control field bg-lgray" id="descripcionCompetencia" placeholder="Descripción de competencia"></textarea><br>
+
+                            <input type="hidden" id="editRowIDCompetencia" value="0">
+                        </div>
+
+                        <div id="showContentCompetencia" style="display:none;">
+                            <h3>Nombre</h3>
+                            <div id="nombreViewCompetencia"></div>
+                            <hr>
+                            <h3>Descripción</h3>
+                            <div id="descripcionViewCompetencia"></div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <input type="button" class="btn btn-yoto" data-dismiss="modal" value="Cerrar" id="closeBtnCompetencia" style="display: none;">
+                        <input type="button" id="manageBtnCompetencia" onclick="manageDataCompetencia('addNewCompetencia')" value="Agregar" class="btn btn-yoto">
                     </div>
                 </div>
             </div>
-            
-            <div class="modal-footer">
-                <input type="button" class="btn btn-yoto" data-dismiss="modal" value="Cerrar">
-                <input type="button" value="Agregar" class="btn btn-yoto" data-dismiss="modal" id="upl-competencia">
+        </div>
+
+        <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <h2>Competencias</h2>
+
+                        <input style="float: right" type="button" class="btn btn-yoto" id="addNewCompetencia" value="Agregar">
+                        <br><br>
+                        <table class="table table-hover table-bordered">
+                            <thead class="darks">
+                                <tr>
+                                    <td>#Competencia</td>
+                                    <td>Nombre</td>
+                                    <td>Descripción</td>
+                                    <td>Opciones</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>      
-
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h2>Competencias</h2>
-                <input style="float: right" type="button" class="btn btn-yoto" id="addNew" value="Agregar">
-                <br><br>
-                <table class="table table-hover table-bordered">
-                    <thead class="darks">
-                        <tr>
-                            <td>#Competencia</td>
-                            <td>Nombre</td>
-                            <td>Descripción</td>
-                            <td>Opciones</td>
-                        </tr>
-                    </thead>
-                    <tbody id="tabla-competencia">
-                        
-                    </tbody>
-                </table>
-
-            </div>
-        </div>
-
+</div>
+<script>getScript("../admin-scripts/adminCompetencias.js",1)</script>
