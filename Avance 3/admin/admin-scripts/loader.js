@@ -10,6 +10,7 @@ function getScript(source,option){
                     document.getElementById("area").innerHTML = "";
                     document.getElementById("area").appendChild(s);
                 break;
+
             default:
                 void(0);
         }
