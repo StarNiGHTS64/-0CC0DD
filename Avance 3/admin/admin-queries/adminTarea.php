@@ -9,9 +9,9 @@
 			$sql = $conn->query("SELECT  nombre, municipio,direccion FROM Tarea WHERE idTarea ='$rowID'");
 			$data = $sql->fetch_array();
 			$jsonArray = array(
-                'nombreTarea' => $data['nombre'],
-				'municipioTarea' => $data['municipio'],
-                'direccionTarea' => $data['direccion'],
+                'nombreTarea' => $data['nombreTarea'],
+				'descripcionTarea' => $data['descripcionTarea'],
+                'nombreCompetencia' => $data['nombreCompetencia'],
 			);
 
 			exit(json_encode($jsonArray));
@@ -60,9 +60,9 @@
 			exit('¡La fila fue eliminada con éxito!');
 		}
 
-		$nombreTarea = $conn->real_escape_string($_POST['nombre']);
-        $descripcionTarea = $conn->real_escape_string($_POST['descripcion']);
-        $idCompetencia = $conn->real_escape_string($_POST['idCompetencia']);
+		$nombreTarea = $conn->real_escape_string($_POST['nombreTarea']);
+        $descripcion = $conn->real_escape_string($_POST['descripcionTarea']);
+        $idCompetencia = $conn->real_escape_string($_POST['competenciaTarea']);
 
 		if ($_POST['key'] == 'updateRowTarea') {
 			$conn->query("UPDATE tarea SET nombre='$nombreTarea', descripcion='$descripcionTarea', idCompetencia='$direccionTarea' WHERE idTarea='$rowID'");

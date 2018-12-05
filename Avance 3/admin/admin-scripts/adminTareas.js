@@ -24,6 +24,7 @@ $(document).ready(function() {
                 $("#showContentTarea").fadeOut();
                 $("#editContentTarea").fadeIn();
                 $("#editRowIDTarea").val(0);
+                $("#descripcionTarea").val("");
                 $("#competencia-select").val("");
                 $("#closeBtnTarea").fadeOut();
                 $("#manageBtnTarea").attr('value', 'Agregar').attr('onclick', "manageDataTarea('addNewTarea')").fadeIn();
@@ -66,8 +67,8 @@ $(document).ready(function() {
                         $("#showContentTarea").fadeIn();
                         $("#editContentTarea").fadeOut();
                         $("#nombreViewTarea").html(response.nombreTarea);
-                        $("#municipioViewTarea").html(response.municipioTarea);
-                        $("#direccionViewTarea").html(response.direccionTarea);
+                        $("#descripcionViewTarea").html(response.descripcionTarea);
+                        $("#selectCompetenciaViewTarea").html(response.competenciaTarea);
                         
                         $("#manageBtnTarea").fadeOut();
                         $("#closeBtnTarea").fadeIn();
@@ -76,8 +77,8 @@ $(document).ready(function() {
                         $("#editRowIDTarea").val(rowID);
                         $("#showContentTarea").fadeOut();
                         $("#nombreTarea").val(response.nombreTarea);
-                        $("#municipioTarea").val(response.municipioTarea);
-                        $("#direccionTarea").val(response.direccionTarea);
+                        $("#descripcionTarea").val(response.municipioTarea);
+                        $("#select-competencia").val(response.competenciaTarea);
                         $("#closeBtnTarea").fadeOut();
                         $("#manageBtnTarea").attr('value', 'Guardar Cambios').attr('onclick', "manageDataTarea('updateRowTarea')");
                     }
@@ -110,11 +111,11 @@ $(document).ready(function() {
 
         function manageDataTarea(key) {
             var nombreTarea = $("#nombreTarea");
-            var municipioTarea = $("#municipioTarea");
-            var direccionTarea = $("#direccionTarea");
+            var descripcionTarea = $("#descripcionTarea");
+            var nombreCompetencia = $("#select-competencias");
             var editRowIDTarea = $("#editRowIDTarea");
 
-            if (isNotEmpty(nombreTarea) && isNotEmpty(municipioTarea) && isNotEmpty(direccionTarea)){
+            if (isNotEmpty(nombreTarea) && isNotEmpty(descripcionTarea) && isNotEmpty(nombreCompetencia)){
                 $.ajax({
                    url: '../admin-queries/adminTarea.php',
                    method: 'POST',
@@ -122,16 +123,16 @@ $(document).ready(function() {
                    data: {
                        key: key,
                        nombreTarea: nombreTarea.val(),
-                       municipioTarea: municipioTarea.val(),
-                       direccionTarea: direccionTarea.val(),
+                       descripcionTarea: descripcionTarea.val(),
+                       nombreCompetencia: nombreCompetencia.val(),
                        rowID: editRowIDTarea.val()
                    }, success: function (response) {
                        if (response != "success")
                            alert(response);
                        else {
                            $("#nombreTarea_"+editRowIDTarea.val()).html(nombreTarea.val());
-                           $("#municipioTarea_"+editRowIDTarea.val()).html(nombreTarea.val());
-                           $("#direccionTarea_"+editRowIDTarea.val()).html(nombreTarea.val());
+                           $("#descripcionTarea_"+editRowIDTarea.val()).html(nombreTarea.val());
+                           $("#select-competencia_"+editRowIDTarea.val()).html(nombreTarea.val());
                         
                            nombreTarea.val('');
                            municipioTarea.val('');
